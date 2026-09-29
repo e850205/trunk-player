@@ -5,6 +5,7 @@ import mimetypes
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, FileResponse, HttpResponseBadRequest
 from django.views.generic import ListView
+from django.db import models
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -46,7 +47,7 @@ def check_anonymous(decorator):
 def userScanList(request):
     template = 'radio/userscanlist.html'
     if request.method == "POST":
-        form = UserScanForm(request.POST)
+        form = UserScanForm(request.POST, talkgroups=visible_talkgroups(request.user))
         if form.is_valid():
             name = form.cleaned_data['name']
             tgs = form.cleaned_data['talkgroups']
@@ -56,9 +57,9 @@ def userScanList(request):
             sl.description = name
             sl.save()
             sl.talkgroups.add(*tgs)
-            return redirect('user_profile')
+            return redirect(sl.get_absolute_url())
     else:
-        form = UserScanForm()
+        form = UserScanForm(talkgroups=visible_talkgroups(request.user))
     return render(request, template, {'form': form})
 
 @login_required
@@ -78,24 +79,28 @@ def userProfile(request):
 
 def agencyList(request):
     template = 'radio/agency_list.html'
-    query_data = Agency.objects.exclude(short='_DEF_').order_by('name')
-
-    return render(request, template, {'agency': query_data})
+    agencies = Agency.objects.exclude(short='_DEF_').order_by('name').prefetch_related(
+        'fire_service', 'police_service', 'ems_service')
+    for agency in agencies:
+        # Cities this agency covers, see City.fire_service etc
+        cities = set(agency.fire_service.all()) | set(agency.police_service.all()) | set(agency.ems_service.all())
+        agency.cities = sorted((c for c in cities if c.visible), key=lambda c: c.name)
+    return render(request, template, {'agency': agencies})
 
 
 def cityListView(request):
     template = 'radio/city_list.html'
-    query_data = City.objects.filter(visible=True)
+    query_data = City.objects.filter(visible=True).select_related('fire_service', 'police_service', 'ems_service')
 
     return render(request, template, {'cities': query_data})
 
 
 def cityDetailView(request, slug):
     template = 'radio/city_detail.html'
-    query_data = get_object_or_404(City, slug=slug)
+    query_data = get_object_or_404(City, slug=slug, visible=True)
 
     return render(request, template, {'object': query_data})
-    
+
 
 def TransDetailView(request, slug):
     template = 'radio/transmission_detail.html'
@@ -167,11 +172,7 @@ class TalkGroupViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TalkGroupSerializer
 
     def get_queryset(self):
-        if settings.ACCESS_TG_RESTRICT:
-            tg = allowed_tg_list(self.request.user)
-        else:
-            tg = TalkGroup.objects.filter(public=True)
-        return tg
+        return visible_talkgroups(self.request.user)
 
 
 
@@ -210,17 +211,28 @@ def allowed_tg_list(user):
     return tg_list
 
 
+def visible_talkgroups(user):
+    """The talkgroups a user may see and listen to
+
+    Staff see everything. With ACCESS_TG_RESTRICT on, users see the
+    talkgroups in their talkgroup access groups, otherwise everyone sees
+    the talkgroups marked public.
+    """
+    if user.is_staff:
+        return TalkGroup.objects.all()
+    if settings.ACCESS_TG_RESTRICT:
+        return allowed_tg_list(user)
+    return TalkGroup.objects.filter(public=True)
+
+
 def restrict_talkgroups(request, query_data):
-    ''' Checks to make sure the user can view
-        each of the talkgroups in the query_data
+    ''' Limit transmissions in query_data to the talkgroups the user can see
         returns ( was_restricted, new query_data )
     '''
-    if not settings.ACCESS_TG_RESTRICT:
+    if request.user.is_staff:
         return False, query_data
-    tg_list = allowed_tg_list(request.user)
-    query_data = query_data.filter(talkgroup_info__in=tg_list)
-    return None, query_data
-    
+    return True, query_data.filter(talkgroup_info__in=visible_talkgroups(request.user))
+
 
 class ScanViewSet(generics.ListAPIView):
     serializer_class = TransmissionSerializer
@@ -247,10 +259,7 @@ class IncViewSet(generics.ListAPIView):
     def get_queryset(self):
         inc = self.kwargs['filter_val']
         try:
-            if self.request.user.is_staff:
-                rc_data = Incident.objects.get(slug__iexact=inc).transmissions.all()
-            else:
-                rc_data = Incident.objects.get(slug__iexact=inc, public=True).transmissions.all()
+            rc_data = visible_incidents(self.request.user).get(slug__iexact=inc).transmissions.all()
         except Incident.DoesNotExist:
             raise NotFound('Incident {} does not exist'.format(inc))
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
@@ -290,7 +299,7 @@ class UnitFilterViewSet(generics.ListAPIView):
         for s_unit in search_unit:
             q |= Q(slug__iexact=s_unit)
         units = Unit.objects.filter(q)
-        rc_data = Transmission.objects.filter(units__in=units).filter(talkgroup_info__public=True).prefetch_related('units').distinct()
+        rc_data = Transmission.objects.filter(units__in=units).prefetch_related('units').distinct()
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -300,54 +309,12 @@ class TalkGroupList(ListView):
     context_object_name = 'talkgroups'
     template_name = 'radio/talkgroup_list.html'
 
-    #queryset = TalkGroup.objects.filter(public=True)
     def get_queryset(self):
-        if settings.ACCESS_TG_RESTRICT:
-            tg = allowed_tg_list(self.request.user)
-        else:
-            tg = TalkGroup.objects.filter(public=True)
+        tg = visible_talkgroups(self.request.user)
         if self.request.GET.get('recent', None):
             tg = tg.order_by('-recent_usage', '-last_transmission')
         return tg
 
-
-
-@csrf_protect
-def register(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = User.objects.create_user(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password1'],
-            email=form.cleaned_data['email']
-            )
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            new_user = authenticate(username=username, password=password)
-            if new_user is not None:
-                if new_user.is_active:
-                    login(request, new_user)
-                    return HttpResponseRedirect('/scan/default/')
-                else:
-                    # this would be weird to get here
-                    return HttpResponseRedirect('/register/success/')
-            else:
-                return HttpResponseRedirect('/register/success/')
-    else:
-        form = RegistrationForm()
- 
-    return render(
-    request,
-    'registration/register.html',
-    { 'form': form },
-    )
-
-def register_success(request):
-    return render(
-    request,
-    'registration/success.html', {},
-    )
 
 
 class MenuScanListViewSet(viewsets.ReadOnlyModelViewSet):
@@ -384,29 +351,33 @@ class UnitUpdateView(PermissionRequiredMixin, UpdateView):
 
 
 def ScanDetailsList(request, name):
+    """List the talkgroups in a scan list, name is the scan list slug"""
     template = 'radio/scandetaillist.html'
-    scanlist = None
-    try:
-        scanlist = ScanList.objects.get(name=name)
-    except ScanList.DoesNotExist:
-        if name == 'default':
-            query_data = TalkGroup.objects.all()
-        else:
-            raise Http404
+    scanlist = ScanList.objects.filter(slug__iexact=name).first() or ScanList.objects.filter(name=name).first()
     if scanlist:
         query_data = scanlist.talkgroups.all()
-    return render(request, template, {'object_list': query_data, 'scanlist': scanlist, 'request': request})
+    elif name == 'default':
+        query_data = TalkGroup.objects.all()
+    else:
+        raise Http404
+    query_data = query_data.filter(pk__in=visible_talkgroups(request.user).values('pk'))
+    return render(request, template, {'object_list': query_data, 'scanlist': scanlist})
+
+
+def visible_incidents(user):
+    if user.is_staff:
+        return Incident.objects.all()
+    return Incident.objects.filter(public=True)
+
+
+def incidentList(request):
+    incidents = visible_incidents(request.user).annotate(call_count=models.Count('transmissions')).order_by('-pk')
+    return render(request, 'radio/incident_list.html', {'incidents': incidents})
 
 
 def incident(request, inc_slug):
     template = 'radio/player_main.html'
-    try:
-        if request.user.is_staff:
-            inc = Incident.objects.get(slug=inc_slug)
-        else:
-            inc = Incident.objects.get(slug=inc_slug, public=True)
-    except Incident.DoesNotExist:
-        raise Http404
+    inc = get_object_or_404(visible_incidents(request.user), slug=inc_slug)
     return render(request, template, {'inc':inc})
 
 

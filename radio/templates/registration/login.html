@@ -13,7 +13,7 @@
 {% if form.errors %}
 <p></p>
 <div class="alert alert-danger">
-Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>.{% if open_site %} Or create a <a href="{% url 'register' %}{% if next %}?next={{ next}}{% endif %}">new account</a>.{% endif %}
+Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>.{% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>.{% endif %}
 </div>
 {% endif %}
 
@@ -40,7 +40,7 @@ Your username and password didn't match. Please try again. If you have an accoun
 </table>
 
 <input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" /> <big> {% if allow_google %}OR <a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png"></a>{% endif %} OR {% if open_site %}</big> <a href="{% url 'register' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a>{% endif %}
+<input type="hidden" name="next" value="{{ next }}" /> <big> {% if allow_google %}OR <a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png"></a>{% endif %} OR {% if open_site %}</big> <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a>{% endif %}
 </form>
 {% if open_site %}
 <h2>Help</h2>
@@ -48,7 +48,7 @@ Your username and password didn't match. Please try again. If you have an accoun
 {% endif %}
 {# Assumes you setup the password_reset view in your URLconf #}
 <!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
-{% if open_site %}<p><a href="{% url 'register' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a></p>{% endif %}
+{% if open_site %}<p><a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a></p>{% endif %}
 <p><a href="{% url 'account_reset_password' %}">Forgot my password</a></p>
 </div>
 </div>

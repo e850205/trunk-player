@@ -3,6 +3,7 @@ import sys
 import datetime
 import json
 import pytz
+import zoneinfo
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
@@ -42,6 +43,12 @@ class Command(BaseCommand):
             help='Set the web folder the audio file is in',
         )
         parser.add_argument(
+            '--vhf-timezone',
+            dest='vhf_timezone',
+            default=None,
+            help='Time zone of the times in VHF file names, e.g. America/Chicago (default TIME_ZONE setting)',
+        )
+        parser.add_argument(
             '--verbose',
             action='store_true',
             dest='verbose',
@@ -56,8 +63,38 @@ class Command(BaseCommand):
             help='Is an m4a file',
         )
 
+        parser.add_argument(
+            '--queue',
+            action='store_true',
+            default=False,
+            help='Queue the file for add_transmission_worker instead of adding it now',
+        )
+
     def handle(self, *args, **options):
+        if options.pop('queue'):
+            from radio.utility import RedisQueue
+            job = {key: options[key] for key in default_options()}
+            # The worker may run from another folder
+            job['json_name'] = os.path.abspath(job['json_name'])
+            RedisQueue('new_trans').put(json.dumps(job))
+            return
         add_new_trans(options)
+
+
+def default_options():
+    """Options add_new_trans() uses, with their defaults"""
+    return {'json_name': None, 'vhf': False, 'source': -1, 'system': -1, 'web_url': '/',
+            'verbose': False, 'm4a_file': False, 'vhf_timezone': None}
+
+def vhf_timezone(options):
+    name = options.get('vhf_timezone')
+    if not name:
+        return timezone.get_default_timezone()
+    try:
+        return zoneinfo.ZoneInfo(name)
+    except (zoneinfo.ZoneInfoNotFoundError, ValueError):
+        raise CommandError('Unknown time zone {}'.format(name))
+
 
 def talkgroup(tg_dec,system):
     try:
@@ -91,11 +128,10 @@ def add_new_trans(options):
         file_dt = file_name.split('_')[2]
         file_time = file_name.split('_')[3].split('.')[0]
         full_dt = "{}{}".format(file_dt,file_time)
-        epoc_ts = datetime.datetime.strptime(full_dt, "%Y%m%d%H%M%S").timestamp()
-        # XXX - ARGGGGGGGGGGGGG FIX THIS ASAP, convert to the time
-        epoc_ts = epoc_ts - 25200
-        #pytz.timezone('UTC').localize(new_time, is_dst=None)
-        #epoc_ts = new_time.timestamp()
+        # The file name has the recorder's local time, read it in
+        # --vhf-timezone (default TIME_ZONE from settings)
+        local_dt = datetime.datetime.strptime(full_dt, "%Y%m%d%H%M%S")
+        epoc_ts = timezone.make_aware(local_dt, vhf_timezone(options)).timestamp()
         if verbose:
             print("Time {} is {}".format(full_dt,epoc_ts))
         #epoc_ts.replace(tzinfo=pytz.UTC)
@@ -146,7 +182,7 @@ def add_new_trans(options):
             data = json.load(data_file)
 
         if data:
-            if data['emergency']: t.emergency = True
+            if data.get('emergency'): t.emergency = True
             count = 0
 
             try:
@@ -189,7 +225,7 @@ def add_new_trans(options):
 
             t.save()
 
-            for unit in data['srcList']:
+            for unit in data.get('srcList') or []:
                 try:
                     trans_unit = unit['src']
                 except TypeError:

@@ -1,10 +1,12 @@
 import redis
+from django.conf import settings
+
 
 class RedisQueue(object):
     """Simple Queue with Redis Backend"""
-    def __init__(self, name, namespace='tp', **redis_kwargs):
-       """The default connection parameters are: host='localhost', port=6379, db=0"""
-       self.__db= redis.Redis(**redis_kwargs)
+    def __init__(self, name, namespace='tp', url=None):
+       """Connects to settings.REDIS_URL unless url is given"""
+       self.__db = redis.Redis.from_url(url or settings.REDIS_URL)
        self.key = '%s:%s' %(namespace, name)
 
     def qsize(self):

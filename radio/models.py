@@ -35,7 +35,7 @@ class City(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(null=True, blank=True)
     url = models.URLField(max_length=400, null=True, blank=True)
-    google_maps_url = models.URLField(max_length=400, null=True, blank=True)
+    google_maps_url = models.URLField(max_length=1000, null=True, blank=True)
     fire_service = models.ForeignKey(Agency, related_name='fire_service', null=True, blank=True, on_delete=models.CASCADE)
     police_service = models.ForeignKey(Agency, related_name='police_service', null=True, blank=True, on_delete=models.CASCADE)
     ems_service = models.ForeignKey(Agency, related_name='ems_service', null=True, blank=True, on_delete=models.CASCADE)
@@ -117,7 +117,7 @@ class TalkGroup(models.Model):
     alpha_tag = models.CharField(max_length=30)
     common_name = models.CharField(max_length=10, blank=True, null=True)
     description = models.CharField(max_length=100, blank=True, null=True)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=True, unique=True, max_length=100)
     public = models.BooleanField(default=True)
     comments = models.CharField(max_length=100, blank=True, null=True)
     system = models.ForeignKey(System, default=0, on_delete=models.CASCADE)
@@ -137,7 +137,10 @@ class TalkGroup(models.Model):
         return self.alpha_tag
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.alpha_tag)
+        from radio.slugs import unique_talkgroup_slug
+        system_name = System.objects.filter(pk=self.system_id).values_list('name', flat=True).first() or ''
+        self.slug = unique_talkgroup_slug(TalkGroup.objects.all(), self.pk, self.alpha_tag, self.dec_id,
+                                          system_name, self.slug)
         if not self.last_transmission:
             self.last_transmission = timezone.now()
         super(TalkGroup, self).save(*args, **kwargs)

@@ -52,6 +52,7 @@ else:
     urlpatterns += [url(r'^(tg|scan|unit)/(.*)/$',login_required(TemplateView.as_view(template_name='radio/player_main.html'))),]
 
 urlpatterns += [
+    url(r'^inc/$', views.incidentList, name='incident_list'),
     url(r'^inc/(.*)/$',views.incident, name='incident'),
     url(r'^scan/$', RedirectView.as_view(url='/scan/default/', permanent=False)),
 ]
@@ -69,11 +70,8 @@ urlpatterns += [
     url(r'^audio_download/(?P<slug>[-\w]+)/$',views.transDownloadView, name='download'), 
 ]
 
-if settings.OPEN_SITE:
-    urlpatterns += [url(r'^register/$', views.register, name='register'),]
-    urlpatterns += [url(r'^register/success/$', views.register_success),]
-else:
-    urlpatterns += [url(r'^register/$', views.Generic, {'page_name': 'index'}, name='register'),]
+# Old address for creating an account, sign up is handled by django-allauth
+urlpatterns += [url(r'^register/$', RedirectView.as_view(pattern_name='account_signup', query_string=True), name='register'),]
 
 urlpatterns += [
     url(r'^unitupdate/(?P<pk>\d+)/$', views.UnitUpdateView.as_view(), name='unitupdate'),

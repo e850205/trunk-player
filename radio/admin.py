@@ -1,10 +1,13 @@
-from os import scandir
+import re
 from django.contrib import admin
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils import timezone
 
 from .models import *
 
@@ -24,10 +27,23 @@ class TranmissionUnitInline(admin.TabularInline):
     model = TranmissionUnit
     extra = 0 # how many rows to show
 
+@admin.action(description='Make an incident from the selected calls')
+def make_incident(modeladmin, request, queryset):
+    name = 'Incident {}'.format(timezone.localtime().strftime('%Y-%m-%d %H:%M:%S'))
+    incident = Incident.objects.create(name=name)
+    incident.transmissions.add(*queryset)
+    modeladmin.message_user(request, 'Created "{}", give it a name and description below'.format(name))
+    return redirect(reverse('admin:radio_incident_change', args=[incident.pk]))
+
+
 class TransmissionAdmin(admin.ModelAdmin):
     #inlines = (TranmissionUnitInline,)
     raw_id_fields = ('talkgroup_info', 'units', 'source', 'system')
     save_on_top = True
+    list_display = ('start_datetime', 'talkgroup_info', 'system', 'play_length', 'emergency')
+    list_filter = ('emergency', 'system')
+    date_hierarchy = 'start_datetime'
+    actions = [make_incident]
 
 
 class SourceInline(admin.TabularInline):
@@ -147,22 +163,21 @@ class IncidentAdmin(admin.ModelAdmin):
     save_on_top = True
 
 class CityForms(forms.ModelForm):
-    google_maps_url = forms.CharField(max_length=1000)
+    google_maps_url = forms.CharField(max_length=1000, required=False,
+        help_text='Paste the Google Maps "Embed a map" code or its https:// link')
 
     class Meta:
         model = City
         fields = '__all__'
 
-
     def clean_google_maps_url(self):
-        data = self.cleaned_data.get('google_maps_url', '')
-        parts = data.split('"')
-        new_url = None
-        try:
-          new_url = parts[1]
-        except IndexError:
-          return self
-        return new_url
+        data = self.cleaned_data.get('google_maps_url', '').strip()
+        match = re.search(r'src="([^"]+)"', data)
+        if match:
+            data = match.group(1)
+        if data and not data.startswith('https://'):
+            raise forms.ValidationError('Paste the embed code or a link starting with https://')
+        return data or None
 
 class CityAdmin(admin.ModelAdmin):
     form = CityForms

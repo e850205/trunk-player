@@ -36,6 +36,9 @@ fi
 
 python manage.py collectstatic --noinput -v0
 
+echo "Starting transmission worker (for add_transmission --queue)"
+python manage.py add_transmission_worker >> /var/log/trunk-player/add_transmission_worker.log 2>&1 &
+
 echo "Starting nginx"
 nginx
 

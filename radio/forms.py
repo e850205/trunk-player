@@ -1,6 +1,7 @@
 import re
 from django import forms
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 from django_select2.forms import (
@@ -13,58 +14,30 @@ from .models import Unit, Profile, TalkGroup, ScanList
 
 
 class UserScanForm(forms.Form):
-    name = forms.CharField(max_length=50)
+    name = forms.CharField(max_length=30)
     talkgroups = forms.ModelMultipleChoiceField(
         widget=ModelSelect2MultipleWidget(
             queryset=TalkGroup.objects.all(),
             search_fields=['alpha_tag__icontains', 'common_name__icontains'],
         ), queryset=TalkGroup.objects.all(), required=True)
 
+    def __init__(self, *args, talkgroups=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        if talkgroups is not None:
+            # Only offer (and accept) talkgroups the user can see
+            self.fields['talkgroups'].queryset = talkgroups
+            self.fields['talkgroups'].widget.queryset = talkgroups
+
     def clean_name(self):
         data = self.cleaned_data['name']
-        try:
-            ScanList.objects.get(name=data)
-        except ScanList.DoesNotExist:
-            pass
-        else:
+        if ScanList.objects.filter(name=data).exists() or ScanList.objects.filter(slug=slugify(data)).exists():
             raise forms.ValidationError("Scan list with same name already exists")
+        if not slugify(data):
+            raise forms.ValidationError("Use some letters or numbers in the name")
 
         # Always return a value to use as the new cleaned data, even if
         # this method didn't change it.
         return data
-
-
-class UserScanForm2(forms.ModelForm):
-    class Meta:
-        model = ScanList
-        fields = (
-            'talkgroups',
-        )
-        widgets = {
-            'talkgroups': Select2MultipleWidget,
-
-        }
-
- 
-class RegistrationForm(forms.Form):
- 
-    username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Username"), error_messages={ 'invalid': _("This value must contain only letters, numbers and underscores.") })
-    email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30)), label=_("Email address"))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password (again)"))
- 
-    def clean_username(self):
-        try:
-            user = User.objects.get(username__iexact=self.cleaned_data['username'])
-        except User.DoesNotExist:
-            return self.cleaned_data['username']
-        raise forms.ValidationError(_("The username already exists. Please try another one."))
- 
-    def clean(self):
-        if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
-            if self.cleaned_data['password1'] != self.cleaned_data['password2']:
-                raise forms.ValidationError(_("The two password fields did not match."))
-        return self.cleaned_data
 
 
 class UnitEditForm(forms.ModelForm):

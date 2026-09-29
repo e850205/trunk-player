@@ -73,6 +73,20 @@ function start_scanner() {
     $(".start-btn").hide();
 }
 
+function try_autostart() {
+    // Test quietly with a plain audio element, the browser refuses
+    // (and jPlayer would log an error) until the user clicks something
+    var test = new Audio(silent_clip_url);
+    test.volume = 0;
+    var playing = test.play();
+    if (playing && playing.then) {
+        playing.then(function() {
+            test.pause();
+            start_scanner();
+        }).catch(function() {});
+    }
+}
+
 function stop_scanner() {
     $("#jquery_jplayer_1").jPlayer("stop");
     active_play = 0;
@@ -152,6 +166,7 @@ function url_change(new_url) {
 
 function load_current_url() {
     clearpage();
+    update_heading();
     $("#jquery_jplayer_1").jPlayer("stop");
     currently_playing = 0;
     last_call = 0;
@@ -167,47 +182,74 @@ function clearpage() {
     $('#pagination').html("");
 }
 
-function update_menu() {
-    // ScanList Header
-    $.getJSON('/api_v1/menuscanlist/', function(data) {
-        var new_html_live = '';
-        var new_html = '';
-        var count = 0;
+var scan_list_names = null;
+
+// Show what this page is playing above the call list
+function update_heading(data) {
+    var heading = $('#page-heading');
+    if (!heading.length) {
+        return;
+    }
+    var pathArray = window.location.pathname.split('/');
+    var page_type = pathArray[1];
+    var slug = decodeURIComponent(pathArray[2] || '');
+    var html = '';
+    if (page_type == 'scan' || page_type == 'scan2') {
+        var name = slug == 'default' ? 'All Talkgroups' : (scan_list_names && scan_list_names[slug.toLowerCase()]) || slug;
+        html = '<strong>' + escape_html(name) + '</strong> &middot; <a href="/scan/' + escape_html(slug) + '/details/">Talkgroups in this list</a>';
+    } else if (page_type == 'tg') {
+        var names = [];
+        var slugs = slug.toLowerCase().split('+');
+        var results = (data && data.results) || [];
+        for (var i = 0; i < slugs.length; i++) {
+            var label = slugs[i];
+            for (var r = 0; r < results.length; r++) {
+                if (results[r].talkgroup_info.slug == slugs[i]) {
+                    label = results[r].talkgroup_info.alpha_tag;
+                    break;
+                }
+            }
+            names.push(escape_html(label));
+        }
+        html = '<strong>Talkgroup' + (names.length > 1 ? 's ' : ' ') + names.join(', ') + '</strong>';
+    } else if (page_type == 'unit') {
+        html = '<strong>Unit ' + escape_html(slug.split('+').join(', ')) + '</strong>';
+    }
+    heading.html(html);
+}
+
+function load_scan_list_names() {
+    $.getJSON('/api_v1/scanlist/', function(data) {
+        scan_list_names = {};
         for (var a in data.results) {
-            var slug = escape_html(data.results[a].scan_slug);
-            var descr = escape_html(data.results[a].scan_description);
-            new_html_live += '<li><a href="/scan/' + slug + '/" class="live-link">' + descr + '</a></li>';
-            new_html += '<li><a href="/scan/' + slug + '/">' + descr + '</a></li>';
-            count++;
+            scan_list_names[data.results[a].slug] = data.results[a].description || data.results[a].name;
         }
-        if(count == 0) {
-            new_html += '<li><a href="/scan/default/">Default</a></li>';
-            new_html_live += '<li><a href="/scan/default/" class="live-link">Default</a></li>';
+        update_heading();
+    });
+}
+
+function update_menu() {
+    // Add the scan lists and talkgroups picked in the admin to the top of
+    // the menus, the rest of each menu comes from site_live_nav.html
+    $.getJSON('/api_v1/menuscanlist/', function(data) {
+        var new_html = '';
+        for (var a in data.results) {
+            new_html += '<li class="menu-dynamic"><a href="/scan/' + escape_html(data.results[a].scan_slug) + '/" class="live-link">' + escape_html(data.results[a].scan_description) + '</a></li>';
         }
-        var a  = '<li class="divider"></li>';
-        a += '<li><a href="/userscan/">Custom Scan List</a></li>';
-        new_html_live += a;
-        new_html += a;
-        $('#menu-scanlist-live').html(new_html_live);
-        $('#menu-scanlist').html(new_html);
+        if (!new_html) {
+            new_html = '<li class="menu-dynamic"><a href="/scan/default/" class="live-link">All Talkgroups</a></li>';
+        }
+        $('#menu-scanlist .menu-dynamic').remove();
+        $('#menu-scanlist').prepend(new_html);
     });
 
-    // TalkGroup Header
     $.getJSON('/api_v1/menutalkgrouplist/', function(data) {
-        var new_html2_live = '';
-        var new_html2 = '';
+        var new_html = '';
         for (var a in data.results) {
-            var slug = escape_html(data.results[a].tg_slug);
-            var name = escape_html(data.results[a].tg_name);
-            new_html2_live += '<li><a href="/tg/' + slug + '/" class="live-link">' + name + '</a></li>';
-            new_html2 += '<li><a href="/tg/' + slug + '/">' + name + '</a></li>';
+            new_html += '<li class="menu-dynamic"><a href="/tg/' + escape_html(data.results[a].tg_slug) + '/" class="live-link">' + escape_html(data.results[a].tg_name) + '</a></li>';
         }
-        var b  = '<li class="divider"></li>';
-        b += '<li><a href="/talkgroups/">List All Talkgroups</a></li>';
-        new_html2_live += b;
-        new_html2 += b;
-        $('#menu-talkgrouplist-live').html(new_html2_live);
-        $('#menu-talkgrouplist').html(new_html2);
+        $('#menu-talkgrouplist .menu-dynamic').remove();
+        $('#menu-talkgrouplist').prepend(new_html);
     });
 }
 
@@ -248,7 +290,7 @@ function build_row(curr_results) {
     var curr_id = curr_results.pk;
     var tg = curr_results.talkgroup_info;
     var tg_muted = muted_tg[tg.slug] ? "mute-mute " : "";
-    var new_html = '<div id="row-' + curr_id + '" class="row grad">';
+    var new_html = '<div id="row-' + curr_id + '" class="row grad' + (curr_results.emergency ? ' emergency-trans' : '') + '">';
     new_html += '<div class="top-data">';
     if(curr_results.audio_file) {
         new_html += '<button aria-label="Play" id="gl-player-action-' + curr_id + '" data-id="' + curr_id + '" data-audio-url="' + escape_html(audio_file_url(curr_results)) + '" class="player-action glyphicon glyphicon-play"></button>';
@@ -257,6 +299,9 @@ function build_row(curr_results) {
     }
     new_html += '<span class="talk-group ' + tg_muted + 'talk-group-' + escape_html(tg.slug) + '">' + escape_html(tg.alpha_tag) + '</span> ';
     new_html += '<span class="talk-group-descr">' + escape_html(tg.description) + ' </span>';
+    if (curr_results.emergency) {
+        new_html += '<span class="label label-danger emergency-label">EMERGENCY</span> ';
+    }
     new_html += '<span class="tran-length">' + escape_html(curr_results.print_play_length) + '</span>';
     new_html += '<span class="tran-start-time">' + escape_html(curr_results.local_start_datetime) + '</span></div>';
 
@@ -319,6 +364,7 @@ function buildpage() {
     buildpage_pending = 0;
     last_ajax = $.getJSON(api_url, function(data) {
       $("#no_trans").hide();
+      update_heading(data);
       if(data.count > 0 && data.results.length > 0) {
           $("#foot-play-button").show();
           if (live_update == 0) {
@@ -510,6 +556,10 @@ function unit_edit_post_setup() {
 $(document).ready(function(){
     $(".stop-btn").hide();
     setup_player();
+    if ($('#page-heading').length) {
+        update_heading();
+        load_scan_list_names();
+    }
     updatemessage();
     setInterval(updatemessage, 30000);
     update_menu();
@@ -552,7 +602,7 @@ $(document).ready(function(){
     });
 
     // Some browsers let us play without a click, if so the scanner starts
-    play_clip(silent_clip_url, 0);
+    try_autostart();
 });
 
 // Back/forward buttons after url_change()

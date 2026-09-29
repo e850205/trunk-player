@@ -213,28 +213,43 @@ RADIO_DEFAULT_UNIT_AGENCY = 0
 
 SITE_ID = 1
 
+# Google sign in: create an OAuth client at https://console.cloud.google.com/
+# with redirect URI https://<your site>/accounts/google/login/callback/
+# and set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", '')
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", '')
+
 SOCIALACCOUNT_PROVIDERS = \
     { 'google':
         { 'SCOPE': ['profile', 'email'],
           'AUTH_PARAMS': { 'access_type': 'online' } }}
+if GOOGLE_CLIENT_ID:
+    SOCIALACCOUNT_PROVIDERS['google']['APP'] = {'client_id': GOOGLE_CLIENT_ID, 'secret': GOOGLE_CLIENT_SECRET}
 
+# Email, used for password resets and account emails. Without EMAIL_HOST
+# emails are only printed to the log.
+EMAIL_HOST = os.environ.get("EMAIL_HOST", '')
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", '587'))
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", '')
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", '')
+EMAIL_USE_TLS = env_bool("EMAIL_USE_TLS", True)
+if not EMAIL_HOST:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Only ask people to confirm their email address when email can be sent
+ACCOUNT_EMAIL_VERIFICATION = os.environ.get("ACCOUNT_EMAIL_VERIFICATION", 'optional' if EMAIL_HOST else 'none')
+
+ACCOUNT_ADAPTER = 'radio.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'radio.adapters.SocialAccountAdapter'
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 LOGIN_REDIRECT_URL="/"
 
-AMAZON_ADDS = False
-AMAZON_AD_TRACKING_ID = 'scanoc-20'
-AMAZON_AD_LINK_ID = '366e01afa07db536277fa926bed3cb27'
-AMAZON_AD_EMPHASIZE_CATEGORIES = '15684181,13900871,172282,3760901,16310091,229534'
-AMAZON_AD_FALL_BACK_SEARCH = ['fire extinguisher', 'first aid',]
-
 GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get("GOOGLE_ANALYTICS_PROPERTY_ID", '0')
-
-TWITTER_ACTIVE = False
-TWITTER_LIST_URL = None
 
 SITE_TITLE = os.environ.get("SITE_TITLE", 'Trunk-Player')
 SITE_EMAIL = os.environ.get("SITE_EMAIL", 'help@example.com')
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", SITE_EMAIL)
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # Set this to the location of your audio files. The default matches the
 # /audio_files/ location served by the sample nginx configs, for S3 use
@@ -245,7 +260,7 @@ AUDIO_URL_BASE = os.environ.get("AUDIO_URL_BASE", '/audio_files/')
 JS_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'STATIC_URL']
 
 # Which settings are aviable to the template tag GET_SETTING
-VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'COLOR_CSS', 'SITE_EMAIL', 'TWITTER_ACTIVE', 'TWITTER_LIST_URL', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
+VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'SITE_EMAIL', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
 
 ALLOW_ANONYMOUS = env_bool("ALLOW_ANONYMOUS")
 
@@ -256,7 +271,8 @@ TALKGROUP_RECENT_LENGTH = int(os.getenv("TALKGROUP_RECENT_LENGTH", '15')) #  Min
 ADD_TRANS_AUTH_TOKEN = os.environ.get("ADD_TRANS_AUTH_TOKEN", '7cf5857c61284') # Token to allow adding transmissions
 
 OPEN_SITE = env_bool("OPEN_SITE") # If False new users cannot sign up
-ALLOW_GOOGLE_SIGNIN = env_bool("ALLOW_GOOGLE_SIGNIN")
+# Show the Google sign in button, on by default when GOOGLE_CLIENT_ID is set
+ALLOW_GOOGLE_SIGNIN = env_bool("ALLOW_GOOGLE_SIGNIN", bool(GOOGLE_CLIENT_ID))
 FIX_AUDIO_NAME = env_bool("FIX_AUDIO_NAME")
 TRANS_DATETIME_FORMAT = os.environ.get("TRANS_DATETIME_FORMAT", '%H:%M:%S %m/%d/%Y')
 

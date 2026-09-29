@@ -33,10 +33,6 @@ var js_config = JSON.parse(document.getElementById('js-config').textContent);
 <script src="/static/radio/js/trunkplayer.js?ver=0.9"></script>
 {% endif %}
 <link rel="stylesheet" href="/static/radio/css/trunkplayer.css?ver=0.5"> 
-{% get_setting 'COLOR_CSS' as color_css %}
-{% if color_css %}
-<link rel="stylesheet" href="/static/radio/css/{{ color_css }}">
-{% endif %}
 
 {% block head %}{% endblock %}
 </head>

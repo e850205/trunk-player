@@ -42,6 +42,7 @@ Each call needs its audio file (mp3 or m4a) in the audio folder and a record in 
 * Put the audio and trunk-recorder `.json` file in the audio folder and run
   `./manage.py add_transmission <file name without extension>`
   (with Docker: `docker compose exec app ./manage.py add_transmission ...`), see `utility/trunk-recoder/` for sample scripts.
+  Add `--queue` to return straight away and let `./manage.py add_transmission_worker` add it (the Docker image runs one).
 * Or POST the call details as json to `/api_v2/import_transmission/`. Set `ADD_TRANS_AUTH_TOKEN` first:
 
   ```console
@@ -52,7 +53,15 @@ Each call needs its audio file (mp3 or m4a) in the audio folder and a record in 
     "audio_file_type": "m4a", "srcList": [{"src": 1234}] }'
   ```
 
-Browsers showing that talkgroup, scan list or unit update live.
+Browsers showing that talkgroup, scan list or unit update live. Calls flagged as emergency are highlighted.
+
+## Using the site
+
+* **Scan lists** are set up in the admin; the ones added to *Menu scan lists* appear in the Scan Lists menu. Logged in users can make their own with *New Scan List*.
+* **Incidents** group calls about one event. In the admin, select calls in the Transmissions list and use *Make an incident from the selected calls*.
+* **Cities** and **Agencies** (Directory menu) are a reference list of who covers what, managed in the admin.
+* **Accounts**: set `OPEN_SITE=True` to let people sign up, and `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET` for Google sign in.
+* Talkgroups not marked *public* are only visible to staff (or, with `ACCESS_TG_RESTRICT=True`, to users in a talkgroup access group that includes them).
 
 ## Development
 

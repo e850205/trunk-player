@@ -1,0 +1,1 @@
+{# An agency name linking to its entry on the agency page #}{% if agency %}<a href="{% url 'agency_list' %}#agency-{{ agency.short|slugify }}">{{ agency.name }}</a>{% endif %}
