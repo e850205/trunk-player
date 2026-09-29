@@ -38,10 +38,14 @@ def make_incident(modeladmin, request, queryset):
 
 class TransmissionAdmin(admin.ModelAdmin):
     #inlines = (TranmissionUnitInline,)
-    raw_id_fields = ('talkgroup_info', 'units', 'source', 'system')
+    raw_id_fields = ('talkgroup_info', 'units', 'source', 'system', 'duplicate_of')
     save_on_top = True
-    list_display = ('start_datetime', 'talkgroup_info', 'system', 'play_length', 'emergency')
-    list_filter = ('emergency', 'system')
+    list_display = ('start_datetime', 'talkgroup_info', 'system', 'source', 'play_length', 'emergency', 'is_duplicate')
+    list_filter = ('emergency', 'system', 'source', ('duplicate_of', admin.EmptyFieldListFilter))
+
+    @admin.display(boolean=True, description='Duplicate')
+    def is_duplicate(self, obj):
+        return obj.duplicate_of_id is not None
     date_hierarchy = 'start_datetime'
     actions = [make_incident]
 

@@ -160,7 +160,7 @@ table {
 
 /* Calls flagged as emergency by the radio system */
 .emergency-trans {
-  border-left: 6px solid #d9534f;
+  box-shadow: inset 4px 0 0 #d9534f;
   background: #f9e1e1;
 }
 .emergency-label {

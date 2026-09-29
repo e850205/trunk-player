@@ -66,6 +66,7 @@ services:
       - TRANS_DATETIME_FORMAT=${TRANS_DATETIME_FORMAT:-%H:%M:%S %m/%d/%Y}
       - GOOGLE_ANALYTICS_PROPERTY_ID=${GOOGLE_ANALYTICS_PROPERTY_ID:-0}
       - USE_RAW_ID_FIELDS=${USE_RAW_ID_FIELDS:-False}
+      - DUPLICATE_CALL_SECONDS=${DUPLICATE_CALL_SECONDS:-3}
     depends_on:
       db:
         condition: service_healthy

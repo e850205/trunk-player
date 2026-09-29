@@ -203,6 +203,11 @@ class Transmission(models.Model):
     system = models.ForeignKey(System, default=0, on_delete=models.CASCADE)
     from_default_source = models.BooleanField(default=True)
     has_audio = models.BooleanField(default=True)
+    # Set when another recorder (source) captured the same call and that
+    # recording is kept instead, duplicates are left out of the call lists
+    duplicate_of = models.ForeignKey('self', null=True, blank=True, related_name='duplicates',
+                                     on_delete=models.SET_NULL,
+                                     help_text='the recording of the same call that is shown instead of this one')
 
     def __str__(self):
         return '{} {}'.format(self.talkgroup, self.start_datetime)
@@ -266,7 +271,55 @@ class Transmission(models.Model):
            self.from_default_source = False
         else:
            self.from_default_source = True
+        replaced = None
+        if self._state.adding and self.duplicate_of_id is None:
+            other = self.find_same_call()
+            if other is not None:
+                if other.better_recording_than(self):
+                    self.duplicate_of = other
+                else:
+                    replaced = other
         super(Transmission, self).save(*args, **kwargs)
+        if replaced is not None:
+            self.replace(replaced)
+
+    def find_same_call(self):
+        """Another recorder's (source) recording of this call, if there is one
+
+        Same talkgroup, starting within DUPLICATE_CALL_SECONDS, from a
+        different source. Returns the closest one that is not itself a
+        duplicate.
+        """
+        window = getattr(settings, 'DUPLICATE_CALL_SECONDS', 0)
+        if not window or not self.start_datetime:
+            return None
+        delta = timedelta(seconds=window)
+        candidates = Transmission.objects.filter(
+            talkgroup_info_id=self.talkgroup_info_id,
+            duplicate_of__isnull=True,
+            start_datetime__range=(self.start_datetime - delta, self.start_datetime + delta),
+        ).exclude(source_id=self.source_id)
+        if self.pk:
+            candidates = candidates.exclude(pk=self.pk)
+        return min(candidates, key=lambda t: abs(t.start_datetime - self.start_datetime), default=None)
+
+    def better_recording_than(self, other):
+        """Which of two recordings of the same call to show
+
+        The talkgroup's play source wins, then the longer recording, then
+        the one that arrived first.
+        """
+        play_source = self.talkgroup_info.play_source_id
+        if play_source is not None and (self.source_id == play_source) != (other.source_id == play_source):
+            return self.source_id == play_source
+        if self.play_length != other.play_length:
+            return self.play_length > other.play_length
+        return other.pk is None or (self.pk is not None and self.pk < other.pk)
+
+    def replace(self, other):
+        """Show this recording instead of other (and other's duplicates)"""
+        Transmission.objects.filter(duplicate_of=other).update(duplicate_of=self)
+        Transmission.objects.filter(pk=other.pk).update(duplicate_of=self)
 
 
 def send_live_call(groups, payload):
@@ -289,7 +342,7 @@ def send_live_call(groups, payload):
 
 @receiver(post_save, sender=Transmission, dispatch_uid="send_mesg")
 def send_mesg(sender, instance, created, raw=False, **kwargs):
-    if not created or raw:
+    if not created or raw or instance.duplicate_of_id:
         return
     tg = instance.talkgroup_info
     TalkGroup.objects.filter(pk=tg.pk).update(last_transmission=timezone.now())

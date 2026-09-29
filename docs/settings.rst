@@ -271,3 +271,13 @@ EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 [D] Mail server used for password reset and account emails. Without
 ``EMAIL_HOST`` emails are written to the log instead and email addresses are
 not verified.
+
+
+DUPLICATE_CALL_SECONDS
+======================
+
+When more than one recorder (source) records the same talkgroup, recordings
+starting within this many seconds of each other are treated as the same call
+and only one is listed: the talkgroup's *play source* if set, otherwise the
+longer recording. Default ``3``, ``0`` lists every recording. Run
+``./manage.py mark_duplicate_calls`` once to apply it to calls added before.

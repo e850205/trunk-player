@@ -278,6 +278,11 @@ TRANS_DATETIME_FORMAT = os.environ.get("TRANS_DATETIME_FORMAT", '%H:%M:%S %m/%d/
 
 USE_RAW_ID_FIELDS = env_bool("USE_RAW_ID_FIELDS")
 
+# When two recorders (sources) record the same call, calls on the same
+# talkgroup starting this many seconds apart, only one is listed. 0 to
+# list every recording.
+DUPLICATE_CALL_SECONDS = float(os.getenv("DUPLICATE_CALL_SECONDS", '3'))
+
 # Load our local settings 
 try:
     LOCAL_SETTINGS

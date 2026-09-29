@@ -248,7 +248,7 @@ class ScanViewSet(generics.ListAPIView):
                 raise NotFound('Scan list {} does not exist'.format(scanlist))
         else:
             tg = sl.talkgroups.all()
-        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units').prefetch_related('talkgroup_info')
+        rc_data = Transmission.objects.filter(talkgroup_info__in=tg, duplicate_of__isnull=True).prefetch_related('units').prefetch_related('talkgroup_info')
         restricted, rc_data = restrict_talkgroups(self.request, rc_data) 
         return rc_data
 
@@ -284,7 +284,7 @@ class TalkGroupFilterViewSet(generics.ListAPIView):
             q |= Q(common_name__iexact=stg)
             q |= Q(slug__iexact=stg)
         tg = TalkGroup.objects.filter(q)
-        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units')
+        rc_data = Transmission.objects.filter(talkgroup_info__in=tg, duplicate_of__isnull=True).prefetch_related('units')
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -299,7 +299,9 @@ class UnitFilterViewSet(generics.ListAPIView):
         for s_unit in search_unit:
             q |= Q(slug__iexact=s_unit)
         units = Unit.objects.filter(q)
-        rc_data = Transmission.objects.filter(units__in=units).prefetch_related('units').distinct()
+        # Include calls where only another recorder's copy (a duplicate) heard the unit
+        rc_data = Transmission.objects.filter(Q(units__in=units) | Q(duplicates__units__in=units),
+                                              duplicate_of__isnull=True).prefetch_related('units').distinct()
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 

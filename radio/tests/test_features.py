@@ -184,3 +184,72 @@ class ImportTests(TestCase):
         add_new_trans(options)
         # 01:50:52 PST (UTC-8)
         self.assertEqual(Transmission.objects.get().start_datetime, datetime(2016, 1, 3, 9, 50, 52, tzinfo=dt_timezone.utc))
+
+
+@override_settings(CHANNEL_LAYERS=IN_MEMORY_LAYER, DUPLICATE_CALL_SECONDS=3)
+class DuplicateRecordingTests(TestCase):
+    """Two recorders (sources) recording the same call only list one"""
+
+    def setUp(self):
+        from radio.models import Source
+        self.site_a = Source.objects.create(pk=10, description='Site A')
+        self.site_b = Source.objects.create(pk=11, description='Site B')
+        self.tg = TalkGroup.objects.create(dec_id=1, alpha_tag='Fire')
+        self.start = timezone.now()
+
+    def call(self, source, seconds=0, length=4.0):
+        return Transmission.objects.create(
+                start_datetime=self.start + timezone.timedelta(seconds=seconds), audio_file='f', talkgroup=1,
+                talkgroup_info=self.tg, freq=0, source=source, play_length=length)
+
+    def listed(self):
+        return [r['pk'] for r in self.client.get('/api_v1/tg/fire/').json()['results']]
+
+    def test_second_recording_hidden(self):
+        first = self.call(self.site_a)
+        second = self.call(self.site_b, seconds=1)
+        self.assertEqual(second.duplicate_of, first)
+        self.assertEqual(self.listed(), [first.pk])
+        self.assertEqual(self.client.get('/audio/{}/'.format(second.slug)).status_code, 200)
+
+    def test_longer_recording_replaces_shorter(self):
+        short = self.call(self.site_a, length=2)
+        longer = self.call(self.site_b, seconds=1, length=6)
+        short.refresh_from_db()
+        self.assertEqual(short.duplicate_of, longer)
+        self.assertEqual(self.listed(), [longer.pk])
+
+    def test_talkgroup_play_source_wins(self):
+        self.tg.play_source = self.site_b
+        self.tg.save()
+        first = self.call(self.site_a, length=10)
+        preferred = self.call(self.site_b, seconds=1, length=2)
+        first.refresh_from_db()
+        self.assertEqual(first.duplicate_of, preferred)
+
+    def test_separate_calls_both_listed(self):
+        self.call(self.site_a)
+        self.call(self.site_b, seconds=10)  # outside the window
+        self.call(self.site_b, seconds=11)  # same source as the last one, a new call
+        self.assertEqual(len(self.listed()), 3)
+
+    @override_settings(DUPLICATE_CALL_SECONDS=0)
+    def test_can_be_turned_off(self):
+        self.call(self.site_a)
+        self.call(self.site_b, seconds=1)
+        self.assertEqual(len(self.listed()), 2)
+
+    def test_deleting_kept_call_shows_duplicate(self):
+        first = self.call(self.site_a)
+        second = self.call(self.site_b, seconds=1)
+        first.delete()
+        self.assertEqual(self.listed(), [second.pk])
+
+    def test_backfill_command(self):
+        from django.core.management import call_command
+        with override_settings(DUPLICATE_CALL_SECONDS=0):
+            first = self.call(self.site_a)
+            second = self.call(self.site_b, seconds=1)
+        call_command('mark_duplicate_calls', stdout=open(os.devnull, 'w'))
+        second.refresh_from_db()
+        self.assertEqual(second.duplicate_of, first)
