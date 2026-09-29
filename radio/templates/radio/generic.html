@@ -15,13 +15,13 @@
         </div>
 {{ html_object.bodytext|safe }}
 		</div>
-                <div class="col-md-4 col-lg-4">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 {% if not user.is_authenticated %}
 
 {% if form.errors %}
 <p></p>
 <div class="alert alert-danger">
-Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>. {% if open_site %} Or create a <a href="{% url 'register' %}{% if next %}?next={{ next}}{% endif %}">new account</a>. {% else %}WELL{% endif %}
+Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>. {% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>. {% endif %}
 </div>
 {% endif %}
 
@@ -54,8 +54,7 @@ Your username and password didn't match. Please try again. If you have an accoun
 <hr>
 {% if open_site %}
 <h2>Create a free account</h2>
-<!-- <form method="post" action="{% url 'register' %}"> -->
-<form method="post" action="/accounts/signup/">
+<form method="post" action="{% url 'account_signup' %}">
 {% csrf_token %}
 <table border="0">
      <tr><th><label for="id_username">Username:</label></th><td><input id="id_username" max_length="30" name="username" type="text" required /></td></tr>
@@ -69,10 +68,6 @@ Your username and password didn't match. Please try again. If you have an accoun
 
 
 
-{% endif %}
-{% get_setting 'TWITTER_ACTIVE' as twitter_active %}
-{% if twitter_active %}
-<a class="twitter-timeline" data-height="1200" href="{% get_setting 'TWITTER_LIST_URL' %}">Alerts</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 {% endif %}
 
                   </div>

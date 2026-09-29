@@ -52,6 +52,7 @@ else:
     urlpatterns += [url(r'^(tg|scan|unit)/(.*)/$',login_required(TemplateView.as_view(template_name='radio/player_main.html'))),]
 
 urlpatterns += [
+    url(r'^inc/$', views.incidentList, name='incident_list'),
     url(r'^inc/(.*)/$',views.incident, name='incident'),
     url(r'^scan/$', RedirectView.as_view(url='/scan/default/', permanent=False)),
 ]
@@ -69,20 +70,13 @@ urlpatterns += [
     url(r'^audio_download/(?P<slug>[-\w]+)/$',views.transDownloadView, name='download'), 
 ]
 
-if settings.OPEN_SITE:
-    urlpatterns += [url(r'^register/$', views.register, name='register'),]
-    urlpatterns += [url(r'^register/success/$', views.register_success),]
-else:
-    urlpatterns += [url(r'^register/$', views.Generic, {'page_name': 'index'}, name='register'),]
+# Old address for creating an account, sign up is handled by django-allauth
+urlpatterns += [url(r'^register/$', RedirectView.as_view(pattern_name='account_signup', query_string=True), name='register'),]
 
 urlpatterns += [
     url(r'^unitupdate/(?P<pk>\d+)/$', views.UnitUpdateView.as_view(), name='unitupdate'),
     url(r'^unitupdategood/$',  TemplateView.as_view(template_name='radio/unitupdategood.html')),
 ]
-
-if settings.OPEN_SITE:
-    #urlpatterns += [url(r"^payments/", include("pinax.stripe.urls")),]
-    urlpatterns += [url(r'^upgrade/$', views.upgrade, name='upgrade'),]
 
 urlpatterns += [
     url(r'^city/(?P<slug>[-\w]+)/$',views.cityDetailView, name='city_detail'),
@@ -94,9 +88,8 @@ urlpatterns += [
     url(r'^api_v2/import_transmission/$', views.import_transmission, name='import_transmission'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if getattr(settings, 'SHOW_STRIPE_PLANS', False):
-    urlpatterns = urlpatterns + [ url(r'^plans/cancel/$', views.cancel_plan, name='cancel-plan') ]
-    urlpatterns = urlpatterns + [ url(r'^plans/$', views.plans, name='plans') ]
-else:
-    urlpatterns = urlpatterns + [ url(r'^plans/$', views.Generic, {'page_name': 'plans'}, name='plans') ]
+# Serve the audio files when using the development server (manage.py runserver),
+# in production nginx serves them. See docs/install.rst
+if settings.DEBUG and settings.AUDIO_URL_BASE.startswith('/') and not settings.AUDIO_URL_BASE.startswith('//'):
+    urlpatterns += static(settings.AUDIO_URL_BASE, document_root=settings.MEDIA_ROOT)
 

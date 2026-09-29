@@ -24,7 +24,7 @@ Also, Edit the ``user=radio`` entries in ``trunk_player/supervisor.conf`` to mat
 Enable the config
 =================
 
-First stop and disable any already running runserver, runworker or daphne processes.
+First stop and disable any already running runserver, runworker or daphne processes. (runworker is no longer used.)
 
 
 Link in the config and refresh supervisor.

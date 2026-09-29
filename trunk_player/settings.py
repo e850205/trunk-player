@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import re
+from urllib.parse import urlsplit
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,13 +21,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
+
+def env_bool(name, default=False):
+    """Read a true/false flag from the environment."""
+    return os.getenv(name, str(default)).strip().lower() in ('true', '1', 't', 'yes', 'y', 'on')
+
+
+def env_list(name, default=''):
+    """Read a space or comma separated list from the environment."""
+    return [item for item in re.split(r'[\s,]+', os.getenv(name, default)) if item]
+
+
 # SECURITY WARNING: keep the secret key used in production secret!
+# Set the SECRET_KEY environment variable (or override it in settings_local.py).
 SECRET_KEY = os.environ.get("SECRET_KEY", '%2%xjx4c3obf_xa8hsdbd@ci+8!4)@x16_!auo*h(%*p_z(g')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", 'False').lower() in ('true', '1', 't')
+DEBUG = env_bool("DEBUG")
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", default="*").split(" ")
+ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "*")
+
+# Django 4+ rejects HTTPS form posts (login, admin, ...) whose Origin is not
+# listed here, e.g. "https://scanner.example.com"
+CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
 
 LOGIN_URL = '/login/'
 
@@ -34,6 +52,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # Application definition
 
 INSTALLED_APPS = [
+    # Must be first, makes "manage.py runserver" serve websockets too
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +71,6 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.instagram',
     'rest_framework',
     'channels',
-    #'pinax.stripe',
     'django_select2',
 ]
 
@@ -85,7 +104,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'trunk_player.wsgi.application'
-ASGI_APPLICATION = "trunk_player.asgi.channel_layer"
+ASGI_APPLICATION = "trunk_player.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -138,12 +157,10 @@ TIME_ZONE = str(os.getenv("TZ", 'America/Los_Angeles'))
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
-if os.getenv("FORCE_SECURE", 'False').lower() in ('true', '1', 't'):
-  # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+if env_bool("FORCE_SECURE"):
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
   SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Static files (CSS, JavaScript, Images)
@@ -166,12 +183,16 @@ REST_FRAMEWORK = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "audio_files")
 
+# Redis is used to push live call notifications to browsers (channels)
+# and for caching. Set REDIS_URL to point at your redis server.
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379')
+
 # Channel settings
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379')],
+            "hosts": [REDIS_URL],
         }
     },
 }
@@ -179,75 +200,83 @@ CHANNEL_LAYERS = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        # Use redis database 1 for the cache, channels uses the one in REDIS_URL
+        "LOCATION": os.environ.get('REDIS_CACHE_URL', urlsplit(REDIS_URL)._replace(path='/1').geturl()),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
 }
 
-# How far back an anonymous user can see back in minutes
-# 0 will disable the limit
-ANONYMOUS_TIME = int(os.environ.get("ANONYMOUS_TIME", '43200')) # 1 Month (60min * 24hours * 30days)
-
 # This Agency must exist in radio.Agency 
 RADIO_DEFAULT_UNIT_AGENCY = 0
 
 SITE_ID = 1
 
+# Google sign in: create an OAuth client at https://console.cloud.google.com/
+# with redirect URI https://<your site>/accounts/google/login/callback/
+# and set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", '')
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", '')
+
 SOCIALACCOUNT_PROVIDERS = \
     { 'google':
         { 'SCOPE': ['profile', 'email'],
           'AUTH_PARAMS': { 'access_type': 'online' } }}
+if GOOGLE_CLIENT_ID:
+    SOCIALACCOUNT_PROVIDERS['google']['APP'] = {'client_id': GOOGLE_CLIENT_ID, 'secret': GOOGLE_CLIENT_SECRET}
 
-ACCOUNT_AUTHENTICATION_METHOD="username_email"
-ACCOUNT_EMAIL_REQUIRED=True
+# Email, used for password resets and account emails. Without EMAIL_HOST
+# emails are only printed to the log.
+EMAIL_HOST = os.environ.get("EMAIL_HOST", '')
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", '587'))
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", '')
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", '')
+EMAIL_USE_TLS = env_bool("EMAIL_USE_TLS", True)
+if not EMAIL_HOST:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Only ask people to confirm their email address when email can be sent
+ACCOUNT_EMAIL_VERIFICATION = os.environ.get("ACCOUNT_EMAIL_VERIFICATION", 'optional' if EMAIL_HOST else 'none')
+
+ACCOUNT_ADAPTER = 'radio.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'radio.adapters.SocialAccountAdapter'
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 LOGIN_REDIRECT_URL="/"
-
-AMAZON_ADDS = False
-AMAZON_AD_TRACKING_ID = 'scanoc-20'
-AMAZON_AD_LINK_ID = '366e01afa07db536277fa926bed3cb27'
-AMAZON_AD_EMPHASIZE_CATEGORIES = '15684181,13900871,172282,3760901,16310091,229534'
-AMAZON_AD_FALL_BACK_SEARCH = ['fire extinguisher', 'first aid',]
 
 GOOGLE_ANALYTICS_PROPERTY_ID = os.environ.get("GOOGLE_ANALYTICS_PROPERTY_ID", '0')
 
-TWITTER_ACTIVE = False
-TWITTER_LIST_URL = None
-
 SITE_TITLE = os.environ.get("SITE_TITLE", 'Trunk-Player')
 SITE_EMAIL = os.environ.get("SITE_EMAIL", 'help@example.com')
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", SITE_EMAIL)
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-PINAX_STRIPE_SECRET_KEY = '0'
-PINAX_STRIPE_PUBLIC_KEY = '0'
-
-# Set this to the location of your audio files
-AUDIO_URL_BASE = os.environ.get("AUDIO_URL_BASE", '//s3.amazonaws.com/SET-TO-MY-BUCKET/')
+# Set this to the location of your audio files. The default matches the
+# /audio_files/ location served by the sample nginx configs, for S3 use
+# something like '//s3.amazonaws.com/MY-BUCKET/'
+AUDIO_URL_BASE = os.environ.get("AUDIO_URL_BASE", '/audio_files/')
 
 # Which settings are passed into the javascript object js_config
-JS_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE']
+JS_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'STATIC_URL']
 
 # Which settings are aviable to the template tag GET_SETTING
-VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'COLOR_CSS', 'SITE_EMAIL', 'PINAX_STRIPE_PUBLIC_KEY', 'TWITTER_ACTIVE', 'TWITTER_LIST_URL', 'SHOW_STRIPE_PLANS', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
+VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'SITE_EMAIL', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
 
-ALLOW_ANONYMOUS = os.getenv("ALLOW_ANONYMOUS", 'False').lower() in ('true', '1', 't')
+ALLOW_ANONYMOUS = env_bool("ALLOW_ANONYMOUS")
 
-PINAX_STRIPE_SECRET_KEY = 'sk_test_xxxxxxxxxxxxxxxxxxxx'
-PINAX_STRIPE_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxx'
-PINAX_STRIPE_INVOICE_FROM_EMAIL = 'help@example.com'
-
-ACCESS_TG_RESTRICT = os.getenv("ACCESS_TG_RESTRICT", 'False').lower() in ('true', '1', 't')
+ACCESS_TG_RESTRICT = env_bool("ACCESS_TG_RESTRICT")
 
 TALKGROUP_RECENT_LENGTH = int(os.getenv("TALKGROUP_RECENT_LENGTH", '15')) #  Minutes of history for TG recent_usage
 
 ADD_TRANS_AUTH_TOKEN = os.environ.get("ADD_TRANS_AUTH_TOKEN", '7cf5857c61284') # Token to allow adding transmissions
 
-OPEN_SITE = os.getenv("OPEN_SITE", 'False').lower() in ('true', '1', 't') # If False new users cannot sign up
-ALLOW_GOOGLE_SIGNIN = os.getenv("ALLOW_GOOGLE_SIGNIN", 'False').lower() in ('true', '1', 't')
-FIX_AUDIO_NAME = os.getenv("FIX_AUDIO_NAME", 'False').lower() in ('true', '1', 't')
+OPEN_SITE = env_bool("OPEN_SITE") # If False new users cannot sign up
+# Show the Google sign in button, on by default when GOOGLE_CLIENT_ID is set
+ALLOW_GOOGLE_SIGNIN = env_bool("ALLOW_GOOGLE_SIGNIN", bool(GOOGLE_CLIENT_ID))
+FIX_AUDIO_NAME = env_bool("FIX_AUDIO_NAME")
 TRANS_DATETIME_FORMAT = os.environ.get("TRANS_DATETIME_FORMAT", '%H:%M:%S %m/%d/%Y')
 
-USE_RAW_ID_FIELDS = os.getenv("USE_RAW_ID_FIELDS", 'False').lower() in ('true', '1', 't')
+USE_RAW_ID_FIELDS = env_bool("USE_RAW_ID_FIELDS")
 
 # Load our local settings 
 try:

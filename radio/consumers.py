@@ -1,76 +1,55 @@
 import re
-import json
 import logging
-from asgiref.sync import async_to_sync
-from channels.generic.websocket import WebsocketConsumer
-from .models import ScanList, TalkGroup
 
-logging.basicConfig(format='%(asctime)s %(message)s')
+from channels.generic.websocket import WebsocketConsumer
+from asgiref.sync import async_to_sync
+
 log = logging.getLogger(__name__)
+
+# Page types a browser can listen to, see radio.models.live_call_groups()
+GROUP_TYPES = ('scan', 'tg', 'unit')
+# Channels group names may only use these characters
+VALID_LABEL = re.compile(r'^[a-z0-9_.-]{1,80}$')
+MAX_LABELS = 200
+
+
+def group_name(tg_type, label):
+    return 'livecall-{}-{}'.format(tg_type, label)
 
 
 class RadioConsumer(WebsocketConsumer):
-    def connect(self):
-        try:
-            tg_type =  self.scope['url_route']["kwargs"]["tg_type"]
-            label = self.scope['url_route']["kwargs"]["label"]
-        except:
-            # setup fake channel so the javascript does not try and reconnect
-            tg_type = 'junk'
-            label = 'junk'
-            log.error('user %s invalid ws path=%s setting up fake channel', self.scope['user'], self.scope['url_route'])
+    """Tells the browser when a new transmission arrives for the page it is on.
 
-        # log.error('user %s connect %s=%s client=%s:%s', 
-        #     message.user, tg_type, label, message['client'][0], message['client'][1])
-    
-        label_list = label.split('+')
-        for new_label in label_list: 
-            channel_name = 'livecall-{}-{}'.format(tg_type, new_label)
-            log.error("User {} Connected to channel {}".format(self.scope['user'], channel_name))
-            async_to_sync(self.channel_layer.group_add)(
-                channel_name,
-                self.channel_name
-            )
-            
+    The browser connects to /ws-calls/<type>/<label1+label2...> and receives a
+    small json message for each new call, it then reloads its call list.
+    """
+
+    def connect(self):
+        self.groups_joined = []
+        kwargs = self.scope.get('url_route', {}).get('kwargs', {})
+        tg_type = kwargs.get('tg_type', '')
+        label = kwargs.get('label', '')
+
+        if tg_type in GROUP_TYPES:
+            labels = {l for l in label.lower().split('+') if VALID_LABEL.match(l)}
+            for new_label in sorted(labels)[:MAX_LABELS]:
+                name = group_name(tg_type, new_label)
+                async_to_sync(self.channel_layer.group_add)(name, self.channel_name)
+                self.groups_joined.append(name)
+            log.debug('User %s listening to %s', self.scope.get('user'), self.groups_joined)
+        else:
+            # Accept anyway so the javascript does not keep trying to reconnect
+            log.debug('User %s invalid ws path %s', self.scope.get('user'), self.scope.get('path'))
+
         self.accept()
-        self.label=label
 
     def disconnect(self, close_code):
-        try:
-            async_to_sync(self.channel_layer.group_discard)(
-                self.label,
-                self.channel_name
-            )
-        except (KeyError, ScanList.DoesNotExist):
-            pass
+        for name in getattr(self, 'groups_joined', []):
+            async_to_sync(self.channel_layer.group_discard)(name, self.channel_name)
 
-        
-        # Leave room group
-        
-
-    # Receive message from WebSocket
-    def receive(self, text_data):
-        text_data_json = json.loads(text_data)
-        message = text_data_json['text']
-        try:           
-            scan = ScanList.objects.get(name=self.label)
-        except KeyError:
-            log.error('no scanlist in channel_session')
-            return
-        except ScanList.DoesNotExist:
-            log.error('recieved message, but scanlist does not exist label=%s', self.label)
-            return
-
-        # conform to the expected message format.
-        try:
-            data = json.loads(message)
-        except ValueError:
-            log.error("ws message isn't json text=%s", text_data)
-            return
-            
+    def receive(self, text_data=None, bytes_data=None):
+        # The browser does not send us anything we act on
+        pass
 
     def radio_message(self, event):
-        message = event['text']
-
-        # Send message to WebSocket
-        self.send(text_data=(message))
+        self.send(text_data=event['text'])

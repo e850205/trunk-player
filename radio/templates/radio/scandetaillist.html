@@ -8,14 +8,14 @@
 	<div class="row">
         <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
         </div>
-<h2>TalkGroups in Scan List {% if scanlist %}<a href="/scan/{{ scanlist.name }}/">{{ scanlist.description }}</a>{% else %}Default/All{% endif %}</h2>
+<h2>Talkgroups in {% if scanlist %}<a href="{{ scanlist.get_absolute_url }}">{{ scanlist.description }}</a>{% else %}<a href="/scan/default/">All Talkgroups</a>{% endif %}</h2>
 <table>
 <thead>
-<tr><th>ID</th><th>Alpha</th><th>Short</th><th>Description</td><th>Notes</th></tr>
+<tr><th>ID</th><th>Alpha</th><th>Short</th><th>Description</th><th>Notes</th></tr>
 </thead>
 <tbody>
 {% for tg in object_list %}
-   <tr><td>{% if requst.user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
+   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
 {% endfor %}
 </tbody>
 </table>

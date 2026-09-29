@@ -48,12 +48,28 @@ Email address emails will come from
 AUDIO_URL_BASE
 ==============
 
-URL where your audio files are accessiable at
+URL where your audio files are accessiable at. Defaults to ``/audio_files/``
+(served by nginx, or by ``runserver`` when ``DEBUG`` is on). For S3 use
+something like ``//s3.amazonaws.com/MY-BUCKET/``
 
-ANONYMOUS_TIME
-==============
+CSRF_TRUSTED_ORIGINS
+====================
 
-Time in minutes that an anonymous (non logged in) can view into the past
+[D] When the site is served over https, list its address here (for example
+``https://scanner.example.com``) or logging in fails with a CSRF error.
+Environment variable takes a space separated list.
+
+REDIS_URL
+=========
+
+Address of the redis server used for live updates and caching, default
+``redis://127.0.0.1:6379``
+
+ADD_TRANS_AUTH_TOKEN
+====================
+
+Secret token scripts must send to ``/api_v2/import_transmission/`` to add
+calls. The API is disabled until you set it.
 
 TIME_ZONE
 =========
@@ -74,11 +90,6 @@ GOOGLE_ANALYTICS_PROPERTY_ID
 
 Google ID used for analytics
 
-TWITTER_ACTIVE
-==============
-
-If set to true it will display a twitter feed to the right
-``TWITTER_LIST_URL`` the url for the feed
 
 LOGIN_REDIRECT_URL
 ==================
@@ -110,16 +121,6 @@ RADIO_DEFAULT_UNIT_AGENCY
 DB ID of the default acency when a new unit is added
 * This is defaulted to 0 which is invalid in mysql
 
-AMAZON_ADDS
-===========
-
-If set to true the site will display amazons ads on the right hand side
-
-Additinal settings for this are :
-``AMAZON_AD_TRACKING_ID`` Your Amazon ID
-``AMAZON_AD_LINK_ID`` ID for this site
-``AMAZON_AD_EMPHASIZE_CATEGORIES`` Categories to display
-``AMAZON_AD_FALL_BACK_SEARCH`` Search terms
 
 SOCIALACCOUNT_PROVIDERS
 =======================
@@ -250,3 +251,23 @@ USE_RAW_ID_FIELDS
 =================
 
 [D] For very large systems, the admin page may load better with raw id fields
+
+OPEN_SITE
+=========
+
+When true anyone can create an account at ``/accounts/signup/`` (also linked
+from the login page). When false only the admin can add users.
+
+GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET
+=======================================
+
+Turns on "Sign in with Google". Create an OAuth client in the Google Cloud
+console with the redirect URI ``https://<your site>/accounts/google/login/callback/``.
+New accounts are only created through Google when ``OPEN_SITE`` is on.
+
+EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+============================================================
+
+[D] Mail server used for password reset and account emails. Without
+``EMAIL_HOST`` emails are written to the log instead and email addresses are
+not verified.

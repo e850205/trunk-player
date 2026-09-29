@@ -13,6 +13,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.core.exceptions import ImproperlyConfigured
 from django.db.utils import OperationalError
 
 import radio.choices as choice
@@ -34,7 +35,7 @@ class City(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(null=True, blank=True)
     url = models.URLField(max_length=400, null=True, blank=True)
-    google_maps_url = models.URLField(max_length=400, null=True, blank=True)
+    google_maps_url = models.URLField(max_length=1000, null=True, blank=True)
     fire_service = models.ForeignKey(Agency, related_name='fire_service', null=True, blank=True, on_delete=models.CASCADE)
     police_service = models.ForeignKey(Agency, related_name='police_service', null=True, blank=True, on_delete=models.CASCADE)
     ems_service = models.ForeignKey(Agency, related_name='ems_service', null=True, blank=True, on_delete=models.CASCADE)
@@ -116,7 +117,7 @@ class TalkGroup(models.Model):
     alpha_tag = models.CharField(max_length=30)
     common_name = models.CharField(max_length=10, blank=True, null=True)
     description = models.CharField(max_length=100, blank=True, null=True)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=True, unique=True, max_length=100)
     public = models.BooleanField(default=True)
     comments = models.CharField(max_length=100, blank=True, null=True)
     system = models.ForeignKey(System, default=0, on_delete=models.CASCADE)
@@ -136,7 +137,10 @@ class TalkGroup(models.Model):
         return self.alpha_tag
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.alpha_tag)
+        from radio.slugs import unique_talkgroup_slug
+        system_name = System.objects.filter(pk=self.system_id).values_list('name', flat=True).first() or ''
+        self.slug = unique_talkgroup_slug(TalkGroup.objects.all(), self.pk, self.alpha_tag, self.dec_id,
+                                          system_name, self.slug)
         if not self.last_transmission:
             self.last_transmission = timezone.now()
         super(TalkGroup, self).save(*args, **kwargs)
@@ -242,36 +246,6 @@ class Transmission(models.Model):
         """
         return True
 
-    def _get_user_profile(self, user):
-        if user.is_authenticated:
-            user_profile = Profile.objects.get(user=user)
-        else:
-            try:
-                anon_user = User.objects.get(username='ANONYMOUS_USER')
-            except User.DoesNotExist:
-                raise ImproperlyConfigured('ANONYMOUS_USER is missing from User table, was "./manage.py migrations" not run?')
-            user_profile = Profile.objects.get(user=anon_user)
-        return user_profile
-
-
-
-    def _get_history_allow(self,user):
-        user_profile = self._get_user_profile(user)
-        if user_profile:
-            history_minutes = user_profile.plan.history
-        else:
-            history_minutes = settings.ANONYMOUS_TIME
-        return history_minutes
-
-
-    def audio_file_history_check(self, user):
-        history_minutes = self._get_history_allow(user)
-        if history_minutes > 0:
-            time_threshold = timezone.now() - timedelta(minutes=history_minutes)
-            if self.start_datetime < time_threshold:
-                return None
-        return str(self.audio_file)
-
     @property
     def audio_url(self):
         base_path = settings.AUDIO_URL_BASE
@@ -295,51 +269,43 @@ class Transmission(models.Model):
         super(Transmission, self).save(*args, **kwargs)
 
 
-@receiver(post_save, sender=Transmission, dispatch_uid="send_mesg")
-def send_mesg(sender, instance, **kwargs):
+def send_live_call(groups, payload):
+    """Tell browsers listening to any of groups about a new call
+
+    A failure here (redis down, ...) is logged, it should never stop the
+    transmission from being saved.
+    """
     from channels.layers import get_channel_layer
     channel_layer = get_channel_layer()
-    #log.debug('Hit post save()')
-    #log.debug('DATA %s', json.dumps(instance.as_dict()))
-    #log.error('DATA %s', json.dumps(instance.as_dict()))
-    tg = TalkGroup.objects.get(pk=instance.talkgroup_info.pk)
-    tg.last_transmission = timezone.now()
-    tg.save()
-    groups = tg.scanlist_set.all()
+    if channel_layer is None:
+        return
+    message = {'type': 'radio_message', 'text': json.dumps(payload)}
+    try:
+        for group in groups:
+            async_to_sync(channel_layer.group_send)(group, message)
+    except Exception:
+        log.exception('Unable to send live call notification')
+
+
+@receiver(post_save, sender=Transmission, dispatch_uid="send_mesg")
+def send_mesg(sender, instance, created, raw=False, **kwargs):
+    if not created or raw:
+        return
+    tg = instance.talkgroup_info
+    TalkGroup.objects.filter(pk=tg.pk).update(last_transmission=timezone.now())
+    scan_slugs = [slug for slug in tg.scanlist_set.values_list('slug', flat=True) if slug]
 
     payload = instance.as_dict()
-    payload["scan-groups"] = [g.slug for g in groups]
-    # for g in groups:        
-    #     async_to_sync(channel_layer.group_send)(
-    #     'livecall-scan-'+g.slug, {
-    #         'type':'radio_message',
-    #         'text': json.dumps(payload)
-    #     })
+    payload["scan-groups"] = scan_slugs
 
+    # Every call goes to the default scan list, any scan lists it is part
+    # of and its talkgroup page. See radio/consumers.py
+    groups = ['livecall-scan-default']
+    groups += ['livecall-scan-{}'.format(slug) for slug in scan_slugs if slug != 'default']
+    if tg.slug:
+        groups.append('livecall-tg-{}'.format(tg.slug))
+    send_live_call(groups, payload)
 
-    # async_to_sync(channel_layer.group_send)(
-    #     'livecall-tg-' + tg.slug, {
-    #         'type':'radio_message',
-    #         'text': json.dumps(payload)
-    #     })
-
-    
-    # Send notification to default group all the time
-    async_to_sync(channel_layer.group_send)(
-        'livecall-scan-default', {
-            'type':'radio_message',
-            'text': json.dumps(payload)
-        })
-
-
-    #def save(self, *args, **kwargs):
-    #    try:
-    #        self.talkgroup_info = TalkGroup.objects.get(dec_id=self.talkgroup)
-    #    except TalkGroup.DoesNotExist:
-    #        new_tg = TalkGroup(dec_id=self.talkgroup, alpha_tag='UNK')
-    #        new_tg.save
-    #        self.talkgroup_info = TalkGroup.objects.get(dec_id=self.talkgroup)
-    #    super(Transmission, self).save(*args, **kwargs)
 
 class TranmissionUnit(models.Model):
     transmission = models.ForeignKey(Transmission, on_delete=models.CASCADE)
@@ -351,6 +317,14 @@ class TranmissionUnit(models.Model):
 
     def __str__(self):
         return '{} on {}'.format(self.unit,self.transmission)
+
+
+@receiver(post_save, sender=TranmissionUnit, dispatch_uid="send_unit_mesg")
+def send_unit_mesg(sender, instance, created, raw=False, **kwargs):
+    if not created or raw or not instance.unit.slug:
+        return
+    payload = instance.transmission.as_dict()
+    send_live_call(['livecall-unit-{}'.format(instance.unit.slug)], payload)
 
 class ScanList(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -432,18 +406,8 @@ class TalkGroupAccess(models.Model):
         return '{}'.format(self.name)
 
 
-class Plan(models.Model):
-    DEFAULT_PK = 1 # This is added via a migration
-    name = models.CharField(max_length=30, unique=True)
-    history = models.IntegerField(default=15, help_text='visible history in minutes')
-
-    def __str__(self):
-        return '{}'.format(self.name)
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    plan = models.ForeignKey(Plan, default=Plan.DEFAULT_PK, on_delete=models.CASCADE)
     talkgroup_access = models.ManyToManyField(TalkGroupAccess, blank=True)
 
 
@@ -453,27 +417,6 @@ class WebHtml(models.Model):
     
     def __str__(self):
         return self.name
-
-
-class StripePlanMatrix(models.Model):
-    name = models.CharField(max_length=30, unique=True)
-    radio_plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
-    active = models.BooleanField(default=True)
-    order = models.IntegerField(default=99)
-
-    class Meta:
-        ordering = ["order"]
-
-
-    def __str__(self):
-       return self.name
-
-
-    def stripe_amount(self):
-       return int(self.stripe_plan.amount * 100)
-
-    def history_days(self):
-       return int(self.radio_plan.history / 1440)
 
 
 class SiteOption(models.Model):
@@ -498,8 +441,7 @@ class SiteOption(models.Model):
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]
     if kwargs["created"]:
-        default_plan = Plan.objects.get(pk=Plan.DEFAULT_PK)
-        up = Profile(user=user, plan=default_plan)
+        up = Profile(user=user)
         up.save()
         try:
             for tg in TalkGroupAccess.objects.filter(default_group=True):
