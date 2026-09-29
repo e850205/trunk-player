@@ -79,21 +79,19 @@ Start by starting the python virtual environment (if you have not yet)
 Starting django web services
 ============================
 
-You need to start both the daphne service and the runworker. You can run multiple runworker instances, the recomened is not to exceet 2 per cpu core. 
+Everything (web pages and the websockets used for live updates) is served by
+daphne. Nginx passes requests to it on port 7055. Redis must be running.
 
-You can run one on each window to watch the messages while you test.
-
-First window start daphne, make sure you are in the python virtual environment.
-
-.. code-block:: console
-
-  $ daphne trunk_player.asgi:channel_layer --port 7055 --bind 127.0.0.1
-
-Now start atleast 1 runworker
+Make sure you are in the python virtual environment, then:
 
 .. code-block:: console
 
-  $ ./manage.py runworker livecall-scan-default
+  $ daphne trunk_player.asgi:application --port 7055 --bind 127.0.0.1
+
+To run it as a service see :doc:`supervisor`.
+
+.. note:: Older versions of these docs also started ``./manage.py runworker``
+   processes. They are no longer needed, stop them if you still run them.
 
 Adding new transmissions
 ========================

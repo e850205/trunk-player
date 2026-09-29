@@ -1,7 +1,9 @@
 ============
 Installation
 ============
-This document will show you how to get up and running with Trunk Player.
+This document will show you how to get up and running with Trunk Player
+without Docker. The easiest way to run Trunk Player is with Docker, see the
+Quick start in the README.
 
 Currently install is based on a Debian like system, Ubuntu.
 
@@ -9,11 +11,11 @@ System Prerequisites
 ====================
 
 * Linux Machine it might work in windows but has not been tested
-* `Python`_ 3.10+
+* `Python`_ 3.10 - 3.12
 * `Virtualenv`_
 * `PIP`_  Should be installed with Python 3
-* `Redis`_ 3.x.x 
-* `PostgreSQL`_ 9.x
+* `Redis`_ 5+
+* `PostgreSQL`_ 13+
 * `git`_
 
 .. _Python: https://www.python.org/
@@ -28,7 +30,7 @@ Using apt-get
 
 .. code-block:: console
 
-    $ sudo apt-get install python3-dev virtualenv redis-server python3-pip postgresql libpq-dev postgresql-client postgresql-client-common git
+    $ sudo apt-get install python3-dev python3-venv redis-server python3-pip postgresql libpq-dev postgresql-client git
 
 
 Assumptions
@@ -56,7 +58,7 @@ Setup a new Python 3.x virtual environment in the ``env`` direcory. Set the visu
 .. code-block:: console
 
     $ cd trunk-player
-    $ virtualenv -p python3 env --prompt='(Trunk Player)'
+    $ python3 -m venv env --prompt='Trunk Player'
 
 Activate Virtual Environment
 ============================
@@ -96,6 +98,10 @@ Make a copy of the sample local settings file
 
   (Trunk Player)$ cp trunk_player/settings_local.py.sample trunk_player/settings_local.py
 
+Settings can also be given as environment variables instead (``SECRET_KEY``,
+``SQL_ENGINE``, ``SQL_DATABASE``, ``SQL_USER``, ``SQL_PASSWORD``, ``SQL_HOST``,
+``REDIS_URL``, ``AUDIO_URL_BASE``, ...), see ``.env.example`` and :doc:`settings`.
+
 **Important** You need to set/change the ``SECRET_KEY`` in the ``trunk_player/settings_local.py``. This value is used to protect sensitive data like passwords. If you keep the one from the project a bad actor may be able to compromise your site or worse your server. See the django project about `SECRET_KEY`_.
 
 .. _SECRET_KEY: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-SECRET_KEY
@@ -124,11 +130,12 @@ Create your database named trunk_player
 
   postgres=# CREATE DATABASE trunk_player;
 
-Allow your user full control of the new DB
+Make your user the owner of the new DB (PostgreSQL 15+ needs this, a GRANT is
+no longer enough to create tables)
 
 .. code-block:: console
 
-  postgres=# GRANT ALL PRIVILEGES ON DATABASE trunk_player TO trunk_player_user;
+  postgres=# ALTER DATABASE trunk_player OWNER TO trunk_player_user;
 
 Configure some settings as recomended by `Django`_
 
@@ -181,13 +188,14 @@ Create admin account
 Starting the test web server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First note this is not full producation ready server. It can handle a couple users.
+First note this is not full production ready server. It can handle a couple users.
+Run it with ``DEBUG=1`` so it also serves the static and audio files.
 
 Using the ``manage.py`` command agian
 
 .. code-block:: console
 
-  (Trunk Player)$ ./manage.py runserver
+  (Trunk Player)$ DEBUG=1 ./manage.py runserver
 
 This will start the server up listening on the local loopback address on port ``8000``. Start your web browser and go to `http://localhost:8000`_. You should seen the main page
 Visit ``/admin/`` to log into the admin area.
@@ -198,6 +206,13 @@ If you are running this on a remote server you need to have the web server us it
 
 .. code-block:: console
 
-   (Trunk Player)$ ./manage.py runserver 0.0.0.0:8000
+   (Trunk Player)$ DEBUG=1 ./manage.py runserver 0.0.0.0:8000
 
 This will run the server also on port 8000 but will be accessible via the servers IP address or dns name on port ``8000`` also.
+
+
+Going live
+~~~~~~~~~~
+
+For a real site put nginx in front of daphne, see :doc:`config_local` and
+:doc:`supervisor`.

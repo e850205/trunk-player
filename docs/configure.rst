@@ -17,7 +17,8 @@ In ``trunk_player/settings_local.py`` set the
 Media Location
 ==============
 
-In ``trunk_player/settings_local.py`` include the base url for the amazon s3 location of your audio files
+Audio files are played from ``/audio_files/`` by default. To serve them from
+amazon s3 instead, in ``trunk_player/settings_local.py`` include the base url for the s3 location of your audio files
 
 .. code-block:: console
 

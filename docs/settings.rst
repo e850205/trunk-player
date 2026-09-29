@@ -48,7 +48,28 @@ Email address emails will come from
 AUDIO_URL_BASE
 ==============
 
-URL where your audio files are accessiable at
+URL where your audio files are accessiable at. Defaults to ``/audio_files/``
+(served by nginx, or by ``runserver`` when ``DEBUG`` is on). For S3 use
+something like ``//s3.amazonaws.com/MY-BUCKET/``
+
+CSRF_TRUSTED_ORIGINS
+====================
+
+[D] When the site is served over https, list its address here (for example
+``https://scanner.example.com``) or logging in fails with a CSRF error.
+Environment variable takes a space separated list.
+
+REDIS_URL
+=========
+
+Address of the redis server used for live updates and caching, default
+``redis://127.0.0.1:6379``
+
+ADD_TRANS_AUTH_TOKEN
+====================
+
+Secret token scripts must send to ``/api_v2/import_transmission/`` to add
+calls. The API is disabled until you set it.
 
 ANONYMOUS_TIME
 ==============
