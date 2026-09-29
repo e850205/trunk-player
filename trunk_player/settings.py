@@ -71,7 +71,6 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.instagram',
     'rest_framework',
     'channels',
-    #'pinax.stripe',
     'django_select2',
 ]
 
@@ -209,10 +208,6 @@ CACHES = {
     }
 }
 
-# How far back an anonymous user can see back in minutes
-# 0 will disable the limit
-ANONYMOUS_TIME = int(os.environ.get("ANONYMOUS_TIME", '43200')) # 1 Month (60min * 24hours * 30days)
-
 # This Agency must exist in radio.Agency 
 RADIO_DEFAULT_UNIT_AGENCY = 0
 
@@ -241,9 +236,6 @@ TWITTER_LIST_URL = None
 SITE_TITLE = os.environ.get("SITE_TITLE", 'Trunk-Player')
 SITE_EMAIL = os.environ.get("SITE_EMAIL", 'help@example.com')
 
-PINAX_STRIPE_SECRET_KEY = '0'
-PINAX_STRIPE_PUBLIC_KEY = '0'
-
 # Set this to the location of your audio files. The default matches the
 # /audio_files/ location served by the sample nginx configs, for S3 use
 # something like '//s3.amazonaws.com/MY-BUCKET/'
@@ -253,13 +245,9 @@ AUDIO_URL_BASE = os.environ.get("AUDIO_URL_BASE", '/audio_files/')
 JS_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'STATIC_URL']
 
 # Which settings are aviable to the template tag GET_SETTING
-VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'COLOR_CSS', 'SITE_EMAIL', 'PINAX_STRIPE_PUBLIC_KEY', 'TWITTER_ACTIVE', 'TWITTER_LIST_URL', 'SHOW_STRIPE_PLANS', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
+VISABLE_SETTINGS = ['SITE_TITLE', 'AUDIO_URL_BASE', 'GOOGLE_ANALYTICS_PROPERTY_ID', 'COLOR_CSS', 'SITE_EMAIL', 'TWITTER_ACTIVE', 'TWITTER_LIST_URL', 'OPEN_SITE', 'ALLOW_GOOGLE_SIGNIN']
 
 ALLOW_ANONYMOUS = env_bool("ALLOW_ANONYMOUS")
-
-PINAX_STRIPE_SECRET_KEY = 'sk_test_xxxxxxxxxxxxxxxxxxxx'
-PINAX_STRIPE_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxx'
-PINAX_STRIPE_INVOICE_FROM_EMAIL = 'help@example.com'
 
 ACCESS_TG_RESTRICT = env_bool("ACCESS_TG_RESTRICT")
 

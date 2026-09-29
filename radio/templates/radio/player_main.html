@@ -20,16 +20,6 @@ Loading Data.....
   <div id="no_trans" style="display: none" class=" alert alert-danger" role="alert">
   No transmissions were returned for this page
   </div>
-  {% get_user_time user as anonymous_time %}
-  {% if not user.is_authenticated and anonymous_time != 0 %}
-  <div id="anoymous_time_warn" style="display: none" class=" alert alert-danger" role="alert">
-        You are not currently logged into the system. {% if anonymous_time.minutes == -1%} <a href="{% url 'login' %}?next={{ request.path | urlencode }}">Login</a> to access the system.{% else %}You will only see the last {{ anonymous_time.display }} of history. <a href="{% url 'login' %}?next={{ request.path | urlencode }}">Login</a> or <a href="{% url 'register' %}?next={{ request.path | urlencode }}">Create</a> a free acount to see more history.{% endif %}
-  </div>
-  {% else %}
-  <div id="anoymous_time_warn" style="display: none" class=" alert alert-danger" role="alert">
-        Your current plan access allows you to listen to radio traffic up to {{ anonymous_time.display }} ago. For more info see the <a href="{% url 'plans' %}">Plans</a> page.
-  </div>
-  {% endif %}
   </div>
   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
     <div class="row row-no-border">
@@ -77,21 +67,4 @@ amzn_assoc_rows = "6";
       </div>
     </div>
 </div>
-<div id="old-transmission-modal" class="modal text-center">
-    <div class="modal-dialog">
-      <div class="modal-content">
-          <div>
-          <h3>Old Radio Transmission</h3>
-           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div>
-          <p>This transmission is older than your current plan allows you to listen to.</p>
-          <p>If you would like to hear this and other older transmissions:</p>
-          <p>Visit our <a href="/plans/">plans</a> page to upgrade...</p>
-          </div>
-          
-      </div>
-    </div>
-</div>
-
 {% endblock %}

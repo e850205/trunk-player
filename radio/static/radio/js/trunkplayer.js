@@ -24,7 +24,6 @@ var url_params = null;
 var pagination_older_url = null;
 var pagination_newer_url = null;
 var muted_tg = {};
-var show_limit_warning = true;
 
 var base_audio_url = js_config.AUDIO_URL_BASE;
 // Short silent clip used to unlock audio playback in the browser
@@ -109,11 +108,6 @@ function update_pagination_links() {
         pg_array = pagination_older_url.split( '?' );
         new_url = window.location.pathname + '?' + pg_array[1];
         pagination_html += '<button class="btn btn-default page-link" data-url="' + escape_html(new_url) + '">Older</button>';
-        $("#anoymous_time_warn").hide();
-    } else {
-        if(show_limit_warning) {
-            $("#anoymous_time_warn").show();
-        }
     }
     return pagination_html;
 }
@@ -130,7 +124,6 @@ function update_api_url() {
     url_params = document.location.search;
     var pathArray = window.location.pathname.split( '/' );
     pathArray.shift();
-    show_limit_warning = (pathArray[0] != "inc");
     if(pathArray[0] == "scan2") {
       pathArray[0] = "scan";
     }
@@ -260,7 +253,7 @@ function build_row(curr_results) {
     if(curr_results.audio_file) {
         new_html += '<button aria-label="Play" id="gl-player-action-' + curr_id + '" data-id="' + curr_id + '" data-audio-url="' + escape_html(audio_file_url(curr_results)) + '" class="player-action glyphicon glyphicon-play"></button>';
     } else {
-        new_html += '<button aria-label="Too old to play" class="old-transmission glyphicon glyphicon-ban-circle" data-toggle="modal" data-target="#old-transmission-modal"></button> ';
+        new_html += '<button aria-label="No audio" class="old-transmission glyphicon glyphicon-ban-circle" disabled></button> ';
     }
     new_html += '<span class="talk-group ' + tg_muted + 'talk-group-' + escape_html(tg.slug) + '">' + escape_html(tg.alpha_tag) + '</span> ';
     new_html += '<span class="talk-group-descr">' + escape_html(tg.description) + ' </span>';
@@ -325,7 +318,6 @@ function buildpage() {
     buildpage_running = 1;
     buildpage_pending = 0;
     last_ajax = $.getJSON(api_url, function(data) {
-      $("#anoymous_time_warn").hide();
       $("#no_trans").hide();
       if(data.count > 0 && data.results.length > 0) {
           $("#foot-play-button").show();
@@ -367,9 +359,6 @@ function buildpage() {
           }
       } else {
         $("#no_trans").show();
-        if(show_limit_warning) {
-            $("#anoymous_time_warn").show();
-        }
         $('#main-data-table').html("");
         curr_id_list = [];
         first_load = 0;

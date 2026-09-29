@@ -26,7 +26,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import mail_admins, send_mail
 
-from allauth.account.models import EmailAddress as allauth_emailaddress
 from django.contrib import messages
 import logging
 
@@ -100,28 +99,15 @@ def cityDetailView(request, slug):
 
 def TransDetailView(request, slug):
     template = 'radio/transmission_detail.html'
-    status = 'Good'
     query_data = Transmission.objects.filter(slug=slug)
-    if not query_data:
-        raise Http404
-    query_data2 = limit_transmission_history(request, query_data)
-    if not query_data2 and not query_data[0].incident_set.filter(public=True):
-        query_data[0].audio_file = None
-        status = 'Expired'
     restricted, new_query = restrict_talkgroups(request, query_data)
     if not new_query:
         raise Http404
-    return render(request, template, {'object': query_data[0], 'status': status})
+    return render(request, template, {'object': new_query[0]})
 
 def transDownloadView(request, slug):
     import requests
     query_data = Transmission.objects.filter(slug=slug)
-    if not query_data:
-        raise Http404
-
-    query_data2 = limit_transmission_history(request, query_data)
-    if not query_data2: raise Http404  # Just raise 404 if its too old
-
     restricted, new_query = restrict_talkgroups(request, query_data)
     if not new_query: raise Http404
 
@@ -206,28 +192,6 @@ def get_user_profile(user):
         user_profile = Profile.objects.get(user=anon_user)
     return user_profile
 
-def get_history_allow(user):
-    user_profile = get_user_profile(user)
-    if user_profile:
-        history_minutes = user_profile.plan.history
-    else:
-        history_minutes = settings.ANONYMOUS_TIME
-    return history_minutes
-
-
-def limit_transmission_history(request, query_data):
-    history_minutes = get_history_allow(request.user)
-    if history_minutes > 0:
-        time_threshold = timezone.now() - timedelta(minutes=history_minutes)
-        query_data = query_data.filter(start_datetime__gt=time_threshold)
-    return query_data
-
-def limit_transmission_history_six_months(request, query_data):
-    history_minutes = 259200
-    time_threshold = timezone.now() - timedelta(minutes=history_minutes)
-    query_data = query_data.filter(start_datetime__gt=time_threshold)
-    return query_data
-
 
 
 def allowed_tg_list(user):
@@ -273,8 +237,6 @@ class ScanViewSet(generics.ListAPIView):
         else:
             tg = sl.talkgroups.all()
         rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units').prefetch_related('talkgroup_info')
-        #rc_data = limit_transmission_history(self.request, rc_data)
-        rc_data = limit_transmission_history_six_months(self.request, rc_data)
         restricted, rc_data = restrict_talkgroups(self.request, rc_data) 
         return rc_data
 
@@ -314,8 +276,6 @@ class TalkGroupFilterViewSet(generics.ListAPIView):
             q |= Q(slug__iexact=stg)
         tg = TalkGroup.objects.filter(q)
         rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units')
-        #rc_data = limit_transmission_history(self.request, rc_data)
-        rc_data = limit_transmission_history_six_months(self.request, rc_data)
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -331,8 +291,6 @@ class UnitFilterViewSet(generics.ListAPIView):
             q |= Q(slug__iexact=s_unit)
         units = Unit.objects.filter(q)
         rc_data = Transmission.objects.filter(units__in=units).filter(talkgroup_info__public=True).prefetch_related('units').distinct()
-        #rc_data = limit_transmission_history(self.request, rc_data)
-        rc_data = limit_transmission_history_six_months(self.request, rc_data)
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -354,54 +312,6 @@ class TalkGroupList(ListView):
 
 
 
-@login_required
-@csrf_protect
-def upgrade(request):
-    if request.method == 'POST':
-        form = PaymentForm(request.POST)
-        if not form.is_valid():
-            return render(
-                request,
-                'registration/upgrade.html',
-                {'form': form},
-            )
-
-        try:
-            plan = form.cleaned_data.get('plan_type')
-            card_name = form.cleaned_data.get('cardholder_name')
-            stripe_cust = None
-            logger.error('Change plan to {} for customer {} Card Name {}'.format(plan, stripe_cust, card_name))
-            stripe_info = None
-        except stripe.InvalidRequestError as e:
-            messages.error(request, "Error with stripe {}".format(e))
-            logger.error("Error with stripe {}".format(e))
-            return render(
-                request,
-                'registration/upgrade.html',
-                {'form': form},
-            )
-        except stripe.CardError as e:
-            messages.error(request, "<b>Error</b> Sorry there was an error with processing your card:<br>{}".format(e))
-            logger.error("Error with stripe user card{}".format(e))
-            return render(
-                request,
-                'registration/upgrade.html',
-                {'form': form},
-            )
-
-        return render(
-           request,
-           'registration/upgrade_complete.html',
-        )
-    else:
-        form = PaymentForm()
-        return render(
-           request,
-           'registration/upgrade.html',
-           {'form': form, },
-        )
-
-
 @csrf_protect
 def register(request):
     if request.method == 'POST':
@@ -417,7 +327,6 @@ def register(request):
             new_user = authenticate(username=username, password=password)
             if new_user is not None:
                 if new_user.is_active:
-                    #stripe_actions.customers.create(user=new_user)
                     login(request, new_user)
                     return HttpResponseRedirect('/scan/default/')
                 else:
@@ -488,56 +397,6 @@ def ScanDetailsList(request, name):
         query_data = scanlist.talkgroups.all()
     return render(request, template, {'object_list': query_data, 'scanlist': scanlist, 'request': request})
 
-
-@login_required
-@csrf_protect
-def cancel_plan(request):
-    template = 'radio/cancel.html'
-    if request.method == 'POST':
-        msg = 'User {} ({}) wants to cancel'.format(request.user.username, request.user.pk)
-        mail_admins('Cancel Subscription', msg )
-        return render(request, template, {'complete': True})
-    else:
-        return render(request, template, {'complete': False})
-
-@csrf_protect
-def plans(request):
-    token = None
-    has_verified_email = False
-    plans = None
-    default_plan = None
-    if request.method == 'POST':
-        template = 'radio/subscribed.html'
-        token = request.POST.get('stripeToken')
-        plan = request.POST.get('plan')
-        # See if this user already has a stripe account
-        try:
-            stripe_cust = None
-        except ObjectDoesNotExist:
-            #stripe_actions.customers.create(user=request.user)
-            stripe_cust = None
-        try:
-            stripe_info = None #stripe_actions.subscriptions.create(customer=stripe_cust, plan=plan, token=request.POST.get('stripeToken'))
-        except Exception as e: #stripe.CardError as e:
-            template = 'radio/charge_failed.html'
-            logger.error("Error with stripe user card{}".format(e))
-            return render(request, template, {'error_msg': e })
-
-        for t in request.POST:
-          logger.error("{} {}".format(t, request.POST[t]))
-    else:
-        template = 'radio/plans.html'
-        plans = StripePlanMatrix.objects.filter(order__lt=99).filter(active=True)
-        default_plan = Plan.objects.get(pk=Plan.DEFAULT_PK)
-
-        # Check if users email address is verified
-        if request.user.is_authenticated:
-            verified_email = allauth_emailaddress.objects.filter(user=request.user, primary=True, verified=True)
-            if verified_email:
-                has_verified_email = True
-
-
-    return render(request, template, {'token': token, 'verified_email': has_verified_email, 'plans': plans, 'default_plan': default_plan} )
 
 def incident(request, inc_slug):
     template = 'radio/player_main.html'

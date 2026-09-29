@@ -17,6 +17,7 @@ class UnitListField(serializers.RelatedField):
 
 class TransmissionSerializer(serializers.ModelSerializer):
     talkgroup_info = TalkGroupSerializer()
+    # Just the file name, the player adds audio_url and the extension
     audio_file = SerializerMethodField()
     units = UnitListField(many=True, read_only=True)
 
@@ -25,7 +26,7 @@ class TransmissionSerializer(serializers.ModelSerializer):
         fields = ('pk', 'url', 'start_datetime', 'local_start_datetime', 'audio_file', 'talkgroup', 'talkgroup_info', 'freq', 'emergency', 'units', 'play_length', 'print_play_length', 'slug', 'freq_mhz', 'tg_name', 'source', 'audio_url', 'system', 'audio_file_type')
 
     def get_audio_file(self, obj):
-        return obj.audio_file_history_check(self.context.get('request').user)
+        return str(obj.audio_file)
 
 class ScanListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

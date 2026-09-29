@@ -51,7 +51,6 @@ services:
       - SITE_EMAIL=${SITE_EMAIL:-help@example.com}
       - AUDIO_URL_BASE=${AUDIO_URL_BASE:-/audio_files/}
       - ADD_TRANS_AUTH_TOKEN=${ADD_TRANS_AUTH_TOKEN:-}
-      - ANONYMOUS_TIME=${ANONYMOUS_TIME:-0}
       - ALLOW_ANONYMOUS=${ALLOW_ANONYMOUS:-False}
       - OPEN_SITE=${OPEN_SITE:-False}
       - ACCESS_TG_RESTRICT=${ACCESS_TG_RESTRICT:-False}

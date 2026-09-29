@@ -71,11 +71,6 @@ ADD_TRANS_AUTH_TOKEN
 Secret token scripts must send to ``/api_v2/import_transmission/`` to add
 calls. The API is disabled until you set it.
 
-ANONYMOUS_TIME
-==============
-
-Time in minutes that an anonymous (non logged in) can view into the past
-
 TIME_ZONE
 =========
 

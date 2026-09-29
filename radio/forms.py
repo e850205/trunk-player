@@ -9,7 +9,7 @@ from django_select2.forms import (
     Select2Widget
 )
 
-from .models import Unit, StripePlanMatrix, Profile, TalkGroup, ScanList
+from .models import Unit, Profile, TalkGroup, ScanList
 
 
 class UserScanForm(forms.Form):
@@ -44,14 +44,6 @@ class UserScanForm2(forms.ModelForm):
             'talkgroups': Select2MultipleWidget,
 
         }
-
-class PaymentForm(forms.Form):
-    #stripe_token = forms.CharField(label='stripe_token', max_length=100)
-    cardholder_name = forms.CharField(label='cardholder name', max_length=100)
-    plan_type = forms.ModelChoiceField(
-                    queryset=StripePlanMatrix.objects.filter(active=True),
-                    empty_label=None,
-                    )
 
  
 class RegistrationForm(forms.Form):

@@ -80,10 +80,6 @@ urlpatterns += [
     url(r'^unitupdategood/$',  TemplateView.as_view(template_name='radio/unitupdategood.html')),
 ]
 
-if settings.OPEN_SITE:
-    #urlpatterns += [url(r"^payments/", include("pinax.stripe.urls")),]
-    urlpatterns += [url(r'^upgrade/$', views.upgrade, name='upgrade'),]
-
 urlpatterns += [
     url(r'^city/(?P<slug>[-\w]+)/$',views.cityDetailView, name='city_detail'),
     url(r'^city/$',views.cityListView, name='city_list'),
@@ -98,10 +94,4 @@ urlpatterns += [
 # in production nginx serves them. See docs/install.rst
 if settings.DEBUG and settings.AUDIO_URL_BASE.startswith('/') and not settings.AUDIO_URL_BASE.startswith('//'):
     urlpatterns += static(settings.AUDIO_URL_BASE, document_root=settings.MEDIA_ROOT)
-
-if getattr(settings, 'SHOW_STRIPE_PLANS', False):
-    urlpatterns = urlpatterns + [ url(r'^plans/cancel/$', views.cancel_plan, name='cancel-plan') ]
-    urlpatterns = urlpatterns + [ url(r'^plans/$', views.plans, name='plans') ]
-else:
-    urlpatterns = urlpatterns + [ url(r'^plans/$', views.Generic, {'page_name': 'plans'}, name='plans') ]
 

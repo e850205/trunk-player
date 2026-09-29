@@ -197,3 +197,13 @@ class TemplateLayoutTests(TestCase):
         for template in templates.rglob('*.html'):
             for classes in re.findall(r'class="([^"]*col-md-[^"]*)"', template.read_text()):
                 self.assertTrue(re.search(r'col-(xs|sm)-', classes), '{}: "{}"'.format(template.name, classes))
+
+
+class NoHistoryLimitTests(TestCase):
+    def test_old_calls_are_listed_and_playable(self):
+        tg = TalkGroup.objects.create(dec_id=100, alpha_tag='Test TG 1')
+        t = make_transmission(tg)
+        Transmission.objects.filter(pk=t.pk).update(start_datetime=timezone.now() - timezone.timedelta(days=3650))
+        result = self.client.get('/api_v1/scan/default/').json()['results'][0]
+        self.assertEqual(result['audio_file'], '100-1511023743_8.57213e+08')
+        self.assertEqual(self.client.get('/audio/{}/'.format(t.slug)).status_code, 200)
