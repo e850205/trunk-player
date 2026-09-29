@@ -345,7 +345,13 @@ def send_mesg(sender, instance, created, raw=False, **kwargs):
     if not created or raw or instance.duplicate_of_id:
         return
     tg = instance.talkgroup_info
-    TalkGroup.objects.filter(pk=tg.pk).update(last_transmission=timezone.now())
+    # Time of the call, not when it was added (files can be added late).
+    # The first call sets it, after that only newer calls move it forward.
+    first_call = not Transmission.objects.filter(talkgroup_info_id=tg.pk).exclude(pk=instance.pk).exists()
+    tg_update = TalkGroup.objects.filter(pk=tg.pk)
+    if not first_call:
+        tg_update = tg_update.filter(last_transmission__lt=instance.start_datetime)
+    tg_update.update(last_transmission=instance.start_datetime)
     scan_slugs = [slug for slug in tg.scanlist_set.values_list('slug', flat=True) if slug]
 
     payload = instance.as_dict()

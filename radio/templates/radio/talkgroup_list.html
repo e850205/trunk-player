@@ -1,32 +1,31 @@
 {% extends "radio/site_base.html" %}
 {% load radio_extras %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
 {% block main-body %}
 <div class="container">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-	<div class="row">
-
-<table>
-<thead>
-<tr><th>ID</th><th>System</th><th>Alpha</th><th>Short</th><th>Description</th><th>Notes</th></tr>
-</thead>
-<tbody>
-{% for tg in talkgroups %}
-   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td>{{ tg.system }}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
-{% endfor %}
-</tbody>
-</table>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+  <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
+  </div>
+  <h2>{% if request.GET.recent %}Recently Active Talkgroups{% else %}Talkgroups{% endif %}
+    <small>{% if request.GET.recent %}<a href="/talkgroups/">sort by name</a>{% else %}<a href="/talkgroups/?recent=1">sort by recent activity</a>{% endif %}</small></h2>
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover directory-table">
+    <thead>
+      <tr><th>Name</th><th>Description</th><th>Last call</th><th>ID</th><th>System</th></tr>
+    </thead>
+    <tbody>
+    {% for tg in talkgroups %}
+      <tr>
+        <td><a href="{{ tg.get_absolute_url }}">{{ tg.alpha_tag }}</a>{% if tg.common_name %} <span class="text-muted">({{ tg.common_name }})</span>{% endif %}</td>
+        <td>{{ tg.description|default:"" }}{% if tg.comments %} <span class="text-muted">&middot; {{ tg.comments }}</span>{% endif %}</td>
+        <td>{{ tg.last_transmission|timesince }} ago</td>
+        <td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td>
+        <td>{{ tg.system }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5">No talkgroups yet, they are added automatically as calls come in.</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% include "radio/page_footer.html" %}
 </div>
 {% endblock %}

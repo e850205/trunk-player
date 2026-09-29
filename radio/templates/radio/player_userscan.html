@@ -46,7 +46,7 @@ load_tg();
         </div>
 			<select id="tg-multi" class="tg-multi-select" multiple="multiple">
 			</select>
-			<button type="button" onclick="update_scan_list()">Update Scan List</button> 
+			<button type="button" class="btn btn-primary" onclick="update_scan_list()">Update Scan List</button> 
 		</div>
 	</div>
 	<div class="row">
@@ -54,13 +54,6 @@ load_tg();
 		</div>
 	</div>
         <div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+  {% include "radio/page_footer.html" %}
 </div>
 {% endblock %}

@@ -108,7 +108,9 @@ def TransDetailView(request, slug):
     restricted, new_query = restrict_talkgroups(request, query_data)
     if not new_query:
         raise Http404
-    return render(request, template, {'object': new_query[0]})
+    transmission = new_query[0]
+    incidents = visible_incidents(request.user).filter(transmissions=transmission)
+    return render(request, template, {'object': transmission, 'incidents': incidents})
 
 def transDownloadView(request, slug):
     import requests

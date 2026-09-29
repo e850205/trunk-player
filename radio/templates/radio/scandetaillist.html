@@ -5,28 +5,21 @@
 {% endblock %}
 {% block main-body %}
 <div class="container">
-	<div class="row">
+	<div>
         <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
         </div>
 <h2>Talkgroups in {% if scanlist %}<a href="{{ scanlist.get_absolute_url }}">{{ scanlist.description }}</a>{% else %}<a href="/scan/default/">All Talkgroups</a>{% endif %}</h2>
-<table>
+<div class="table-responsive"><table class="table table-condensed table-hover directory-table">
 <thead>
 <tr><th>ID</th><th>Alpha</th><th>Short</th><th>Description</th><th>Notes</th></tr>
 </thead>
 <tbody>
 {% for tg in object_list %}
-   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
+   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td><a href="{{ tg.get_absolute_url }}">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name|default:"" }}</td><td>{{ tg.description|default:"" }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
 {% endfor %}
 </tbody>
-</table>
+</table></div>
 	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+  {% include "radio/page_footer.html" %}
 </div>
 {% endblock %}

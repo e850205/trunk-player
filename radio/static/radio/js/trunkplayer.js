@@ -580,7 +580,7 @@ $(document).ready(function(){
         live_update = 1;
         buildpage();
     });
-    $(document).on('click', '.player-action', function(e) {
+    $(document).on('click', '.player-action, .js-play', function(e) {
         e.preventDefault();
         click_play_clip($(this).data('audio-url'), $(this).data('id'));
     });

@@ -1,129 +1,54 @@
 {% extends "radio/site_base.html" %}
 {% load radio_extras %}
 {% block main-body %}
-<div class="container">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
+{% with tg=object.talkgroup_info file_type=object.audio_file_type|default:"mp3" %}
+<div class="container call-details">
+  <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
+  </div>
 
-	<div class="row">
-		<div class="col-xs-12">
-    <h1>
-    {% get_setting 'SITE_TITLE' %} Audio File
-    </h1>
-                </div>
-	</div>
-	<div class="row"> 
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Start Time</strong></div>
-		<div class="col-xs-6">{{ object.start_datetime }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Talk Group</strong></div>
-		<div class="col-xs-6">{{ object.talkgroup_info.alpha_tag }}{% if user.is_staff %} <a href="/admin/radio/talkgroup/{{ object.talkgroup_info.pk }}/change/">Edit</a>{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Talk Group Description</strong></div>
-		<div class="col-xs-6">{{ object.talkgroup_info.description }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Frequency</strong></div>
-		<div class="col-xs-6">{{ object.freq_mhz }}MHz</div>
-		<div class="col-xs-4"></div>
-	</div>
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>System</strong></div>
-                <div class="col-xs-6">{{ object.system }} ({{ object.system.pk }})</div>
-                <div class="col-xs-4"></div>
-        </div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Source</strong></div>
-		<div class="col-xs-6">{{ object.source }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Length</strong></div>
-		<div class="col-xs-6">{{ object.print_play_length }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Emergency</strong></div>
-		<div class="col-xs-6">{% if object.emergency %}<span class="label label-danger">EMERGENCY</span>{% else %}No{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% for u in object.units.all %}
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Unit</strong></div>
-		<div class="col-xs-6">{%if u.description %}{{ u.description }}{% else %}#{{ u.dec_id }}{% endif %}{% if user.is_staff %} <a href="/admin/radio/unit/{{ u.pk }}/change/">Edit</a>{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% endfor %}
-        {% if object.duplicate_of %}
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Duplicate</strong></div>
-                <div class="col-xs-6">Another recorder also recorded this call, the <a href="{{ object.duplicate_of.get_absolute_url }}">recording from {{ object.duplicate_of.source }}</a> is shown in the call lists</div>
-                <div class="col-xs-4"></div>
-        </div>
-        {% endif %}
-        {% with dupes=object.duplicates.all %}{% if dupes %}
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Other recordings</strong></div>
-                <div class="col-xs-6">{% for d in dupes %}<a href="{{ d.get_absolute_url }}">{{ d.source }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</div>
-                <div class="col-xs-4"></div>
-        </div>
-        {% endif %}{% endwith %}
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Default Source</strong></div>
-                <div class="col-xs-6">{{ object.from_default_source }}</div>
-                <div class="col-xs-4"></div>
-        </div>
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Has Audio</strong></div>
-                <div class="col-xs-6">{{ object.has_audio }}</div>
-                <div class="col-xs-4"></div>
-        </div>
-	{% if user.is_staff %}
-        {% if object.audio_file %}
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>File Name</strong></div>
-		<div class="col-xs-6"><a href="{{object.audio_url}}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}">{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}</a></div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% endif %}
-	{% endif %}
-	<div class="row">
-                <div class="col-xs-1"></div>
-		<div class="col-xs-2">
-        {% if object.audio_file %}
-<button id="button_{{ object.pk }}" type="button" class="btn play-btn btn-success player-action" data-id="{{ object.pk }}" data-audio-url="{{object.audio_url}}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play </button>
-         {% endif %}
+  <h2>{{ tg.alpha_tag }} <small>{{ object.local_start_datetime }}</small>
+    {% if object.emergency %}<span class="label label-danger emergency-label">EMERGENCY</span>{% endif %}</h2>
 
+  <p class="call-actions">
+    {% if object.audio_file %}
+    <button id="button_{{ object.pk }}" type="button" class="btn btn-success js-play" data-id="{{ object.pk }}"
+            data-audio-url="{{ object.audio_url }}{{ object.audio_file }}.{{ file_type }}"><i class="fa fa-play fa-fw"></i> Play</button>
+    {% endif %}
+    {% if perms.radio.download_audio %}
+    <a class="btn btn-default" href="{% url 'download' object.slug %}"><i class="fa fa-download fa-fw"></i> Download</a>
+    {% endif %}
+    <a class="btn btn-default" href="{{ tg.get_absolute_url }}"><i class="fa fa-filter fa-fw"></i> More from {{ tg.alpha_tag }}</a>
+  </p>
+
+  <table class="table table-condensed detail-table">
+    <tr><th>Talkgroup</th><td><a href="{{ tg.get_absolute_url }}">{{ tg.alpha_tag }}</a>{% if tg.description %} &middot; {{ tg.description }}{% endif %}
+      <span class="text-muted">({{ tg.dec_id }})</span>{% if user.is_staff %} <a href="/admin/radio/talkgroup/{{ tg.pk }}/change/" class="small">edit</a>{% endif %}</td></tr>
+    <tr><th>Time</th><td>{{ object.start_datetime }}</td></tr>
+    <tr><th>Length</th><td>{{ object.print_play_length }}</td></tr>
+    <tr><th>Units</th><td>
+      {% for u in object.units.all %}<a href="/unit/{{ u.slug }}/">{% if u.description %}{{ u.description }}{% else %}#{{ u.dec_id }}{% endif %}</a>{% if user.is_staff %} <a href="/admin/radio/unit/{{ u.pk }}/change/" class="small">edit</a>{% endif %}{% if not forloop.last %}, {% endif %}{% empty %}<span class="text-muted">none heard</span>{% endfor %}
+    </td></tr>
+    {% if incidents %}
+    <tr><th>Incidents</th><td>{% for inc in incidents %}<a href="{% url 'incident' inc.slug %}">{{ inc.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td></tr>
+    {% endif %}
+    <tr><th>Frequency</th><td>{{ object.freq_mhz }} MHz</td></tr>
+    <tr><th>System</th><td>{{ object.system }}</td></tr>
+    <tr><th>Recorded by</th><td>{{ object.source }}</td></tr>
+    {% if object.duplicate_of %}
+    <tr><th>Duplicate</th><td>Another recorder also recorded this call, the
+      <a href="{{ object.duplicate_of.get_absolute_url }}">recording from {{ object.duplicate_of.source }}</a> is the one listed</td></tr>
+    {% endif %}
+    {% with dupes=object.duplicates.all %}{% if dupes %}
+    <tr><th>Other recordings</th><td>{% for d in dupes %}<a href="{{ d.get_absolute_url }}">{{ d.source }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td></tr>
+    {% endif %}{% endwith %}
+    {% if user.is_staff %}
+    <tr><th>Audio file</th><td>{% if object.audio_file %}<a href="{{ object.audio_url }}{{ object.audio_file }}.{{ file_type }}">{{ object.audio_file }}.{{ file_type }}</a>{% else %}none{% endif %}
+      &middot; <a href="/admin/radio/transmission/{{ object.pk }}/change/" class="small">edit call</a></td></tr>
+    {% endif %}
+  </table>
+
+  <div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
+  {% include "radio/page_footer.html" %}
 </div>
-		<div class="col-xs-9"></div>
-
-	</div>
-        <div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
-</div>
+{% endwith %}
 {% endblock %}

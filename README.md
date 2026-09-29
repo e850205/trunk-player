@@ -4,7 +4,7 @@ Trunk Player
 A web site for listening to radio calls recorded by [trunk-recorder](https://github.com/robotastic/trunk-recorder).
 Calls show up in your browser as they are recorded, and you can play them live like a scanner or go back through the history.
 
-![Main Screen](docs/images/trunk_player_main.png?raw=true "Main Screen")
+![The scanner playing a scan list, with an emergency call highlighted](docs/images/trunk_player_main.png)
 
 * **Live scanner.** Press *Start Scanner* and new calls play as they come in, with no page reloads.
 * **Scan lists.** Listen to a group of talkgroups, a single talkgroup, or a single radio (unit). Logged in users can build their own lists.
@@ -14,9 +14,34 @@ Calls show up in your browser as they are recorded, and you can play them live l
 * **Several recorders.** When two recorders capture the same call, it is only listed once.
 * **Accounts.** The site can be open to anyone, invite only, or restricted per talkgroup. Google sign in is optional.
 
-Contents: [Quick start](#quick-start-docker) · [Adding calls](#adding-calls-from-trunk-recorder) ·
+Contents: [Screenshots](#screenshots) · [Quick start](#quick-start-docker) · [Adding calls](#adding-calls-from-trunk-recorder) ·
 [Running the site](#running-the-site) · [Settings](#settings) · [Updating](#updating) ·
 [Without Docker](#installing-without-docker) · [Development](#development)
+
+
+Screenshots
+-----------
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/images/scan_list_menu.png" alt="Scan Lists menu"><br><b>Scan lists</b>: shared lists, your own lists, or pick talkgroups on the fly</td>
+    <td width="50%"><img src="docs/images/call_menu.png" alt="Call menu"><br><b>Call menu</b>: hold on a talkgroup, mute it, download or open the call</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/call_details.png" alt="Call details page"><br><b>Call details</b>: units heard, incidents, and a link to share</td>
+    <td><img src="docs/images/incident.png" alt="Incident page"><br><b>Incidents</b>: every call about one event, playable from the start</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/custom_scan_list.png" alt="Custom scan list"><br><b>Custom scan list</b>: choose talkgroups and listen right away</td>
+    <td><img src="docs/images/talkgroups.png" alt="Talkgroup list"><br><b>Talkgroups</b>: sorted by name or by recent activity</td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/directory.png" alt="Cities directory"><br><b>Directory</b>: which fire, police and EMS agencies cover each city</td>
+    <td>
+      <img src="docs/images/phone.png" alt="Scanner on a phone" width="48%">
+      <img src="docs/images/phone_menu.png" alt="Menu on a phone" width="48%"><br><b>On a phone</b></td>
+  </tr>
+</table>
 
 
 Quick start (Docker)

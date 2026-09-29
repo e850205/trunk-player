@@ -253,3 +253,40 @@ class DuplicateRecordingTests(TestCase):
         call_command('mark_duplicate_calls', stdout=open(os.devnull, 'w'))
         second.refresh_from_db()
         self.assertEqual(second.duplicate_of, first)
+
+
+@override_settings(CHANNEL_LAYERS=IN_MEMORY_LAYER)
+class CallDetailsTests(TestCase):
+    def test_play_button_and_links(self):
+        tg = TalkGroup.objects.create(dec_id=1, alpha_tag='Fire Dispatch')
+        call = make_transmission(tg)
+        Incident.objects.create(name='Brush Fire').transmissions.add(call)
+        page = self.client.get('/audio/{}/'.format(call.slug)).content.decode()
+        # The call list's player-action style hides the button's background
+        self.assertRegex(page, r'class="btn btn-success js-play"')
+        self.assertNotIn('player-action', page)
+        self.assertIn('href="/tg/fire-dispatch/"', page)
+        self.assertIn('href="/inc/brush-fire/"', page)
+
+    def test_footer_shows_current_year(self):
+        from radio.models import SiteOption
+        SiteOption.objects.filter(name='COPYRIGHT_NOTICE').update(value='Copyright {year}')
+        page = self.client.get('/about/').content.decode()
+        footer = page[page.index('class="page-footer"'):]
+        self.assertIn('&copy; Copyright {} '.format(timezone.localdate().year), footer)
+        self.assertNotIn('{year}', footer[:200])
+
+
+@override_settings(CHANNEL_LAYERS=IN_MEMORY_LAYER)
+class LastCallTimeTests(TestCase):
+    def test_last_call_is_the_call_time(self):
+        tg = TalkGroup.objects.create(dec_id=1, alpha_tag='Fire')
+        when = timezone.now() - timezone.timedelta(hours=2)
+        Transmission.objects.create(start_datetime=when, audio_file='f', talkgroup=1, talkgroup_info=tg, freq=0)
+        tg.refresh_from_db()
+        self.assertEqual(tg.last_transmission, when)
+        # An older call added later does not move it back
+        Transmission.objects.create(start_datetime=when - timezone.timedelta(hours=1), audio_file='f', talkgroup=1,
+                                    talkgroup_info=tg, freq=0)
+        tg.refresh_from_db()
+        self.assertEqual(tg.last_transmission, when)
