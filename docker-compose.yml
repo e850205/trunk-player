@@ -1,52 +1,69 @@
-version: '3.7'
+# Quick start:
+#   cp .env.example .env     (then edit .env)
+#   docker compose up -d --build
+# The site is then on http://localhost (https on port 8443 with a self signed certificate)
 
 services:
   db:
-    image: postgres
+    image: postgres:16
+    restart: unless-stopped
     environment:
-      - POSTGRES_DB=tr
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password1234
+      - POSTGRES_DB=trunk_player
+      - POSTGRES_USER=trunk_player
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trunk_player -d trunk_player"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   app:
     build:
       context: .
-    #image: maxwelldps/trunk-player:latest
+    restart: unless-stopped
     ports:
-      - 80:80
-      - 8443:443
+      - ${HTTP_PORT:-80}:80
+      - ${HTTPS_PORT:-8443}:443
     volumes:
-      #- .:/app/trunkplayer
-      - audio:/app/trunkplayer/audio_files
+      # trunk-recorder audio + json files go here, served at /audio_files/
+      - ${AUDIO_DIR:-./audio_files}:/app/trunkplayer/audio_files
     environment:
-      - DEBUG=True
-      - SQL_ENGINE=django.db.backends.postgresql_psycopg2
-      - SQL_DATABASE=tr
-      - SQL_USER=postgres
-      - SQL_PASSWORD=password1234
+      - SECRET_KEY=${SECRET_KEY:?Set SECRET_KEY in .env}
+      - DEBUG=${DEBUG:-False}
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=trunk_player
+      - SQL_USER=trunk_player
+      - SQL_PASSWORD=${POSTGRES_PASSWORD}
       - SQL_HOST=db
+      - SQL_PORT=5432
       - REDIS_URL=redis://127.0.0.1:6379
       - MIGRATE_DB=1
-      - SECRET_KEY="%2%xjx4c3obf_xa8hsdbd@ci+8!4)@x16_!auo*h(%*p_z(g"
-      - DJANGO_ALLOWED_HOSTS=*
-      - TZ=America/Chicago
-      - FORCE_SECURE=False
-      - ANONYMOUS_TIME=0
-      - SITE_TITLE=TESTING
-      - SITE_EMAIL=no@no.io
-      - AUDIO_URL_BASE=/audio/
-      - ALLOW_ANONYMOUS=False
-      - ACCESS_TG_RESTRICT=False
-      - TALKGROUP_RECENT_LENGTH=0
-      - OPEN_SITE=False
-      - ALLOW_GOOGLE_SIGNIN=False
-      - FIX_AUDIO_NAME=False
-      - TRANS_DATETIME_FORMAT=%H:%M:%S %m/%d/%Y
-      - GOOGLE_ANALYTICS_PROPERTY_ID=0
-      - USE_RAW_ID_FIELDS=False
-
+      - DJANGO_SUPERUSER_USERNAME=${ADMIN_USERNAME:-admin}
+      - DJANGO_SUPERUSER_PASSWORD=${ADMIN_PASSWORD:-}
+      - DJANGO_SUPERUSER_EMAIL=${ADMIN_EMAIL:-admin@example.com}
+      - DJANGO_ALLOWED_HOSTS=${ALLOWED_HOSTS:-*}
+      - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS:-}
+      - TZ=${TZ:-America/Los_Angeles}
+      - FORCE_SECURE=${FORCE_SECURE:-False}
+      - SITE_TITLE=${SITE_TITLE:-Trunk-Player}
+      - SITE_EMAIL=${SITE_EMAIL:-help@example.com}
+      - AUDIO_URL_BASE=${AUDIO_URL_BASE:-/audio_files/}
+      - ADD_TRANS_AUTH_TOKEN=${ADD_TRANS_AUTH_TOKEN:-}
+      - ANONYMOUS_TIME=${ANONYMOUS_TIME:-0}
+      - ALLOW_ANONYMOUS=${ALLOW_ANONYMOUS:-False}
+      - OPEN_SITE=${OPEN_SITE:-False}
+      - ACCESS_TG_RESTRICT=${ACCESS_TG_RESTRICT:-False}
+      - TALKGROUP_RECENT_LENGTH=${TALKGROUP_RECENT_LENGTH:-15}
+      - ALLOW_GOOGLE_SIGNIN=${ALLOW_GOOGLE_SIGNIN:-False}
+      - FIX_AUDIO_NAME=${FIX_AUDIO_NAME:-False}
+      - TRANS_DATETIME_FORMAT=${TRANS_DATETIME_FORMAT:-%H:%M:%S %m/%d/%Y}
+      - GOOGLE_ANALYTICS_PROPERTY_ID=${GOOGLE_ANALYTICS_PROPERTY_ID:-0}
+      - USE_RAW_ID_FIELDS=${USE_RAW_ID_FIELDS:-False}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
-volumes: 
-  audio:
+volumes:
+  pgdata:

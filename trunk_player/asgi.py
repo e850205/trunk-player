@@ -10,15 +10,17 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 
 from radio.consumers import RadioConsumer
 
-channel_layer = ProtocolTypeRouter({
+application = ProtocolTypeRouter({
     "http": django_asgi_app,
 
-    # WebSocket chat handler
+    # Live call notifications, see radio/consumers.py
     "websocket": AuthMiddlewareStack(
         URLRouter([
-            re_path(r"^ws-calls/(?P<tg_type>[^/]+)/(?P<label>[^/]+)", RadioConsumer.as_asgi()),
-            re_path(r"^ws-calls/(?P<tg_type>[^/]+)/$", RadioConsumer.as_asgi()),
-            re_path(r"^ws-calls/$", RadioConsumer.as_asgi())
+            re_path(r"^ws-calls/(?P<tg_type>[^/]+)/(?P<label>[^/]+)/?$", RadioConsumer.as_asgi()),
+            re_path(r"^ws-calls/", RadioConsumer.as_asgi()),
         ])
     ),
 })
+
+# Older docs and configs start daphne with trunk_player.asgi:channel_layer
+channel_layer = application

@@ -13,6 +13,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.core.exceptions import ImproperlyConfigured
 from django.db.utils import OperationalError
 
 import radio.choices as choice
@@ -295,51 +296,43 @@ class Transmission(models.Model):
         super(Transmission, self).save(*args, **kwargs)
 
 
-@receiver(post_save, sender=Transmission, dispatch_uid="send_mesg")
-def send_mesg(sender, instance, **kwargs):
+def send_live_call(groups, payload):
+    """Tell browsers listening to any of groups about a new call
+
+    A failure here (redis down, ...) is logged, it should never stop the
+    transmission from being saved.
+    """
     from channels.layers import get_channel_layer
     channel_layer = get_channel_layer()
-    #log.debug('Hit post save()')
-    #log.debug('DATA %s', json.dumps(instance.as_dict()))
-    #log.error('DATA %s', json.dumps(instance.as_dict()))
-    tg = TalkGroup.objects.get(pk=instance.talkgroup_info.pk)
-    tg.last_transmission = timezone.now()
-    tg.save()
-    groups = tg.scanlist_set.all()
+    if channel_layer is None:
+        return
+    message = {'type': 'radio_message', 'text': json.dumps(payload)}
+    try:
+        for group in groups:
+            async_to_sync(channel_layer.group_send)(group, message)
+    except Exception:
+        log.exception('Unable to send live call notification')
+
+
+@receiver(post_save, sender=Transmission, dispatch_uid="send_mesg")
+def send_mesg(sender, instance, created, raw=False, **kwargs):
+    if not created or raw:
+        return
+    tg = instance.talkgroup_info
+    TalkGroup.objects.filter(pk=tg.pk).update(last_transmission=timezone.now())
+    scan_slugs = [slug for slug in tg.scanlist_set.values_list('slug', flat=True) if slug]
 
     payload = instance.as_dict()
-    payload["scan-groups"] = [g.slug for g in groups]
-    # for g in groups:        
-    #     async_to_sync(channel_layer.group_send)(
-    #     'livecall-scan-'+g.slug, {
-    #         'type':'radio_message',
-    #         'text': json.dumps(payload)
-    #     })
+    payload["scan-groups"] = scan_slugs
 
+    # Every call goes to the default scan list, any scan lists it is part
+    # of and its talkgroup page. See radio/consumers.py
+    groups = ['livecall-scan-default']
+    groups += ['livecall-scan-{}'.format(slug) for slug in scan_slugs if slug != 'default']
+    if tg.slug:
+        groups.append('livecall-tg-{}'.format(tg.slug))
+    send_live_call(groups, payload)
 
-    # async_to_sync(channel_layer.group_send)(
-    #     'livecall-tg-' + tg.slug, {
-    #         'type':'radio_message',
-    #         'text': json.dumps(payload)
-    #     })
-
-    
-    # Send notification to default group all the time
-    async_to_sync(channel_layer.group_send)(
-        'livecall-scan-default', {
-            'type':'radio_message',
-            'text': json.dumps(payload)
-        })
-
-
-    #def save(self, *args, **kwargs):
-    #    try:
-    #        self.talkgroup_info = TalkGroup.objects.get(dec_id=self.talkgroup)
-    #    except TalkGroup.DoesNotExist:
-    #        new_tg = TalkGroup(dec_id=self.talkgroup, alpha_tag='UNK')
-    #        new_tg.save
-    #        self.talkgroup_info = TalkGroup.objects.get(dec_id=self.talkgroup)
-    #    super(Transmission, self).save(*args, **kwargs)
 
 class TranmissionUnit(models.Model):
     transmission = models.ForeignKey(Transmission, on_delete=models.CASCADE)
@@ -351,6 +344,14 @@ class TranmissionUnit(models.Model):
 
     def __str__(self):
         return '{} on {}'.format(self.unit,self.transmission)
+
+
+@receiver(post_save, sender=TranmissionUnit, dispatch_uid="send_unit_mesg")
+def send_unit_mesg(sender, instance, created, raw=False, **kwargs):
+    if not created or raw or not instance.unit.slug:
+        return
+    payload = instance.transmission.as_dict()
+    send_live_call(['livecall-unit-{}'.format(instance.unit.slug)], payload)
 
 class ScanList(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

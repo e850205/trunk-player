@@ -27,3 +27,6 @@ daphne.lock
 *.log*
 running.pid
 .vscode/settings.json
+.env
+db.sqlite3
+dump.rdb

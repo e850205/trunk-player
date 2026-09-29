@@ -1,6 +1,3 @@
-import random
-import json
-
 from django import template
 from django.conf import settings
 
@@ -9,7 +6,8 @@ from radio import __fullversion__ as VERSION
 
 register = template.Library()
 
-# Build json value to pass as js config
+# Build the settings passed to the page javascript as js_config,
+# output it with the json_script filter
 @register.simple_tag()
 def trunkplayer_js_config(user):
     js_settings = getattr(settings, 'JS_SETTINGS', None)
@@ -28,4 +26,4 @@ def trunkplayer_js_config(user):
     js_json['radio_change_unit'] = user.has_perm('radio.change_unit')
     js_json['download_audio'] = user.has_perm('radio.download_audio')
     js_json['VERSION'] = VERSION
-    return json.dumps(js_json)
+    return js_json

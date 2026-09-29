@@ -1,0 +1,14 @@
+.git
+.github
+env/
+venv/
+.venv/
+static/
+logs/*.log
+db.sqlite3
+.env
+trunk_player/settings_local.py
+audio_files/*
+!audio_files/point1sec.mp3
+!audio_files/MotoTalkPermit.mp3
+docs/_build/

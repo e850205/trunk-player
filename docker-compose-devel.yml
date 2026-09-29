@@ -1,28 +1,48 @@
-version: '3.7'
+# Development: runs the code from this folder with auto reload on port 8000
+#   docker compose -f docker-compose-devel.yml up --build
+# then create a login with
+#   docker compose -f docker-compose-devel.yml run --rm app ./manage.py createsuperuser
 
 services:
   db:
-    image: postgres
+    image: postgres:16
     environment:
-      - POSTGRES_PASSWORD=password1234
+      - POSTGRES_DB=trunk_player
+      - POSTGRES_USER=trunk_player
+      - POSTGRES_PASSWORD=devpassword
+    volumes:
+      - pgdata-devel:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U trunk_player -d trunk_player"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7
 
   app:
     build:
       context: .
     ports:
-      - "8008:80"
+      - "8000:8000"
     volumes:
       - .:/app/trunkplayer
-    # command: 
-    # entrypoint: sh -c "python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     environment:
       - DEBUG=1
-      - SQL_ENGINE=django.db.backends.postgresql_psycopg2
-      - SQL_DATABASE=tr
-      - SQL_USER=postgres
-      - SQL_PASSWORD=password1234
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=trunk_player
+      - SQL_USER=trunk_player
+      - SQL_PASSWORD=devpassword
       - SQL_HOST=db
-      - MIGRATE_DB=1
+      - REDIS_URL=redis://redis:6379
+      - ADD_TRANS_AUTH_TOKEN=devtoken
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
 
+volumes:
+  pgdata-devel:

@@ -94,6 +94,11 @@ urlpatterns += [
     url(r'^api_v2/import_transmission/$', views.import_transmission, name='import_transmission'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# Serve the audio files when using the development server (manage.py runserver),
+# in production nginx serves them. See docs/install.rst
+if settings.DEBUG and settings.AUDIO_URL_BASE.startswith('/') and not settings.AUDIO_URL_BASE.startswith('//'):
+    urlpatterns += static(settings.AUDIO_URL_BASE, document_root=settings.MEDIA_ROOT)
+
 if getattr(settings, 'SHOW_STRIPE_PLANS', False):
     urlpatterns = urlpatterns + [ url(r'^plans/cancel/$', views.cancel_plan, name='cancel-plan') ]
     urlpatterns = urlpatterns + [ url(r'^plans/$', views.plans, name='plans') ]
