@@ -1,28 +1,21 @@
-<div class="navbar navbar-default navbar-footer navbar-fixed-bottom">
-    <div class="container">
-        <span class="footer-audio-control">
-<span id="foot-play-button" style="display: none" class="play-menu">
-
-<button type="button" class="btn btn-primary start-btn" onclick="start_scanner()"><i class="fa fa-play fa-fw"></i> Start Scanner</button>
-<button type="button" class="btn btn-primary stop-btn" onclick="stop_scanner()"><i class="fa fa-stop fa-fw"></i> Stop Scanner</button>
-<!--
-<div class="btn-group dropup">
-<a class="btn btn-primary start-btn" href="#"><i class="fa fa-play fa-fw"></i> Start Scaner</a>
-  <a class="btn btn-primary dropdown-toggle start-btn" data-toggle="dropdown" href="#">
-    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-  </a>
-  <ul class="dropdown-menu">
-    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
-    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
-    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
-    <li class="divider"></li>
-    <li><a href="#"><i class="fa fa-unlock"></i> Make admin</a></li>
-  </ul>
-</div> -->
-</span>
-
-</span>
-        <span class="footer-login">{% if user.is_authenticated %}<form method="post" action="{% url 'logout' %}" class="logout-form">{% csrf_token %}<input type="hidden" name="next" value="{{ request.path }}"><button type="submit" class="btn btn-link">Log Out</button></form>{% else %}<a href="{% url 'login' %}?next={{ request.path | urlencode }}">Login/Create an Account</a>{% endif %}</span>
+{# Now-playing bar, trunkplayer.js shows it on pages that can play calls #}
+<div class="deck" id="deck" role="region" aria-label="Now playing" hidden>
+  <button type="button" class="big-play" id="deck-play" aria-label="Play">
+    <svg width="22" height="22" aria-hidden="true"><use href="#i-play"/></svg>
+  </button>
+  <div class="lcd" aria-live="polite">
+    <div class="lcd-tag" id="lcd-tag">Scanner idle</div>
+    <div class="lcd-side"><b id="lcd-dec"></b></div>
+    <div class="lcd-desc" id="lcd-desc">Press play on a call, or turn on auto-play</div>
+    <div class="lcd-side" id="lcd-freq"></div>
+  </div>
+  <div class="scrub">
+    <div class="progress" id="deck-progress" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-fill" id="deck-progress-fill"></div>
     </div>
+    <div class="times"><span id="jp1_c_time">0:00</span><span id="jp1_duration">0:00</span></div>
+  </div>
+  <button type="button" class="switch scanner-switch" role="switch" aria-checked="false">
+    <span class="track"></span><span class="switch-text">Auto-play new calls</span>
+  </button>
 </div>
-

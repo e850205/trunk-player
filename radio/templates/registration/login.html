@@ -1,57 +1,38 @@
 {% extends "radio/site_base.html" %}
 {% load radio_extras %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
-{% block main-body %}
 {% load socialaccount %}
-<div class="container">
-        <div class="row">
-<div class="col-xs-12">
+{% block main-body %}
 {% get_setting 'OPEN_SITE' as open_site %}
 {% get_setting 'ALLOW_GOOGLE_SIGNIN' as allow_google %}
-{% if form.errors %}
-<p></p>
-<div class="alert alert-danger">
-Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>.{% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>.{% endif %}
-</div>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login.</p>
+<div class="auth-layout">
+  <div class="card">
+    <h1 class="page-title">Log in</h1>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+    Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>.{% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>.{% endif %}
+    </div>
     {% endif %}
-{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table border="0">
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+    {% if next and user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To continue, log in with an account that has access.</p>
+    {% endif %}
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" /> <big> {% if allow_google %}OR <a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png"></a>{% endif %} OR {% if open_site %}</big> <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a>{% endif %}
-</form>
-{% if open_site %}
-<h2>Help</h2>
-<p>If you have any questions or comments you can email us at <a href="mailto:{% get_setting 'SITE_EMAIL' %}">{% get_setting 'SITE_EMAIL' %}</a>.</p>
-{% endif %}
-{# Assumes you setup the password_reset view in your URLconf #}
-<!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
-{% if open_site %}<p><a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a></p>{% endif %}
-<p><a href="{% url 'account_reset_password' %}">Forgot my password</a></p>
-</div>
-</div>
+    <form method="post" action="{% url 'login' %}" class="form-stack">
+      {% csrf_token %}
+      <p>{{ form.username.label_tag }}{{ form.username }}</p>
+      <p>{{ form.password.label_tag }}{{ form.password }}</p>
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="form-actions">
+        <input type="submit" value="Log in">
+        {% if allow_google %}<a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png" alt="Sign in with Google"></a>{% endif %}
+      </div>
+    </form>
+    <hr>
+    <p><a href="{% url 'account_reset_password' %}">Forgot my password</a>{% if open_site %} · <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">Create an account</a>{% endif %}</p>
+    {% if open_site %}
+    <p class="muted">Questions or comments? Email <a href="mailto:{% get_setting 'SITE_EMAIL' %}">{% get_setting 'SITE_EMAIL' %}</a>.</p>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
 

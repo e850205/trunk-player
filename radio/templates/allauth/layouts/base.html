@@ -1,14 +1,12 @@
 {% extends "radio/site_base.html" %}
 {# Shows the django-allauth account pages (sign up, password reset, ...) inside the site layout #}
 {% block main-body %}
-<div class="container account-page">
-  <div class="row row-no-border">
-    <div class="col-xs-12 col-sm-10 col-md-8">
-      {% if messages %}
-      {% for message in messages %}<div class="alert alert-info">{{ message }}</div>{% endfor %}
-      {% endif %}
-      {% block content %}{% endblock %}
-    </div>
+<div class="auth-layout account-page">
+  <div class="card">
+    {% if messages %}
+    {% for message in messages %}<div class="alert alert-info">{{ message }}</div>{% endfor %}
+    {% endif %}
+    {% block content %}{% endblock %}
   </div>
 </div>
 {% endblock %}

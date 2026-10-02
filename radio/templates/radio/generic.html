@@ -1,85 +1,49 @@
 {% extends "radio/site_base.html" %}
 {% load radio_extras %}
 {% load socialaccount %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
-
 {% block main-body %}
 {% get_setting 'OPEN_SITE' as open_site %}
 {% get_setting 'ALLOW_GOOGLE_SIGNIN' as allow_google %}
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-8 col-lg-8">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
+<div class="generic-layout{% if not user.is_authenticated %} with-login{% endif %}">
+  <div class="card prose">
 {{ html_object.bodytext|safe }}
-		</div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+  </div>
 {% if not user.is_authenticated %}
-
-{% if form.errors %}
-<p></p>
-<div class="alert alert-danger">
-Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>. {% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>. {% endif %}
-</div>
-{% endif %}
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login.</p>
+  <aside class="card">
+    {% if form.errors %}
+    <div class="alert alert-danger">
+    Your username and password didn't match. Please try again. If you have an account you can <a href="{% url 'account_reset_password' %}">recover your password</a>.{% if open_site %} Or create a <a href="{% url 'account_signup' %}{% if next %}?next={{ next}}{% endif %}">new account</a>.{% endif %}
+    </div>
     {% endif %}
+
+    {% if next %}
+    <p>Please log in.</p>
+    {% endif %}
+
+    <h2>Log in</h2>
+    <form method="post" action="{% url 'login' %}" class="form-stack">
+      {% csrf_token %}
+      <p><label for="id_username">Username</label><input id="id_username" maxlength="254" name="username" type="text" autocomplete="username"></p>
+      <p><label for="id_password">Password</label><input id="id_password" name="password" type="password" autocomplete="current-password"></p>
+      <input type="hidden" name="next" value="{{ next }}">
+      <div class="form-actions">
+        <input type="submit" value="Log in">
+        {% if allow_google %}<a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png" alt="Sign in with Google"></a>{% endif %}
+      </div>
+    </form>
+    {% if open_site %}
+    <hr>
+    <h2>Create a free account</h2>
+    <form method="post" action="{% url 'account_signup' %}" class="form-stack">
+      {% csrf_token %}
+      <p><label for="id_signup_username">Username</label><input id="id_signup_username" maxlength="30" name="username" type="text" autocomplete="username" required></p>
+      <p><label for="id_email">Email address</label><input id="id_email" name="email" type="email" autocomplete="email" required></p>
+      <p><label for="id_password1">Password</label><input id="id_password1" name="password1" type="password" autocomplete="new-password" required></p>
+      <p><label for="id_password2">Password again</label><input id="id_password2" name="password2" type="password" autocomplete="new-password" required></p>
+      <div class="form-actions"><input type="submit" value="Create account"></div>
+    </form>
+    {% endif %}
+  </aside>
 {% endif %}
-
-<h2>Login</h2>
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table border="0">
-<tr>
-    <td><label for="id_username">Username:</label></td>
-    <td><input id="id_username" maxlength="254" name="username" type="text" /></td>
-</tr>
-<tr>
-    <td><label for="id_password">Password:</label></td>
-    <td><input id="id_password" name="password" type="password" /></td>
-</tr>
-</table>
-
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />{% if allow_google %} <big> OR <a href="{% provider_login_url "google" %}"><img src="/static/radio/img/btn_google_signin_dark_normal_web.png"></a> </big>{% endif %}
-</form>
-<hr>
-{% if open_site %}
-<h2>Create a free account</h2>
-<form method="post" action="{% url 'account_signup' %}">
-{% csrf_token %}
-<table border="0">
-     <tr><th><label for="id_username">Username:</label></th><td><input id="id_username" max_length="30" name="username" type="text" required /></td></tr>
-<tr><th><label for="id_email">Email address:</label></th><td><input id="id_email" max_length="30" name="email" type="text" required /></td></tr>
-<tr><th><label for="id_password1">Password:</label></th><td><input id="id_password1" max_length="30" name="password1" type="password" required /></td></tr>
-<tr><th><label for="id_password2">Password (again):</label></th><td><input id="id_password2" max_length="30" name="password2" type="password" required /></td></tr>
-</table>
-<input type="submit" value="Register" />
-</form>
-{% endif %}
-
-
-
-{% endif %}
-
-                  </div>
-
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
 </div>
 {% endblock %}

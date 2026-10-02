@@ -2,12 +2,14 @@ import os
 import re
 import json
 import mimetypes
+import subprocess
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404, FileResponse, HttpResponseBadRequest
+from django.http import Http404, FileResponse, HttpResponseBadRequest, JsonResponse
 from django.views.generic import ListView
 from django.db import models
-from django.db.models import Q
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.db.models import Count, Q
+from django.views.decorators.csrf import csrf_protect, csrf_exempt, ensure_csrf_cookie
+from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
@@ -79,7 +81,8 @@ def userProfile(request):
 
 def agencyList(request):
     template = 'radio/agency_list.html'
-    agencies = Agency.objects.exclude(short='_DEF_').order_by('name').prefetch_related(
+    agencies = Agency.objects.exclude(short='_DEF_').order_by('name').annotate(
+        talkgroup_count=Count('talkgroups')).prefetch_related(
         'fire_service', 'police_service', 'ems_service')
     for agency in agencies:
         # Cities this agency covers, see City.fire_service etc
@@ -98,8 +101,9 @@ def cityListView(request):
 def cityDetailView(request, slug):
     template = 'radio/city_detail.html'
     query_data = get_object_or_404(City, slug=slug, visible=True)
+    talkgroups = visible_talkgroups(request.user).filter(city=query_data).select_related('agency')
 
-    return render(request, template, {'object': query_data})
+    return render(request, template, {'object': query_data, 'talkgroups': talkgroups})
 
 
 def TransDetailView(request, slug):
@@ -234,21 +238,34 @@ def restrict_talkgroups(request, query_data):
     return True, query_data.filter(talkgroup_info__in=visible_talkgroups(request.user))
 
 
+# Loaded with each call so the API does not query them row by row
+CALL_RELATED = ('talkgroup_info', 'talkgroup_info___service_type')
+
+
+def scan_list_talkgroups(names):
+    """Talkgroups in one or more scan lists, names is slugs joined with '+'.
+
+    'default' is every talkgroup. Returns None if any scan list does not exist.
+    """
+    slugs = [slug for slug in names.lower().split('+') if slug]
+    if not slugs:
+        return None
+    if 'default' in slugs:
+        return TalkGroup.objects.all()
+    scanlists = ScanList.objects.filter(slug__in=slugs)
+    if scanlists.count() != len(set(slugs)):
+        return None
+    return TalkGroup.objects.filter(scanlist__in=scanlists).distinct()
+
+
 class ScanViewSet(generics.ListAPIView):
     serializer_class = TransmissionSerializer
 
     def get_queryset(self):
-        scanlist = self.kwargs['filter_val']
-        try:
-            sl = ScanList.objects.get(slug__iexact=scanlist)
-        except ScanList.DoesNotExist:
-            if scanlist == 'default':
-                tg = TalkGroup.objects.all()
-            else:
-                raise NotFound('Scan list {} does not exist'.format(scanlist))
-        else:
-            tg = sl.talkgroups.all()
-        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units').prefetch_related('talkgroup_info')
+        tg = scan_list_talkgroups(self.kwargs['filter_val'])
+        if tg is None:
+            raise NotFound('Scan list {} does not exist'.format(self.kwargs['filter_val']))
+        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units').select_related(*CALL_RELATED)
         restricted, rc_data = restrict_talkgroups(self.request, rc_data) 
         return rc_data
 
@@ -259,7 +276,7 @@ class IncViewSet(generics.ListAPIView):
     def get_queryset(self):
         inc = self.kwargs['filter_val']
         try:
-            rc_data = visible_incidents(self.request.user).get(slug__iexact=inc).transmissions.all()
+            rc_data = visible_incidents(self.request.user).get(slug__iexact=inc).transmissions.prefetch_related('units').select_related(*CALL_RELATED)
         except Incident.DoesNotExist:
             raise NotFound('Incident {} does not exist'.format(inc))
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
@@ -284,7 +301,7 @@ class TalkGroupFilterViewSet(generics.ListAPIView):
             q |= Q(common_name__iexact=stg)
             q |= Q(slug__iexact=stg)
         tg = TalkGroup.objects.filter(q)
-        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units')
+        rc_data = Transmission.objects.filter(talkgroup_info__in=tg).prefetch_related('units').select_related(*CALL_RELATED)
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -299,7 +316,7 @@ class UnitFilterViewSet(generics.ListAPIView):
         for s_unit in search_unit:
             q |= Q(slug__iexact=s_unit)
         units = Unit.objects.filter(q)
-        rc_data = Transmission.objects.filter(units__in=units).prefetch_related('units').distinct()
+        rc_data = Transmission.objects.filter(units__in=units).prefetch_related('units').select_related(*CALL_RELATED).distinct()
         restricted, rc_data = restrict_talkgroups(self.request, rc_data)
         return rc_data
 
@@ -310,7 +327,11 @@ class TalkGroupList(ListView):
     template_name = 'radio/talkgroup_list.html'
 
     def get_queryset(self):
-        tg = visible_talkgroups(self.request.user)
+        tg = visible_talkgroups(self.request.user).select_related('system', 'agency', 'city')
+        if self.request.GET.get('agency'):
+            tg = tg.filter(agency__short=self.request.GET['agency'])
+        if self.request.GET.get('city'):
+            tg = tg.filter(city__slug=self.request.GET['city'])
         if self.request.GET.get('recent', None):
             tg = tg.order_by('-recent_usage', '-last_transmission')
         return tg
@@ -356,10 +377,10 @@ def ScanDetailsList(request, name):
     scanlist = ScanList.objects.filter(slug__iexact=name).first() or ScanList.objects.filter(name=name).first()
     if scanlist:
         query_data = scanlist.talkgroups.all()
-    elif name == 'default':
-        query_data = TalkGroup.objects.all()
     else:
-        raise Http404
+        query_data = scan_list_talkgroups(name)
+        if query_data is None:
+            raise Http404
     query_data = query_data.filter(pk__in=visible_talkgroups(request.user).values('pk'))
     return render(request, template, {'object_list': query_data, 'scanlist': scanlist})
 
@@ -445,3 +466,37 @@ def import_transmission(request):
         TranmissionUnit.objects.create(transmission=t, unit=u, order=count)
 
     return HttpResponse("Transmission added [{}]".format(t.pk))
+
+
+def run_recorder_switch(*args):
+    return subprocess.run([settings.RECORDER_SWITCH_SCRIPT] + list(args), capture_output=True, text=True,
+                          timeout=30, start_new_session=True)
+
+
+@ensure_csrf_cookie
+@require_http_methods(['GET', 'POST'])
+def recorder_system(request):
+    """Which system the local trunk-recorder is listening to, POST system=<name> to change it.
+
+    Only there when RECORDER_SWITCH_SCRIPT is set, see utility/trunk-recoder/switch-system.sh
+    """
+    if not getattr(settings, 'RECORDER_SWITCH_SCRIPT', None):
+        raise Http404
+    systems = getattr(settings, 'RECORDER_SYSTEMS', [])
+    can_switch = request.user.is_staff or getattr(settings, 'RECORDER_SWITCH_OPEN', False)
+    if request.method == 'POST':
+        if not can_switch:
+            return JsonResponse({'error': 'Only staff can change the recorded system'}, status=403)
+        name = request.POST.get('system', '')
+        if name not in dict(systems):
+            return JsonResponse({'error': 'Unknown system {}'.format(name)}, status=400)
+        result = run_recorder_switch(name)
+        if result.returncode:
+            return JsonResponse({'error': result.stderr.strip() or 'Switching failed'}, status=500)
+    status = run_recorder_switch('status').stdout.split()
+    return JsonResponse({
+        'active': status[0] if status else '',
+        'running': '(not running)' not in ' '.join(status),
+        'can_switch': can_switch,
+        'systems': [{'name': name, 'label': label} for name, label in systems],
+    })

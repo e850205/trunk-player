@@ -1,25 +1,36 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block main-body %}
-<div class="container">
-  <div class="row row-no-border">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-      </div>
-      <h2>{{ object.name }}</h2>
-      {% if object.fire_service %}<p><strong>Fire: </strong>{% include "radio/agency_link.html" with agency=object.fire_service %}</p>{% endif %}
-      {% if object.police_service %}<p><strong>Police: </strong>{% include "radio/agency_link.html" with agency=object.police_service %}</p>{% endif %}
-      {% if object.ems_service %}<p><strong>EMS: </strong>{% include "radio/agency_link.html" with agency=object.ems_service %}</p>{% endif %}
-      {% if object.url %}<p><a href="{{ object.url }}" rel="noopener">City website</a></p>{% endif %}
-      <p><a href="{% url 'city_list' %}">All cities</a></p>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      {% if object.google_maps_url %}
-      <iframe class="city-map" src="{{ object.google_maps_url }}" height="300" frameborder="0" allowfullscreen></iframe>
-      {% endif %}
-    </div>
+<div class="page-head">
+  <div>
+    <div class="label">City</div>
+    <h1 class="page-title">{{ object.name }}</h1>
   </div>
-  <hr>
-  <footer><p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p></footer>
+  <div class="toolbar"><a class="btn" href="{% url 'city_list' %}">All cities</a></div>
 </div>
+<div class="card-grid">
+  <div class="card">
+    <dl class="details">
+      {% if object.fire_service %}<dt>Fire</dt><dd>{% include "radio/agency_link.html" with agency=object.fire_service %}</dd>{% endif %}
+      {% if object.police_service %}<dt>Police</dt><dd>{% include "radio/agency_link.html" with agency=object.police_service %}</dd>{% endif %}
+      {% if object.ems_service %}<dt>EMS</dt><dd>{% include "radio/agency_link.html" with agency=object.ems_service %}</dd>{% endif %}
+      {% if object.url %}<dt>Website</dt><dd><a href="{{ object.url }}" rel="noopener">City website</a></dd>{% endif %}
+    </dl>
+  </div>
+  {% if object.google_maps_url %}
+  <iframe class="city-map" src="{{ object.google_maps_url }}" title="Map of {{ object.name }}" allowfullscreen></iframe>
+  {% endif %}
+</div>
+{% if talkgroups %}
+<h2>Talkgroups</h2>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th>ID</th><th>Alpha tag</th><th>Description</th><th>Agency</th></tr></thead>
+<tbody>
+{% for tg in talkgroups %}
+  <tr><td class="num">{{ tg.dec_id }}</td><td class="tag"><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.description|default_if_none:"" }}</td><td>{% if tg.agency %}<a href="/talkgroups/?agency={{ tg.agency.short|urlencode }}">{{ tg.agency.name }}</a>{% endif %}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endif %}
 {% endblock %}

@@ -1,32 +1,26 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
 {% block main-body %}
-<div class="container">
-	<div class="row">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-<h2>Talkgroups in {% if scanlist %}<a href="{{ scanlist.get_absolute_url }}">{{ scanlist.description }}</a>{% else %}<a href="/scan/default/">All Talkgroups</a>{% endif %}</h2>
-<table>
+<div class="page-head">
+  <div>
+    <div class="label">Talkgroups in scan list</div>
+    <h1 class="page-title">{% if scanlist %}{{ scanlist.description }}{% else %}All talkgroups{% endif %}</h1>
+  </div>
+  <div class="toolbar">
+    <a class="btn btn-primary" href="{% if scanlist %}{{ scanlist.get_absolute_url }}{% else %}/scan/default/{% endif %}"><svg width="16" height="16" aria-hidden="true"><use href="#i-play"/></svg>Listen to this list</a>
+  </div>
+</div>
+<div class="table-wrap">
+<table class="data-table">
 <thead>
-<tr><th>ID</th><th>Alpha</th><th>Short</th><th>Description</th><th>Notes</th></tr>
+<tr><th>ID</th><th>Alpha tag</th><th>Short</th><th>Description</th><th>Notes</th></tr>
 </thead>
 <tbody>
 {% for tg in object_list %}
-   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
+   <tr><td class="num">{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td class="tag"><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name|default_if_none:"" }}</td><td>{{ tg.description|default_if_none:"" }}</td><td class="muted">{{ tg.comments|default_if_none:"" }}</td></tr>
+{% empty %}
+   <tr><td colspan="5" class="muted">This scan list has no talkgroups.</td></tr>
 {% endfor %}
 </tbody>
 </table>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
 </div>
 {% endblock %}

@@ -1,39 +1,39 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
 {% block main-body %}
-<div class="container">
-        <div class="row-no-border row">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-        <div class="user-profile-user">
-           <h3>User Profile</h3>
-        <form method="POST">
-        {% csrf_token %}
-        <table class="profile-table">
-        {{ profile_form }}
-        </table>
-        <input type="submit" value="Update Info">
-        </form>
-	</div>
-        <div class="user-profile-user">
-           <h3>My Scan Lists <small><a href="{% url 'user_scanlist' %}">New</a></small></h3>
-           {% for scan_list in scan_lists %}
-           <p class="user-scan"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ scan_list.name }} <span class="user-scan-link">{% if scan_list.public %}<i class="fa fa-globe" aria-hidden="true" title="Global List"></i>{% endif %} <a href="{{ scan_list.get_absolute_url }}" title="Listen"><i class="fa fa-play" aria-hidden="true"></i></a></span></p>
-           <p><span class="user-scan-tg-list">[ {% for tg in scan_list.talkgroups.all %}{{ tg.alpha_tag }}, {% endfor %} ]</span></p>
-           {% empty %}<p>No scan lists yet, <a href="{% url 'user_scanlist' %}">make one</a></p>
-           {% endfor %}
-        </div>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+<div class="page-head">
+  <div>
+    <div class="label">Account</div>
+    <h1 class="page-title">{{ user.get_username }}</h1>
+  </div>
+</div>
+<div class="card-grid">
+  <div class="card">
+    <h2>Profile</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <table class="form-table">
+      {{ profile_form }}
+      </table>
+      <div class="form-actions"><input type="submit" value="Save profile"></div>
+    </form>
+  </div>
+  <div class="card">
+    <div class="page-head">
+      <h2>My scan lists</h2>
+      <a class="btn" href="{% url 'user_scanlist' %}"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg>New</a>
+    </div>
+    {% for scan_list in scan_lists %}
+    <div class="scan-item">
+      <div class="scan-item-head">
+        <a href="{{ scan_list.get_absolute_url }}" class="play" title="Listen to {{ scan_list.name }}" aria-label="Listen to {{ scan_list.name }}"><svg width="14" height="14" aria-hidden="true"><use href="#i-play"/></svg></a>
+        {{ scan_list.name }}
+        {% if scan_list.public %}<span class="pill pill-quiet">Shared</span>{% endif %}
+      </div>
+      <div class="scan-item-tgs">{% for tg in scan_list.talkgroups.all %}{{ tg.alpha_tag }}{% if not forloop.last %} · {% endif %}{% endfor %}</div>
+    </div>
+    {% empty %}
+    <p class="muted">No scan lists yet. <a href="{% url 'user_scanlist' %}">Make one</a> to listen to just the talkgroups you care about.</p>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

@@ -13,7 +13,9 @@ from .models import *
 
 class TalkGroupAdmin(admin.ModelAdmin):
     search_fields = ['alpha_tag', 'description', 'dec_id']
-    list_display = ('alpha_tag', 'description', 'dec_id', 'system')
+    list_display = ('alpha_tag', 'description', 'dec_id', 'system', 'agency', 'city')
+    list_filter = ('system', 'agency', 'city')
+    autocomplete_fields = ('agency', 'city')
     save_on_top = True
 
 
@@ -181,6 +183,8 @@ class CityForms(forms.ModelForm):
 
 class CityAdmin(admin.ModelAdmin):
     form = CityForms
+    search_fields = ['name']
+    list_display = ('name', 'police_service', 'fire_service', 'ems_service', 'visible')
 
 class MessagePopUpAdmin(admin.ModelAdmin):
     list_display = ('mesg_type', 'mesg_html', 'active')
@@ -200,7 +204,12 @@ else:
 admin.site.register(MenuScanList)
 admin.site.register(MenuTalkGroupList)
 admin.site.register(Source, SourceAdmin)
-admin.site.register(Agency)
+class AgencyAdmin(admin.ModelAdmin):
+    search_fields = ['name', 'short']
+    list_display = ('name', 'short')
+
+
+admin.site.register(Agency, AgencyAdmin)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(System)

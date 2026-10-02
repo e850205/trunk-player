@@ -1,0 +1,334 @@
+dec_id,alpha_tag,description,mode,service_type,agency,agency_short,city
+5001,NOR DISP 1 (ENC),Northern Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5021,N/E DISP 1 (ENC),Northeast Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5025,EAS DISP 1 (ENC),Eastern Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5027,EAS DISP 2 (ENC),Eastern Dispatch 2 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5029,S/E DISP 1 (ENC),Southeast Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5033,CEN DISP 1 (ENC),Central Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5037,WES DISP 1 (ENC),Western Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5041,SOU DISP 1 (ENC),Southern Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5045,MID DISP 1 (ENC),Mid-City Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+5049,N/W DISP 1 (ENC),Northwest Dispatch 1 (Encrypted),E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+2813,I TAC G,Investigations Tac G,E,Law Tac,San Diego Police Department,SDPD,San Diego
+2907,PEO INQUIRY,Parking Enforcement Inquiry,E,Law Dispatch,San Diego Police Department,SDPD,San Diego
+2911,NOR TAC,Northern Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2913,NE TAC,Northeast Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2915,EAS TAC,Eastern Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2917,SE TAC,Southeast Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2919,CEN TAC,Central Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2921,WES TAC,Western Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2923,SOU TAC,Southern Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2925,MID TAC,Mid City Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+2927,NW TAC,Northwest Tac (Encrypted),E,Law Tac,San Diego Police Department,SDPD,San Diego
+3009,INVTC CALL,Investigations Tac Calling,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3011,INVTC 1,INV Tac 1,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3013,INVTC 2,INV Tac 2,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3015,INVTC 3,INV Tac 3,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3017,INVTC 4,INV Tac 4,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3019,INVTC 5,INV Tac 5,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3021,INVTC 6,INV Tac 6,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3023,INVTC 7,INV Tac 7,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3025,INVTC 8,INV Tac 8,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3027,INVTC 9,INV Tac 9,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3029,INVTC 10,INV Tac 10,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3031,INVTC 11,INV Tac 11,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3033,INVTC 12,INV Tac 12,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3035,INVTC 13,INV Tac 13,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3075,GANGS 3D,Gangs 3D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3077,GANGS 4D,Gangs 4D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3079,GANGS 5D,Gangs 5D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3081,GANGS 6D,Gangs 6D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3085,NARC 4D,Narcotics 4D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3087,NARC 5D,Narcotics 5D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3089,NARC 6D,Narcotics 6D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3091,NARC 7D,Narcotics 7D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3093,NARC 8D,Narcotics 8D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3095,NTF 2D,Narcotics Task Force 2D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3103,SWAT 2D,SWAT 2D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3107,CIU 2D,Criminal Intelligence Unit 2D Encrypted,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3111,ROBBERY 3D,Robbery 3D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3113,ROBBERY 4D,Robbery 4D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3117,VICE 3D,Vice 3D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3123,VICE 4D,Vice 4D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3124,INV TAC 14D,INV Tac 14D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3125,INV TAC 15D,INV Tac 15D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3127,INV TAC 16D,INV Tac 16D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3129,INV TAC 17D,INV Tac 17D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3131,INV TAC 18D,INV Tac 18D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3141,INV TAC 23D,INV Tac 23D,E,Law Tac,San Diego Police Department,SDPD,San Diego
+3501,PD INQRY 1 (ENC),Inquiry 1 (Encrypted),E,Law Talk,San Diego Police Department,SDPD,San Diego
+5121,PD-EM1,Police Emergency Management 1,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5123,PD-EM2,Police Emergency Management 2,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5125,PD-EM3,Police Emergency Management 3,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5127,PD-EM4,Police Emergency Management 4,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5129,PD-EM5,Police Emergency Management 5,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5131,PD-EM6,Police Emergency Management 6,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5133,PD-EM7,Police Emergency Management 7,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5135,PD-EM8,Police Emergency Management 8,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5137,PD-EM9,Police Emergency Management 9,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5139,PD-EM10,Police Emergency Management 10,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5141,PD-EM11,Police Emergency Management 11,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5143,PD-EM12,Police Emergency Management 12,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5145,PD-EM13,Police Emergency Management 13,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5147,PD-EM14,Police Emergency Management 14,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5149,PD-EM15,Police Emergency Management 15,E,Law Talk,San Diego Police Department,SDPD,San Diego
+5151,PD-EM16,Police Emergency Management 16,E,Law Talk,San Diego Police Department,SDPD,San Diego
+13,NOR DISP 1,Northern Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+17,NOR DISP 2,Northern Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+27,TAC 1,Tac 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+33,TAC 2,Tac 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+37,TAC 3,Tac 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+43,TAC 4,Tac 4,D,Law Talk,San Diego Police Department,SDPD,San Diego
+47,TAC 5,Tac 5,D,Law Talk,San Diego Police Department,SDPD,San Diego
+53,TAC 6,Tac 6,D,Law Talk,San Diego Police Department,SDPD,San Diego
+57,TAC 7,Tac 7,D,Law Talk,San Diego Police Department,SDPD,San Diego
+63,CITYTAC 1,City Tac 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+67,CITYTAC 2,City Tac 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+69,CITYTAC 3,City Tac 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+71,MOTOR 1,Motor Unit 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+73,MOTOR 2,Motor Unit 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+81,SOU DISP 1,Southern Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+85,SOU DISP 2,Southern Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+91,EAS DISP 1,Eastern Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+95,EAS DISP 2,Eastern Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+101,WES DISP 1,Western Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+105,WES DISP 2,Western Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+111,CEN DISP 1,Central Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+115,CEN DISP 2,Central Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+121,NE DISP 1,Northeast Dispatch 1 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+125,NE DISP 2,Northeast Dispatch 2 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+131,SE DISP 1,Southeast Dispatch 1 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+135,SE DISP 2,Southeast Dispatch 2 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+141,MID DISP 1,MidCity Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+145,MID DISP 2,MidCity Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+151,NCW DISP 1,North City West Dispatch 1 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+155,NCW DISP 2,North City West Dispatch 2 (Future Use),D,Law Talk,San Diego Police Department,SDPD,San Diego
+161,SWAT 1,SWAT 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+163,SWAT 2,SWAT 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+171,NARC 1,Narcotics 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+175,NARC 2,Narcotics 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+181,NARC 3,Narcotics 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+191,PATCH,Police Patch,D,Law Talk,San Diego Police Department,SDPD,San Diego
+201,CHP CALL,CHP Calling,D,Law Talk,San Diego Police Department,SDPD,San Diego
+205,SO CALL,SDSO Calling,D,Law Talk,San Diego Police Department,SDPD,San Diego
+209,OTH CALL,Other Calling,D,Law Talk,San Diego Police Department,SDPD,San Diego
+211,BP CALL,Border Patrol Calling,D,Law Talk,San Diego Police Department,SDPD,San Diego
+213,BORDER 1,Border 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+215,BORDER 2,Border 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+217,BORDER 3,Border 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+223,IAD 1,Internal Affairs 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+225,IAD 2,Internal Affairs 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+231,CIU 1,Criminal Intelligence Unit,D,Law Talk,San Diego Police Department,SDPD,San Diego
+237,SIU 1,SIU 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+239,SIU 2,SIU 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+243,AIR TAC 1,Air Tac 1 (ABLE),D,Law Talk,San Diego Police Department,SDPD,San Diego
+245,AIR TAC 2,Air Tac 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+249,Training 1,Training 1 (Police Academy),D,Law Talk,San Diego Police Department,SDPD,San Diego
+251,Training 2,Training 2 (Police Academy),D,Law Talk,San Diego Police Department,SDPD,San Diego
+253,Training 3,Training 3 (Police Academy),D,Law Talk,San Diego Police Department,SDPD,San Diego
+255,NTF,Narcotics Task Force,D,Law Talk,San Diego Police Department,SDPD,San Diego
+261,VICE 1,Vice 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+263,VICE 2,Vice 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+267,ENT 1,Emergency Negotiating Team 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+271,GANGS 1,Gangs 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+273,GANGS 2,Gangs 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+277,ROBBERY 1,Robbery 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+279,ROBBERY 2,Robbery 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+281,INQUIRY 2,Inquiry 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+285,PEO 1,Parking Enforcement Tac 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+287,PEO 2,Parking Enforcement Tac 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+289,PEO 3,Parking Enforcement Tac 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+815,PEO DISPATCH,Parking Enforcement Dispatch,D,Law Talk,San Diego Police Department,SDPD,San Diego
+973,EVT TAC 1,Events Tac 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+975,EVT TAC 2,Events Tac 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+977,EVT TAC 3,Events Tac 3,D,Law Talk,San Diego Police Department,SDPD,San Diego
+979,EVT TAC 4,Events Tac 4,D,Law Talk,San Diego Police Department,SDPD,San Diego
+981,EVT TAC 5,Events Tac 5,D,Law Talk,San Diego Police Department,SDPD,San Diego
+983,EVT TAC 6,Events Tac 6,D,Law Talk,San Diego Police Department,SDPD,San Diego
+985,EVT TAC 7,Events Tac 7,D,Law Talk,San Diego Police Department,SDPD,San Diego
+993,EVT DISP 1,Event Dispatch 1,D,Law Talk,San Diego Police Department,SDPD,San Diego
+995,EVT DISP 2,Event Dispatch 2,D,Law Talk,San Diego Police Department,SDPD,San Diego
+323,ADMIN 7A,Administration,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+313,DISP 7B,Fire Dispatch,D,Fire Dispatch,San Diego Fire-Rescue Department,SDFD,San Diego
+293,FD DISP Simul,Fire Dispatch Simulcast (Old TG 4688 on 800 MHz system),D,Fire Dispatch,San Diego Fire-Rescue Department,SDFD,San Diego
+327,SSC 7C,Ambulance System Status Controller (ALS Dispatch),D,EMS Dispatch,San Diego Fire-Rescue Department,SDFD,San Diego
+513,BLS 7D,BLS Medic Dispatch,D,EMS Dispatch,San Diego Fire-Rescue Department,SDFD,San Diego
+467,CMD 7E,Command 7E - Medical Command,D,EMS-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+463,TAC 7F,Tac 7F - Medical Primary Tac,D,EMS-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+473,TAC 7G,Tac 7G - Medical Secondary Tac,D,EMS-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+407,CMD 7H,Command 7H - Traffic Accidents,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+403,TAC 7-I,Tac 7I - Traffic Accidents Primary Tac,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+413,CMD 7J,Command 7J - Non 1st Alarm Response,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+353,TAC 7K,Tac 7K - Non 1st Alarm Response,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+363,TAC 7L,Tac 7L - Commonly used for Stadium Medics,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+347,TAC 7M,Tac 7M,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+321,7P SND EMG,Fire Emergency Activation Channel (7P/8P/9P),D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+427,CMD 8A,"Command 8A - Primary Fire Command, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+423,TAC 8B,"Tac 8B - Primary Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+433,TAC 8C,"Tac 8C - Primary Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+487,CMD 8D,"Command 8D - Secondary Fire Command, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+483,TAC 8E,"Tac 8E - Secondary Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+493,TAC 8F,"Tac 8F - Secondary Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+447,CMD 8G,"Command 8G - Vegetation Fire Command, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+443,TAC 8H,"Tac 8H - Vegetation Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+453,TAC 8-I,"Tac 8I - Vegetation Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+357,CMD 8J,"Command 8J - Tertiary Fire Command, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+457,TAC 8K,"Tac 8K - Tertiary Fire Tac, South of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+477,TAC 8L,Tac 8L,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+497,TAC 8M,Tac 8M - Air to Ground,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+373,CMD 9A,"Command 9A - Primary Fire Command, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+367,TAC 9B,"Tac 9B - Primary Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+377,TAC 9C,"Tac 9C - Primary Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+333,CMD 9D,"Command 9D - Secondary Fire Command, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+337,TAC 9E,"Tac 9E - Secondary Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+517,TAC 9F,"Tac 9F - Secondary Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+343,CMD 9G,"Command 9G - Vegetation Fire Command, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+383,TAC 9H,"Tac 9H - Vegetation Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+533,TAC 9-I,"Tac 9I - Vegetation Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+437,CMD 9J,"Command 9J - Tertiary Fire Command, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+537,TAC 9K,"Tac 9K - Tertiary Fire Tac, North of I-8",D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+543,TAC 9L,Tac 9L,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+547,TAC 9M,Tac 9M - Air to Ground,D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+551,24A B1 TRN,Battalion 1 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+553,24B B2 TRN,Battalion 2 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+555,24C B3 TRN,Battalion 3 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+557,24D B4 TRN,Battalion 4 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+559,24E B5 TRN,Battalion 5 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+561,24F B6 TRN,Battalion 6 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+563,24G B7 TRN,Battalion 7 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+565,24H B8 TRN,Battalion 8 Training,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+567,24I ECDC,Emergency Command and Data Center,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+569,24J TRN 1,Training 1,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+571,24K TRN 2,Training 2,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+573,24L NTC TRN 1,NTC Training 1,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+575,24M NTC TRN 2,NTC Training 2,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+577,24N NTC TRN 3,NTC Training 3,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1617,SD SCV,Scripps Memorial Hospital Chula Vista,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1621,SD SLJ,Scripps Hospital La Jolla,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1629,SD PAL,Palomar Hospital,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1605,SD UCSD,UCSD Hospital,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1613,SD MERCY,Scripps Mercy Hospital,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1609,SD SHARP,Sharp Memorial Hospital,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1625,SD GRSMT,Sharp Grossmont Hospital,D,Hospital,San Diego Fire-Rescue Department,SDFD,San Diego
+1581,FD EVT 1,Fire Event 1,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1583,FD EVT 2,Fire Event 2,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1585,FD EVT 3,Fire Event 3,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1587,FD EVT 4,Fire Event 4,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1589,FD EVT 5,Fire Event 5,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1591,FD EVT 6,Fire Event 6,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1593,FD EVT 7,Fire Event 7,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1595,FD EVT 8,Fire Event 8,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1667,SDFD-EVENT80,Fire Event 80,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1669,SDFD-EVENT81,Fire Event 81,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1671,SDFD-EVENT82,Fire Event 82,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1673,SDFD-EVENT83,Fire Event 83,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1675,SDFD-EVENT84,Fire Event 84,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1677,SDFD-EVENT85,Fire Event 85,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1679,SDFD-EVENT86,Fire Event 86,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1681,SDFD-EVENT87,Fire Event 87,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1683,SDFD-EVENT88,Fire Event 88,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1685,SDFD-EVENT89,Fire Event 89,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1687,SDFD-EVENT90,Fire Event 90,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1689,SDFD-EVENT91,Fire Event 91,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1691,SDFD-EVENT92,Fire Event 92,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1693,SDFD-EVENT93,Fire Event 93,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1695,SDFD-EVENT94,Fire Event 94,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+1697,SDFD-EVT EMG,Fire Event Emergency,D,Fire-Talk,San Diego Fire-Rescue Department,SDFD,San Diego
+297,LG DISP 1,Dispatch 1,D,Multi-Dispatch,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1205,LG DISP 2,Dispatch 2,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1207,LG DISP 3,Dispatch 3,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1209,LG INQUIRY,Inquiry,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1213,LG TAC 1 OB,Tac 1 - Ocean Beach,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1217,LG TAC 2 BAY,Tac 2 - Mission Bay,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1221,LG TAC 3 BSU,Tac 3 - Boating Safety Unit,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1225,LG TAC 4 BSU,Tac 4 - Boating Safety Unit,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1229,LG TAC 5 MB,Tac 5 - Mission Beach,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1233,LG TAC 6 PB,Tac 6 - Pacific Beach,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1237,LG TAC 7 COV,Tac 7 - La Jolla Cove,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1239,LG TAC 8 LJS,Tac 8 - La Jolla Shores,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1241,LG RIV COM,River Command,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1245,LG RIV TAC,River Tac,D,Multi-Tac,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1249,LG ADMIN,Admin,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1255,LG D2 TAC,Dispatch 2 Tac,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1257,LG D3 TAC,Dispatch 3 Tac,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1261,LG SPEC 1,Special 1,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1263,LG SPEC 2,Special 2,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1267,LG JG OPS,Junior Guards Ops,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1269,LG JG TAC,Junior Guards Tac,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1271,LG TRN 1,Training 1,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+1273,LG TRN 2,Training 2,D,Multi-Talk,San Diego Fire-Rescue Lifeguards,SDLG,San Diego
+185,SDMA 10,Mutual Aid 10 (Fire 7N),D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+187,SDMA 20,Mutual Aid 20 (Fire 8N),D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+189,SDMA 30,Mutual Aid 30 (Fire 9N),D,Fire-Tac,San Diego Fire-Rescue Department,SDFD,San Diego
+1301,RANGER TAC 1,"Tactical 1 - Tecolote Cyn, Marian Bear, Mission Vly Preserve, Rose Cyn",D,Public Works,City of San Diego,SD,San Diego
+1281,RANGER TAC 2,"Tactical 2 - Penasquitos, Black Mtn, Otay Valley",D,Public Works,City of San Diego,SD,San Diego
+1283,RANGER TAC 3,"Tactical 3 - Mission Trails, Cowles Mtn",D,Public Works,City of San Diego,SD,San Diego
+1289,RANGER TAC 4,"Tactical 4 - Mission Bay Park, Shoreline Parks",D,Public Works,City of San Diego,SD,San Diego
+1295,RANGER TAC 5,"Tactical 5 - Balboa Park, Chollas Lake",D,Public Works,City of San Diego,SD,San Diego
+1569,RANGER LAKES 1,Lake Rangers - Lake Murray,D,Public Works,City of San Diego,SD,San Diego
+1573,RANGER LAKES 2,Lake Rangers - San Vicente Reservoir,D,Public Works,City of San Diego,SD,San Diego
+1701,RANGER DISP,Ranger Dispatch,D,Public Works,City of San Diego,SD,San Diego
+1705,1705 Rangers,Park Rangers (Ch 6),D,Public Works,City of San Diego,SD,San Diego
+1,Test 0001,System Testing,D,Business,City of San Diego,SD,San Diego
+2571,Test 2571,System Testing,D,Business,City of San Diego,SD,San Diego
+1307,PW 38 CALL,Station 38 Calling - Dispatch for Misc Public Works Depts,D,Public Works,City of San Diego,SD,San Diego
+1309,PW CITY DISP,Station 38 After Hours City Dispatch (Evenings/Nights/Weekends),D,Public Works,City of San Diego,SD,San Diego
+1311,PW WATER DISP,Water Dispatch,D,Public Works,City of San Diego,SD,San Diego
+1327,Storm Water Main,Storm Water Maintenance (Storm Drains),D,Public Works,City of San Diego,SD,San Diego
+1391,PW StreetSweeper,Street Sweepers,D,Public Works,City of San Diego,SD,San Diego
+1395,PW StreetSweeper,Street Sweepers,D,Public Works,City of San Diego,SD,San Diego
+1405,Wastewater Plant,Wastewater Treatment Plant - Metro Biosolids?,D,Public Works,City of San Diego,SD,San Diego
+1407,Wastewater Plant,Wastewater Treatment Plant,D,Public Works,City of San Diego,SD,San Diego
+1409,Wastewater Plant,Wastewater Treatment Plant,D,Public Works,City of San Diego,SD,San Diego
+1427,Wastewater Plant,Wastewater Treatment Plant,D,Public Works,City of San Diego,SD,San Diego
+1429,Wastewater Plant,Wastewater Treatment Plant,D,Public Works,City of San Diego,SD,San Diego
+1431,Wastewater Plant,Wastewater Treatment Plant - South Bay Water Reclamation Plant?,D,Public Works,City of San Diego,SD,San Diego
+1433,Wastewater Plant,Wastewater Treatment Plant - South Bay Water Reclamation Plant?,D,Public Works,City of San Diego,SD,San Diego
+1467,Wastewater COMC,Wastewater COMC (Central Operations and Management Center),D,Public Works,City of San Diego,SD,San Diego
+1485,Pt Loma Wastewtr,Wastewater Treatment Plant - Point Loma?,D,Public Works,City of San Diego,SD,San Diego
+1487,Pt Loma Wastewtr,Wastewater Treatment Plant - Point Loma?,D,Public Works,City of San Diego,SD,San Diego
+1489,Pt Loma Wastewtr,Wastewater Treatment Plant - Point Loma?,D,Public Works,City of San Diego,SD,San Diego
+1539,Water Trtmnt Alv,Water Treatment Plant - Alvarado?,D,Public Works,City of San Diego,SD,San Diego
+1541,Water Trtmnt Alv,Water Treatment Plant - Alvarado?,D,Public Works,City of San Diego,SD,San Diego
+1543,Alvarado Opertor,Alvarado Water Treatment Plant - Operator,D,Public Works,City of San Diego,SD,San Diego
+1565,Alvarado Lab Sec,Alvarado Water Quality Lab - Security,D,Security,City of San Diego,SD,San Diego
+2041,SDPW LF1,Land Fill 1,D,Public Works,City of San Diego,SD,San Diego
+2043,SDPW LF2,Land Flll 2,D,Public Works,City of San Diego,SD,San Diego
+2045,SDPW LF3,Land Flll 3,D,Public Works,City of San Diego,SD,San Diego
+797,SDCCD PD D1 ENC,Dispatch (Encrypted),E,Law Dispatch,San Diego Community College District Police,SDCCD PD,San Diego
+783,SDCCD PD DISP 1,Police Dispatch 1,D,Law Dispatch,San Diego Community College District Police,SDCCD PD,San Diego
+785,SDCCD PD DISP 2,Police Dispatch 2,D,Law Dispatch,San Diego Community College District Police,SDCCD PD,San Diego
+789,SDCCD PD TAC 1,Police Tac 1,D,Law Tac,San Diego Community College District Police,SDCCD PD,San Diego
+791,SDCCD PD TAC 2,Police Tac 2,D,Law Tac,San Diego Community College District Police,SDCCD PD,San Diego
+793,SDCCD PD TAC 3,Police Tac 3,D,Law Tac,San Diego Community College District Police,SDCCD PD,San Diego
+863,SDUSD PD E DISP,Police Dispatch (Encrypted),E,Law Dispatch,San Diego Unified School District Police,SDUSD PD,San Diego
+613,SDUSD PD ADMIN,Police Administration,D,Law Talk,San Diego Unified School District Police,SDUSD PD,San Diego
+623,SDUSD PD DISP,Police Dispatch,D,Law Dispatch,San Diego Unified School District Police,SDUSD PD,San Diego
+703,SDUSD PD TAC 1,Police Tac 1,D,Law Tac,San Diego Unified School District Police,SDUSD PD,San Diego
+709,SDUSD PD TAC 2,Police Tac 2,D,Law Tac,San Diego Unified School District Police,SDUSD PD,San Diego
+655,SDUSD Secrty,Security,D,Security,San Diego Unified School District,SDUSD,San Diego
+625,SDUSD TransA,Transportation A,D,Schools,San Diego Unified School District,SDUSD,San Diego
+627,SDUSD TransA,Transportation A 84 passenger Buses,D,Schools,San Diego Unified School District,SDUSD,San Diego
+633,SDUSD TransC,Transportation C 48 Passenger Buses,D,Schools,San Diego Unified School District,SDUSD,San Diego
+637,SDUSDTransWC,Transportation D 48 Passenger Wheelchair Buses,D,Schools,San Diego Unified School District,SDUSD,San Diego
+647,SDUSD 647,Transportation (old TG 10352),D,Schools,San Diego Unified School District,SDUSD,San Diego
+651,SDUSD 2G,Maintenance,D,Schools,San Diego Unified School District,SDUSD,San Diego
+667,SDUSD 667,Transportation Info (old TG 10672),D,Schools,San Diego Unified School District,SDUSD,San Diego
+679,SDUSD Trans EMRG,Transportation EMERGENCY,D,Schools,San Diego Unified School District,SDUSD,San Diego
+691,SDUSD ST,Safety and Training,D,Schools,San Diego Unified School District,SDUSD,San Diego
+697,SDUSD 2H,Maintenance,D,Schools,San Diego Unified School District,SDUSD,San Diego
+3305,SDUSD PD INQ,Police Inquiry,D,Law Talk,San Diego Unified School District Police,SDUSD PD,San Diego
+8190,Sanitation Ancmt,Sanitation Announcements,D,Public Works,City of San Diego,SD,San Diego
+8192,Sanitation 2,Sanitation 2,D,Public Works,City of San Diego,SD,San Diego
+8193,Sanitation 3,Sanitation 3,D,Public Works,City of San Diego,SD,San Diego
+8194,Sanitation 4,Sanitation 4,D,Public Works,City of San Diego,SD,San Diego
+8195,Sanitation 5,Sanitation 5 - Recycling,D,Public Works,City of San Diego,SD,San Diego
+8196,Sanitation 6,Sanitation 6,D,Public Works,City of San Diego,SD,San Diego
+8197,Sanitation 7,Sanitation 7,D,Public Works,City of San Diego,SD,San Diego
+8198,Sanitation 8,Sanitation 8 - Dispatch,D,Public Works,City of San Diego,SD,San Diego
+8199,Sanitation 9,Sanitation 9,D,Public Works,City of San Diego,SD,San Diego
+8200,Sanitation 10,Sanitation 10,D,Public Works,City of San Diego,SD,San Diego
+8201,Sanitation 11,Sanitation 11,D,Public Works,City of San Diego,SD,San Diego
+8202,Sanitation 12,Sanitation 12 Organics,D,Public Works,City of San Diego,SD,San Diego
+8203,Sanitation 13,Sanitation 13 Organics,D,Public Works,City of San Diego,SD,San Diego
+8204,Sanitation 14,Sanitation 14 Organics,D,Public Works,City of San Diego,SD,San Diego

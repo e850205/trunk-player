@@ -1,25 +1,21 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block main-body %}
-<div class="container">
-  <div class="row row-no-border">
-    <div class="col-xs-12">
-      <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-      </div>
-      <h2>Incidents</h2>
-      {% for inc in incidents %}
-      <div class="incident-item">
-        <h4><a href="{% url 'incident' inc.slug %}">{{ inc.name }}</a>
-          <small>{{ inc.call_count }} call{{ inc.call_count|pluralize }}{% if not inc.public %} &middot; not public{% endif %}</small></h4>
-        {% if inc.description %}<p>{{ inc.description|linebreaksbr }}</p>{% endif %}
-      </div>
-      {% empty %}
-      <p>No incidents yet.{% if user.is_staff %} Create one in the <a href="/admin/radio/incident/add/">admin</a>, or pick calls in the
-      <a href="/admin/radio/transmission/">transmission list</a> and use the "Make an incident from the selected calls" action.{% endif %}</p>
-      {% endfor %}
-    </div>
+<div class="page-head">
+  <div>
+    <div class="label">Browse</div>
+    <h1 class="page-title">Incidents</h1>
   </div>
-  <hr>
-  <footer><p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p></footer>
+</div>
+<div class="card">
+  {% for inc in incidents %}
+  <div class="incident-item">
+    <h3><a href="{% url 'incident' inc.slug %}">{{ inc.name }}</a></h3>
+    <span class="label">{{ inc.call_count }} call{{ inc.call_count|pluralize }}{% if not inc.public %} · not public{% endif %}</span>
+    {% if inc.description %}<p>{{ inc.description|linebreaksbr }}</p>{% endif %}
+  </div>
+  {% empty %}
+  <p class="muted">No incidents yet.{% if user.is_staff %} Create one in the <a href="/admin/radio/incident/add/">admin</a>, or pick calls in the
+  <a href="/admin/radio/transmission/">transmission list</a> and use the "Make an incident from the selected calls" action.{% endif %}</p>
+  {% endfor %}
 </div>
 {% endblock %}

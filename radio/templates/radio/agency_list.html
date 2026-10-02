@@ -1,30 +1,27 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block main-body %}
-<div class="container">
-  <div class="row row-no-border">
-    <div class="col-xs-12">
-      <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-      </div>
-      <h2>Agencies</h2>
-      <table class="directory-table">
-        <thead><tr><th>Agency</th><th>Code</th><th>Cities covered</th></tr></thead>
-        <tbody>
-        {% for a in agency %}
-          <tr id="agency-{{ a.short|slugify }}">
-            <td>{{ a.name }}</td>
-            <td>{{ a.short }}</td>
-            <td>{% for city in a.cities %}<a href="{% url 'city_detail' city.slug %}">{{ city.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-          </tr>
-        {% empty %}
-          <tr><td colspan="3">No agencies yet.{% if user.is_staff %} Add them in the <a href="/admin/radio/agency/add/">admin</a> or with <code>./manage.py import_agency</code>.{% endif %}</td></tr>
-        {% endfor %}
-        </tbody>
-      </table>
-      <p><a href="{% url 'city_list' %}">All cities</a></p>
-    </div>
+<div class="page-head">
+  <div>
+    <div class="label">Directory</div>
+    <h1 class="page-title">Agencies</h1>
   </div>
-  <hr>
-  <footer><p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p></footer>
+  <div class="toolbar"><a class="btn" href="{% url 'city_list' %}">All cities</a></div>
+</div>
+<div class="table-wrap">
+  <table class="data-table directory-table">
+    <thead><tr><th>Agency</th><th>Code</th><th>Talkgroups</th><th>Cities covered</th></tr></thead>
+    <tbody>
+    {% for a in agency %}
+      <tr id="agency-{{ a.short|slugify }}">
+        <td>{{ a.name }}</td>
+        <td class="tag">{{ a.short }}</td>
+        <td class="num">{% if a.talkgroup_count %}<a href="/talkgroups/?agency={{ a.short|urlencode }}">{{ a.talkgroup_count }}</a>{% endif %}</td>
+        <td>{% for city in a.cities %}<a href="{% url 'city_detail' city.slug %}">{{ city.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="4" class="muted">No agencies yet.{% if user.is_staff %} Add them in the <a href="/admin/radio/agency/add/">admin</a> or with <code>./manage.py import_agency</code>.{% endif %}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

@@ -151,7 +151,7 @@ def add_new_trans(options):
         except:
             freq = file_name.split('_', 2)[1].split("-")[0]
 
-    dt = datetime.datetime.fromtimestamp(int(epoc_ts), pytz.UTC)
+    dt = datetime.datetime.fromtimestamp(int(float(epoc_ts)), pytz.UTC)
 
     try:
         source = Source.objects.get(pk=source_opt)

@@ -22,7 +22,7 @@ log = logging.getLogger(__name__)
 
 class Agency(models.Model):
     name = models.CharField(max_length=100)
-    short = models.CharField(max_length=5, unique=True)
+    short = models.CharField(max_length=20, unique=True)
 
     def __str__(self):
         return self.name
@@ -125,6 +125,8 @@ class TalkGroup(models.Model):
     priority = models.IntegerField(default=3, help_text='record priority used by trunk-recorder')
     _home_site = models.ForeignKey(RepeaterSite, blank=True, null=True, on_delete=models.CASCADE)
     _service_type = models.ForeignKey(Service, blank=True, null=True, on_delete=models.CASCADE)
+    agency = models.ForeignKey(Agency, blank=True, null=True, related_name='talkgroups', on_delete=models.SET_NULL, help_text='agency that uses this talkgroup')
+    city = models.ForeignKey(City, blank=True, null=True, related_name='talkgroups', on_delete=models.SET_NULL, help_text='city or community this talkgroup covers, if it is local to one')
     last_transmission = models.DateTimeField()
     recent_usage = models.IntegerField(default=0)
     play_source = models.ForeignKey(Source, blank=True, null=True, help_text='default record source for playback', on_delete=models.CASCADE)
@@ -371,6 +373,7 @@ class MenuList(models.Model):
 
 class MenuScanList(MenuList):
     name = models.ForeignKey(ScanList, on_delete=models.CASCADE)
+    section = models.CharField(max_length=30, blank=True, help_text='heading this scan list is grouped under in the menu')
 
     @property
     def scan_name(self):

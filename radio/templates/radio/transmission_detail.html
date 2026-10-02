@@ -1,113 +1,40 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block main-body %}
-<div class="container">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-
-	<div class="row">
-		<div class="col-xs-12">
-    <h1>
-    {% get_setting 'SITE_TITLE' %} Audio File
-    </h1>
-                </div>
-	</div>
-	<div class="row"> 
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Start Time</strong></div>
-		<div class="col-xs-6">{{ object.start_datetime }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Talk Group</strong></div>
-		<div class="col-xs-6">{{ object.talkgroup_info.alpha_tag }}{% if user.is_staff %} <a href="/admin/radio/talkgroup/{{ object.talkgroup_info.pk }}/change/">Edit</a>{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Talk Group Description</strong></div>
-		<div class="col-xs-6">{{ object.talkgroup_info.description }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Frequency</strong></div>
-		<div class="col-xs-6">{{ object.freq_mhz }}MHz</div>
-		<div class="col-xs-4"></div>
-	</div>
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>System</strong></div>
-                <div class="col-xs-6">{{ object.system }} ({{ object.system.pk }})</div>
-                <div class="col-xs-4"></div>
-        </div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Source</strong></div>
-		<div class="col-xs-6">{{ object.source }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Length</strong></div>
-		<div class="col-xs-6">{{ object.print_play_length }}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Emergency</strong></div>
-		<div class="col-xs-6">{% if object.emergency %}<span class="label label-danger">EMERGENCY</span>{% else %}No{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% for u in object.units.all %}
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>Unit</strong></div>
-		<div class="col-xs-6">{%if u.description %}{{ u.description }}{% else %}#{{ u.dec_id }}{% endif %}{% if user.is_staff %} <a href="/admin/radio/unit/{{ u.pk }}/change/">Edit</a>{% endif %}</div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% endfor %}
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Default Source</strong></div>
-                <div class="col-xs-6">{{ object.from_default_source }}</div>
-                <div class="col-xs-4"></div>
-        </div>
-        <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2"><strong>Has Audio</strong></div>
-                <div class="col-xs-6">{{ object.has_audio }}</div>
-                <div class="col-xs-4"></div>
-        </div>
-	{% if user.is_staff %}
-        {% if object.audio_file %}
-	<div class="row">
-		<div class="col-xs-1"></div>
-		<div class="col-xs-2"><strong>File Name</strong></div>
-		<div class="col-xs-6"><a href="{{object.audio_url}}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}">{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}</a></div>
-		<div class="col-xs-4"></div>
-	</div>
-	{% endif %}
-	{% endif %}
-	<div class="row">
-                <div class="col-xs-1"></div>
-		<div class="col-xs-2">
-        {% if object.audio_file %}
-<button id="button_{{ object.pk }}" type="button" class="btn play-btn btn-success player-action" data-id="{{ object.pk }}" data-audio-url="{{object.audio_url}}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play </button>
-         {% endif %}
-
+<div class="page-head">
+  <div>
+    <div class="label">Call</div>
+    <h1 class="page-title">{{ object.talkgroup_info.alpha_tag }}</h1>
+    <p>{{ object.start_datetime }}{% if object.emergency %} <span class="pill pill-emergency">Emergency</span>{% endif %}</p>
+  </div>
+  {% if object.audio_file %}
+  <div class="toolbar">
+    <button id="button_{{ object.pk }}" type="button" class="btn btn-primary player-action" data-id="{{ object.pk }}"
+      data-audio-url="{{ object.audio_url }}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}"
+      data-tag="{{ object.talkgroup_info.alpha_tag }}" data-dec="TG {{ object.talkgroup_info.dec_id }}"
+      data-desc="{{ object.talkgroup_info.description|default_if_none:'' }}" data-freq="{{ object.freq_mhz }} MHz">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-play"/></svg>Play call
+    </button>
+  </div>
+  {% endif %}
 </div>
-		<div class="col-xs-9"></div>
-
-	</div>
-        <div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+<div class="card">
+  <dl class="details">
+    <dt>Talkgroup</dt><dd><a href="/tg/{{ object.talkgroup_info.slug }}/">{{ object.talkgroup_info.alpha_tag }}</a>{% if user.is_staff %} · <a href="/admin/radio/talkgroup/{{ object.talkgroup_info.pk }}/change/">Edit</a>{% endif %}</dd>
+    <dt>Description</dt><dd>{{ object.talkgroup_info.description|default_if_none:"" }}</dd>
+    <dt>Frequency</dt><dd class="mono">{{ object.freq_mhz }} MHz</dd>
+    <dt>System</dt><dd>{{ object.system }} ({{ object.system.pk }})</dd>
+    <dt>Source</dt><dd>{{ object.source }}</dd>
+    <dt>Length</dt><dd class="mono">{{ object.print_play_length }}</dd>
+    <dt>Emergency</dt><dd>{% if object.emergency %}Yes{% else %}No{% endif %}</dd>
+    {% for u in object.units.all %}
+    <dt>Unit</dt><dd>{% if u.description %}{{ u.description }}{% else %}<span class="mono">#{{ u.dec_id }}</span>{% endif %}{% if user.is_staff %} · <a href="/admin/radio/unit/{{ u.pk }}/change/">Edit</a>{% endif %}</dd>
+    {% endfor %}
+    <dt>Default source</dt><dd>{{ object.from_default_source }}</dd>
+    <dt>Has audio</dt><dd>{{ object.has_audio }}</dd>
+    {% if user.is_staff and object.audio_file %}
+    <dt>File name</dt><dd><a href="{{ object.audio_url }}{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}">{{ object.audio_file }}.{% if object.audio_file_type %}{{ object.audio_file_type }}{% else %}mp3{% endif %}</a></dd>
+    {% endif %}
+  </dl>
 </div>
+<div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
 {% endblock %}

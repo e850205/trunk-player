@@ -6,9 +6,15 @@ from rest_framework.fields import CurrentUserDefault, SerializerMethodField
 
 class TalkGroupSerializer(serializers.HyperlinkedModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name="talkgroups-detail")
+    # Service type name (Fire, Law, EMS, ...), the player colours calls by it
+    service = SerializerMethodField()
+
     class Meta:
         model = TalkGroup
-        fields = ('url', 'dec_id', 'alpha_tag', 'description', 'slug')
+        fields = ('url', 'dec_id', 'alpha_tag', 'description', 'slug', 'service')
+
+    def get_service(self, obj):
+        return obj._service_type.name if obj._service_type_id else None
 
 class UnitListField(serializers.RelatedField):
 
@@ -37,7 +43,7 @@ class MenuScanListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MenuScanList
-        fields = ('pk', 'name', 'scan_name', 'scan_description', 'scan_slug')
+        fields = ('pk', 'name', 'scan_name', 'scan_description', 'scan_slug', 'section')
 
 class MenuTalkGroupListSerializer(serializers.ModelSerializer):
 

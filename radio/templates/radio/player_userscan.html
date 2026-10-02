@@ -1,15 +1,8 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block head %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
-<style type="text/css">
-#tg-multi{
-    width: 600px;
-    max-width: 100%;
-}
-</style>
-<script type="text/javascript">
+<script>
 // TalkGroup Data
 url3 = '/api_v1/talkgroups/';
 function load_tg() {
@@ -30,37 +23,34 @@ function load_tg() {
 
 $(document).ready(function() {
   $(".tg-multi-select").select2({
-placeholder: "Enter Talk Groups to Scan"
-});
-
-load_tg();
-
+    placeholder: "Type talkgroup names to scan",
+    width: '100%'
+  });
+  load_tg();
 });
 </script>
 {% endblock %}
 {% block main-body %}
-<div class="container">
-	<div class="row">
-		<div id="muti-select" class="col-xs-12">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-			<select id="tg-multi" class="tg-multi-select" multiple="multiple">
-			</select>
-			<button type="button" onclick="update_scan_list()">Update Scan List</button> 
-		</div>
-	</div>
-	<div class="row">
-		<div id="main-data-table" class="col-xs-12">
-		</div>
-	</div>
-        <div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
+<div class="page-head">
+  <div>
+    <div class="label">Custom scan list</div>
+    <h1 class="page-title">Pick talkgroups</h1>
+    <p>Choose any talkgroups and listen to them together. Nothing is saved.</p>
+  </div>
 </div>
+<div class="card userscan-picker">
+  <label for="tg-multi">Talkgroups</label>
+  <select id="tg-multi" class="tg-multi-select" multiple="multiple"></select>
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" onclick="update_scan_list()">Listen to these talkgroups</button>
+  </div>
+</div>
+<div class="log">
+  <div class="log-cols label" aria-hidden="true">
+    <span></span><span>Talkgroup</span><span>Units</span><span class="col-len">Length</span><span class="col-time">Time</span><span></span>
+  </div>
+  <div id="main-data-table"><div class="log-empty">Pick talkgroups above to see their calls.</div></div>
+  <div id="no_trans" class="log-empty" hidden>No calls on these talkgroups yet.</div>
+</div>
+<div id="jPlayer"><div id="jquery_jplayer_1"></div></div>
 {% endblock %}

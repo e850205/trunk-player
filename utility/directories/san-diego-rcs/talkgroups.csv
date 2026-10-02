@@ -1,0 +1,1533 @@
+dec_id,alpha_tag,description,mode,service_type,agency,agency_short,city
+643,MERAIRDISP,Mercy Air Dispatch,D,EMS Dispatch,Air Ambulance,AA,
+9,AMR CMD 14M,American Medical Response - Command 14M (San Diego County),D,EMS Dispatch,Ambulance Services,AMR,
+15,AMR DISP 14N,American Medical Response - Dispatch 14N (San Diego County),D,EMS Dispatch,Ambulance Services,AMR,
+17,AirCare Amb,AirCare Intl Ground Transport Division,D,EMS Dispatch,Ambulance Services,AMR,
+19,AMR TAC 14O,American Medical Response - Tactical 14O (San Diego County),D,EMS-Tac,Ambulance Services,AMR,
+1731,MEABLS1,Mercy Medical Transportation BLS 1,D,EMS Dispatch,Ambulance Services,AMR,
+1733,MEABLS2,Mercy Medical Transportation BLS 2,D,EMS Dispatch,Ambulance Services,AMR,
+1735,MEABLSTAC,Mercy Medical Transportation BLS Tactical,D,EMS-Tac,Ambulance Services,AMR,
+1737,MEAALS1,Mercy Medical Transportation ALS 1,D,EMS Dispatch,Ambulance Services,AMR,
+1739,MEAALS2,Mercy Medical Transportation ALS 2,D,EMS Dispatch,Ambulance Services,AMR,
+1741,MEAALSTAC,Mercy Medical Transportation ALS Tactical,D,EMS-Tac,Ambulance Services,AMR,
+1743,MEASUPV,Mercy Medical Transportation Supervisors,D,EMS-Talk,Ambulance Services,AMR,
+2067,AMR-IFT 1,AMR Interfacility Transport 1,D,EMS Dispatch,Ambulance Services,AMR,
+2068,AMR-IFT 2,AMR Interfacility Transport 2,D,EMS Dispatch,Ambulance Services,AMR,
+2886,AMR IMP DISP,American Medical Response - Imperial County Dispatch (formerly GCA DISP),D,EMS Dispatch,Ambulance Services,AMR,
+2887,AMR IMP TAC 1,American Medical Response - Imperial County Tac 1 (formerly GCA TAC 1),D,EMS-Tac,Ambulance Services,AMR,
+2888,AMR IMP TAC 2,American Medical Response - Imperial County Tac 2 (formerly GCA TAC 2),D,EMS-Tac,Ambulance Services,AMR,
+251,BAR FD ADMIN,Fire Administration,D,Fire-Talk,Barona Indian Reservation,BAR,
+1801,BAR PD,Police Dispatch,D,Law Dispatch,Barona Indian Reservation,BAR,
+1802,BAR PD 2,Police Tac 2,D,Law Tac,Barona Indian Reservation,BAR,
+1505,BON FD TAC 1,Fire Tac 1,D,Fire-Tac,Bonita-Sunnyside Fire Protection District,BON FPD,Bonita
+1507,BON FD TAC 2,Fire Tac 2,D,Fire-Tac,Bonita-Sunnyside Fire Protection District,BON FPD,Bonita
+2457,BRW P DISP,Police Dispatch,D,Law Dispatch,Brawley Police Department,BRW PD,Brawley
+2458,BRW P TAC 1,Police Tac 1,D,Law Tac,Brawley Police Department,BRW PD,Brawley
+2481,BRW F DISP,Fire Dispatch,D,Fire Dispatch,Brawley Fire Department,BRW FD,Brawley
+2482,BRW F CMD 1,Fire Command 1,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2483,BRW F TAC 1,Fire Tac 1,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2484,BRW F TAC 2,Fire Tac 2,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2485,BRW F CMD 2,Fire Command 2,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2486,BRW F TAC 3,Fire Tac 3,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2487,BRW F TAC 4,Fire Tac 4,D,Fire-Tac,Brawley Fire Department,BRW FD,Brawley
+2488,BRW F ADMIN,Fire Administration,D,Fire-Talk,Brawley Fire Department,BRW FD,Brawley
+2489,BRW F TRN,Fire Training,D,Fire-Talk,Brawley Fire Department,BRW FD,Brawley
+2490,BRW P TAC 2,Police Tac 2,D,Law Tac,Brawley Police Department,BRW PD,Brawley
+2491,BRW P INQ,Police Inquiry,D,Law Talk,Brawley Police Department,BRW PD,Brawley
+2492,BRW P INV,Police Investigations,D,Law Tac,Brawley Police Department,BRW PD,Brawley
+2493,BRW P SPEC,Police Special Operations,D,Law Tac,Brawley Police Department,BRW PD,Brawley
+2494,BRW P ADMIN,Police Administration,D,Law Talk,Brawley Police Department,BRW PD,Brawley
+2495,BRW P CMD,Police Command,D,Law Tac,Brawley Police Department,BRW PD,Brawley
+2496,BRW CITY CALL,City Call,D,Public Works,City of Brawley,BRW,Brawley
+2497,BRW CITY TAC 1,City Tac 1,D,Public Works,City of Brawley,BRW,Brawley
+2498,BRW CITY TAC 2,City Tac 2,D,Public Works,City of Brawley,BRW,Brawley
+2499,BRW CITY TAC 3,City Tac 3,D,Public Works,City of Brawley,BRW,Brawley
+2500,BRW CITY TAC 4,City Tac 4,D,Public Works,City of Brawley,BRW,Brawley
+2501,BRW CITY ROADS,Roads,D,Public Works,City of Brawley,BRW,Brawley
+2502,BRW CITY WATER,Water,D,Public Works,City of Brawley,BRW,Brawley
+2503,BRW CITY SEWER,Sewer,D,Public Works,City of Brawley,BRW,Brawley
+2504,BRW CITY FACM,Facilities Maintenance,D,Public Works,City of Brawley,BRW,Brawley
+2414,BLM 2414,BLM,D,Federal,Bureau of Land Management (BLM),BLM,
+2415,BLM Imperial,BLM Imperial Dispatch (San Bernardino),D,Federal,Bureau of Land Management (BLM),BLM,Imperial
+2418,BLM 2418,BLM,D,Federal,Bureau of Land Management (BLM),BLM,
+2419,BLM 2419,BLM,D,Federal,Bureau of Land Management (BLM),BLM,
+2420,BLM 2420,BLM,D,Federal,Bureau of Land Management (BLM),BLM,
+649,CFA 10A Disp,10A Dispatch,D,Fire Dispatch,CAL FIRE/San Diego County Fire Protection District,CFA,
+255,CFA 10B,10B Admin,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+645,CFA 10C,10C Fire Tac - Battalion 1/7,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+651,CFA 10D,10D Fire Tac - Battalion 1/7,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+259,CFA 10E,10E Fire Tac - Battalion 5/8,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+647,CFA 10F,10F Fire Tac - Battalion 5/8,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+257,CFA 10G,10G Fire Tac - Battalion 2/3/4,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+261,CFA 10H,10H Fire Tac - Battalion 2/3/4,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+265,CFA 10-I,10I Fire Tac - Incident,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+263,CFA 10J,10J Fire Tac - Incident,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+143,CFA 10K,10K Wildland Response - VHF Back-Up,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+145,CFA 10L,10L Fire Tac - Incident,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+339,CFA 10M,10M Fire Tac - Incident,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+341,CFA 10N,10N Fire Tac - Incident,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2442,CFA 11A Disp,11A Dispatch,D,Fire Dispatch,CAL FIRE/San Diego County Fire Protection District,CFA,
+41,CFA 11B,11B Admin,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+43,CFA 11C,11C Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+45,CFA 11D,11D Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+47,CFA 11E,11E Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+49,CFA 11F,11F Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+95,CFA 11G,11G Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+97,CFA 11H,11H Fire Tac - Incident South,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+99,CFA 11-I,11I Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+105,CFA 11J,11J Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+107,CFA 11K,11K Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+109,CFA 11L,11L Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+111,CFA 11M,11M Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+133,CFA 11N,11N Fire Tac - Incident North,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+1365,CFA 10/11P EMG,10P/11P - Emergency (Emergency Button),D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+39,CFA 12A TRVL,12A Travel,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+2443,CFA 12E,12E Fire Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2444,CFA 12F,12F Fire Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2445,CFA 12G,12G Fire Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2446,CFA 12H,12H Fire Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2447,CFA 12-I,12I Fire Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+1926,TRN J,Training J,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+521,TRN K,Training K,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+1927,TRN L,Training L,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+2461,TRN P EMG,Training P Emergency (Emergency Activation),D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+253,FDLE,Fire Prevention Officers,D,Multi-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+2367,FDLE TAC,Fire Prevention Tactical,E,Multi-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+1089,INL CHIEF,Inland Fire Chiefs,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+1747,DSP TAC,Deer Springs Fire Department Tactical,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,
+1767,VAL CTR Tac,Valley Center Tac,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,Valley Center
+2362,VCF TAC,Valley Center Fire Tactical,D,Fire-Tac,CAL FIRE/San Diego County Fire Protection District,CFA,Valley Center
+2624,OCT F ADMIN,Ocotillo Fire Administration,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,Ocotillo
+2625,OCT TRN,Ocotillo Fire Training,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,Ocotillo
+2640,RFD CHF,San Diego Rural Fire Chiefs,D,Fire-Talk,CAL FIRE/San Diego County Fire Protection District,CFA,
+2459,CLXPDISP,Police Dispatch,D,Law Dispatch,Calexico Police Department,CXO PD,Calexico
+2460,CLXPTAC1,Police Tac 1,D,Law Tac,Calexico Police Department,CXO PD,Calexico
+2505,CLXFDISP,Fire Dispatch,D,Fire Dispatch,Calexico Fire Department,CXO FD,Calexico
+2506,CLXFCMD1,Fire Command 1,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2507,CLXFTAC1,Fire Tac 1,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2646,CLXFTAC2,Fire Tac 2,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2647,CLXFCMD2,Fire Command 2,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2648,CLXFTAC3,Fire Tac 3,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2649,CLXFTAC4,Fire Tac 4,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2650,CLXFCMD3,Fire Command 3,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2651,CLXFTAC5,Fire Tac 5,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2652,CLXFTAC6,Fire Tac 6,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2653,CLXFCMD4,Fire Command 4,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2654,CLXFTAC7,Fire Tac 7,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2655,CLXFTAC8,Fire Tac 8,D,Fire-Tac,Calexico Fire Department,CXO FD,Calexico
+2656,CLXFADMN,Fire Administration,D,Fire-Talk,Calexico Fire Department,CXO FD,Calexico
+2657,CLXPDISP2,Police Dispatch 2,D,Law Dispatch,Calexico Police Department,CXO PD,Calexico
+2658,CLXPTAC2,Police Tac 2,D,Law Tac,Calexico Police Department,CXO PD,Calexico
+2659,CLXPINV,Police Investigations,D,Law Tac,Calexico Police Department,CXO PD,Calexico
+2660,CLXPTRAF,Police Traffic,D,Law Tac,Calexico Police Department,CXO PD,Calexico
+2661,CLXPADMN,Police Administration,D,Law Talk,Calexico Police Department,CXO PD,Calexico
+2662,CLXCITYCALL,City Call,D,Public Works,City of Calexico,CXO,Calexico
+2663,CLXCITYTAC1,City Tac 1,D,Public Works,City of Calexico,CXO,Calexico
+2664,CLXCITYTAC2,City Tac 2,D,Public Works,City of Calexico,CXO,Calexico
+2665,CLXCITYTAC3,City Tac 3,D,Public Works,City of Calexico,CXO,Calexico
+2666,CLXCITYTAC4,City Tac 4,D,Public Works,City of Calexico,CXO,Calexico
+2667,CLXCROADS,Roads,D,Public Works,City of Calexico,CXO,Calexico
+2668,CLXCWATER,Water Department,D,Public Works,City of Calexico,CXO,Calexico
+2669,CLXCSEWER,Wastewater,D,Public Works,City of Calexico,CXO,Calexico
+2670,CLXCFACM,Facility Maintenance,D,Public Works,City of Calexico,CXO,Calexico
+2681,CCC TAC 1,Tac 1,D,Public Works,California Conservation Corps,CCC,
+2682,CCC TAC 2,Tac 2,D,Public Works,California Conservation Corps,CCC,
+2683,CCC TAC 3,Tac 3,D,Public Works,California Conservation Corps,CCC,
+2368,CHP ELC SD,El Cajon Dispatch South,D,Law Dispatch,California Highway Patrol (CHP),CHP,El Cajon
+2417,CHP ELC STAC 1,El Cajon Tac 1 South,D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2441,CHP ELC STAC 2,El Cajon Tac 2 South,D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2635,CHP ELC STAC 3,El Cajon Tac 3 South,D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2636,CHP ELC STAC 4,El Cajon Tac 4 South,D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2430,CHP ELC E,El Cajon Dispatch East (Resident),D,Law Dispatch,California Highway Patrol (CHP),CHP,El Cajon
+2416,CHP ELC E TAC 1,El Cajon Tac 1 East (Resident),D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2431,CHP ELC E TAC 2,El Cajon Tac 2 East (Resident),D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2633,CHP ELC E TAC 3,El Cajon Tac 3 East (Resident),D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2634,CHP ELC E TAC 4,El Cajon Tac 4 East (Resident),D,Law Tac,California Highway Patrol (CHP),CHP,El Cajon
+2421,CHP OCS TAC 1,Oceanside Tac 1,D,Law Tac,California Highway Patrol (CHP),CHP,Oceanside
+2422,CHP TEM DISP,Temecula Dispatch (Future),D,Law Dispatch,California Highway Patrol (CHP),CHP,
+2423,CHP TEM TAC 1,Temecula Tac 1,D,Law Tac,California Highway Patrol (CHP),CHP,
+2424,CHP BRD CMD,Border Command,D,Law Tac,California Highway Patrol (CHP),CHP,
+2425,CHP BRD TAC 2,Border Tac 2,D,Law Tac,California Highway Patrol (CHP),CHP,
+2426,CHP ADMIN,Administration,D,Law Talk,California Highway Patrol (CHP),CHP,
+2427,CHP TEM TAC 2,Temecula Tac 2,D,Law Tac,California Highway Patrol (CHP),CHP,
+2428,CHP COMM,Commercial Unit,D,Law Tac,California Highway Patrol (CHP),CHP,
+2429,CHP ISU,Investigations Special Unit,D,Law Tac,California Highway Patrol (CHP),CHP,
+2432,CHP PSD ROT,Dignitary Protection,D,Law Dispatch,California Highway Patrol (CHP),CHP,
+2433,CHP PSDP TAC 1,Dignitary Protection Tac 1,D,Law Tac,California Highway Patrol (CHP),CHP,
+2434,CHP PSDP TAC2,Dignitary Protection Tac 2,D,Law Tac,California Highway Patrol (CHP),CHP,
+2435,CHP PSDP TAC 3,Dignitary Protection Tac 3,D,Law Tac,California Highway Patrol (CHP),CHP,
+2436,CHP PSDP OP 1,Dignitary Protection Ops 1,D,Law Tac,California Highway Patrol (CHP),CHP,
+2437,CHP PSDP OP 2,Dignitary Protection Ops 2,D,Law Tac,California Highway Patrol (CHP),CHP,
+2438,CHP PSDP OP 3,Dignitary Protection Ops 3,D,Law Tac,California Highway Patrol (CHP),CHP,
+2439,CHP BRD TAC 1,Border Tac 1,D,Law Tac,California Highway Patrol (CHP),CHP,
+2440,CHP BRD DISP,Border Dispatch (Future),D,Law Dispatch,California Highway Patrol (CHP),CHP,
+2469,CHP ECN DISP,El Centro Dispatch (Future),D,Law Dispatch,California Highway Patrol (CHP),CHP,El Centro
+2470,CHP ECN TAC,El Centro Tactical,D,Law Tac,California Highway Patrol (CHP),CHP,El Centro
+2637,CHP SND TAC 3,San Diego Tac 3,D,Law Tac,California Highway Patrol (CHP),CHP,
+2638,CHP SND TAC 4,San Diego Tac 4,D,Law Tac,California Highway Patrol (CHP),CHP,
+2639,CHP OCS TAC 3,Oceanside Tac 3,D,Law Tac,California Highway Patrol (CHP),CHP,Oceanside
+2740,CHP OCS TAC 4,Oceanside Tac 4,D,Law Tac,California Highway Patrol (CHP),CHP,Oceanside
+2741,CHPTEM TAC 3,Temecula Tac 3,D,Law Tac,California Highway Patrol (CHP),CHP,
+2742,CHP TEM TAC 4,Temecula Tac 4,D,Law Tac,California Highway Patrol (CHP),CHP,
+1419,CSU DISP 1,Police Dispatch 1,D,Law Dispatch,California State University San Marcos,CSU,
+1421,CSU DISP 2,Police Dispatch 2,D,Law Dispatch,California State University San Marcos,CSU,
+1423,CSU TAC,Police Tac 1,D,Law Tac,California State University San Marcos,CSU,
+1425,CSU TAC 2,Police Tac 2,D,Law Tac,California State University San Marcos,CSU,
+1427,CSU EOC 1,Emergency Operations Center 1,D,Emergency Ops,California State University San Marcos,CSU,
+1429,CSU ADMIN,Administration,D,Law Talk,California State University San Marcos,CSU,
+2462,CPT P TAC 1,Police Tac 1,D,Law Tac,Calipatria Police Department,CPT PD,Calipatria
+2508,CPT F ADMIN,Fire Admin,D,Fire-Talk,Calipatria Fire Department,CPT FD,Calipatria
+2509,CPT P TAC 2,Police Tac 2,D,Law Tac,Calipatria Police Department,CPT PD,Calipatria
+2510,CPT P SPEC,Police Special Operations,D,Law Tac,Calipatria Police Department,CPT PD,Calipatria
+2511,CPT CITY CALL,City Call,D,Public Works,City of Calipatria,CPT,Calipatria
+2512,CPT CITY TAC 1,City Tac 1,D,Public Works,City of Calipatria,CPT,Calipatria
+2513,CPT CITY TAC 2,City Tac 2,D,Public Works,City of Calipatria,CPT,Calipatria
+2514,CPT CITY TAC 3,City Tac 3,D,Public Works,City of Calipatria,CPT,Calipatria
+2515,CPT CITY TAC 4,City Tac 4,D,Public Works,City of Calipatria,CPT,Calipatria
+2516,CPT C ROAD,Roads,D,Public Works,City of Calipatria,CPT,Calipatria
+2517,CPT C WATER,Water,D,Public Works,City of Calipatria,CPT,Calipatria
+2518,CPT C SEWER,Sewer,D,Public Works,City of Calipatria,CPT,Calipatria
+2519,CPT C FACM,Facilities Maintenance,D,Public Works,City of Calipatria,CPT,Calipatria
+2759,CPT F CMD 1,Fire Command 1,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+2760,CPT F TAC 1,Fire Tac 1,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+2761,CPT F TAC 2,Fire Tac 2,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+2762,CPT F CMD 2,Fire Command 2,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+2763,CPT F TAC 3,Fire Tac 3,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+2764,CPT F TAC 4,Fire Tac 4,D,Fire-Tac,Calipatria Fire Department,CPT FD,Calipatria
+953,NEWTECH,HOV Test Channel,D,Public Works,CALTRANS,CT,
+1919,CT CONST 1,Construction 1,D,Public Works,CALTRANS,CT,
+1920,CT CONST 2,Construction 2,D,Public Works,CALTRANS,CT,
+1931,CT METRO,Metro,D,Public Works,CALTRANS,CT,
+2226,CT SD COM,San Diego Command,D,Public Works,CALTRANS,CT,
+2227,CTCOASTN,North Coast,D,Public Works,CALTRANS,CT,
+2228,CTINLANDN,North Inland,D,Public Works,CALTRANS,CT,
+2229,CTCOASTS,South Coast,D,Public Works,CALTRANS,CT,
+2230,CTINLANDS,South Inland,D,Public Works,CALTRANS,CT,
+2231,CTMTNS,Mountains,D,Public Works,CALTRANS,CT,
+2232,CTDESERT,Desert Area,D,Public Works,CALTRANS,CT,
+2233,CTSPECKM,Special KM,D,Public Works,CALTRANS,CT,
+2234,CTSURVEY,Surveying,D,Public Works,CALTRANS,CT,
+2235,CT SD N,San Diego North,D,Public Works,CALTRANS,CT,
+2236,CT SD S,San Diego South,D,Public Works,CALTRANS,CT,
+2237,CT SD E,San Diego East,D,Public Works,CALTRANS,CT,
+2238,CT SD MTN,San Diego Mountains,D,Public Works,CALTRANS,CT,
+2239,CT IMPCO,Imperial County,D,Public Works,CALTRANS,CT,
+2240,CT COR BR,Coronado Bay Bridge,D,Public Works,CALTRANS,CT,Coronado
+2241,CT FLAG N,Flagging North,D,Public Works,CALTRANS,CT,
+2242,CTFLAGS,Flagging South,D,Public Works,CALTRANS,CT,
+2243,CT FLAG MT,Flagging Mountains,D,Public Works,CALTRANS,CT,
+2244,CTFLAGIMP,Flagging Imperial County,D,Public Works,CALTRANS,CT,
+2245,CT TMC COM,TMC Command (Traffic Management Center),D,Public Works,CALTRANS,CT,
+2246,CT TFC OPS,Traffic Operations,D,Public Works,CALTRANS,CT,
+2247,CT SYSTEMS,Systems,D,Public Works,CALTRANS,CT,
+2248,CT AUX LANE,Auxilliary Lane,D,Public Works,CALTRANS,CT,
+2249,CT TMC,Traffic Management Center,D,Public Works,CALTRANS,CT,
+2250,CTEMER,Emergency Revert Channel,D,Public Works,CALTRANS,CT,
+2251,CT PRI,PRIORITY,D,Public Works,CALTRANS,CT,
+2252,CTADMIN,Administration,D,Public Works,CALTRANS,CT,
+2253,CT SHOP 11,District 11 Shop,D,Public Works,CALTRANS,CT,
+2254,CTNEWTEK,New Technologies,D,Public Works,CALTRANS,CT,
+2050,CBD C CALL,Disaster Ops - City Call,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2051,CBD C CMD,Disaster Ops - City Command,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2052,CBD PD TRT,Tactical Response Team,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2053,CBD PD DISP1,Police Dispatch 1,E,Law Dispatch,Carlsbad Police Department,CBD PD,Carlsbad
+2054,CBD PD DISP2,Police Dispatch 2,E,Law Dispatch,Carlsbad Police Department,CBD PD,Carlsbad
+2055,CBD FD ADMN,Fire Administration,D,Fire-Tac,Carlsbad Fire Department,CBD FD,Carlsbad
+2060,CBD PD INQRY,Police Inquiry,E,Law Dispatch,Carlsbad Police Department,CBD PD,Carlsbad
+2062,CBD PD EVENTS,Police Events,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2069,CBD PD PTL 1,Police Patrol 1,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2070,CBD FD TRAINING,Fire Training,D,Fire-Talk,Carlsbad Fire Department,CBD FD,Carlsbad
+2071,CBD PD TAC 1,Police Tac 1,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2072,CBD PD TAC 2,Police Tac 2,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2073,CBD PD TRAIN,Police Training,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2074,CBD PD U COMM,Police U Comm,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2079,CBD C RED,Disaster Ops - City Red,D,Interop,City of Carlsbad,CBD,Carlsbad
+2084,CBD C TAC 1,Disaster Ops - City Tac 1,D,Interop,City of Carlsbad,CBD,Carlsbad
+2085,CBD C TAC 10,Disaster Ops - City Tac 10,D,Interop,City of Carlsbad,CBD,Carlsbad
+2088,CBD C TAC 2,Disaster Ops - City Tac 2,D,Interop,City of Carlsbad,CBD,Carlsbad
+2089,CBD C TAC 3,Disaster Ops - City Tac 3,D,Interop,City of Carlsbad,CBD,Carlsbad
+2090,CBD C TAC 4,Disaster Ops - City Tac 4,D,Interop,City of Carlsbad,CBD,Carlsbad
+2091,CBD C TAC 5,Disaster Ops - City Tac 5,D,Interop,City of Carlsbad,CBD,Carlsbad
+2092,CBD C TAC 6,Disaster Ops - City Tac 6,D,Interop,City of Carlsbad,CBD,Carlsbad
+2093,CBD C TAC 7,Disaster Ops - City Tac 7,D,Interop,City of Carlsbad,CBD,Carlsbad
+2094,CBD C TAC 8,Disaster Ops - City Tac 8,D,Interop,City of Carlsbad,CBD,Carlsbad
+2095,CBD C TAC 9,Disaster Ops - City Tac 9,D,Interop,City of Carlsbad,CBD,Carlsbad
+2096,CBD PD I COMM,Police I Comm,E,Law Tac,Carlsbad Police Department,CBD PD,Carlsbad
+2102,CBD ADMIN,Water Administration,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2103,CBD LFGD,Lifeguards,D,Multi-Dispatch,Carlsbad Lifeguards,CBD LG,Carlsbad
+2113,CBD CE,Code Enforcement,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2114,CBD DISOPS,Disaster Ops - City Ops,D,Interop,City of Carlsbad,CBD,Carlsbad
+2115,CBD ENG,Engineering,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2116,CBD MANT,Maintenance,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2133,CBD PARK,Parks,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2164,CBD STR1,Streets 1,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2175,CBD STR2,Streets 2,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2176,CBD WTR1,Water 1,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2177,CBD WTR2,Water 2,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2178,CBD REC,Recreations,D,Public Works,City of Carlsbad,CBD,Carlsbad
+2195,CBD C TAC 11,Disaster Ops - City Tac 11,D,Interop,City of Carlsbad,CBD,Carlsbad
+2196,CBD C TAC 12,Disaster Ops - City Tac 12,D,Interop,City of Carlsbad,CBD,Carlsbad
+443,CHVFTRAINING,Fire Training,D,Fire-Talk,Chula Vista Fire Department,CHV FD,Chula Vista
+1269,CHV EVENT 1,Fire Event 1,D,Fire-Talk,Chula Vista Fire Department,CHV FD,Chula Vista
+1271,CHV EVENT 2,Fire Event 2,D,Fire-Talk,Chula Vista Fire Department,CHV FD,Chula Vista
+1315,CHV CITY CMD,City Command,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1323,CHV CITY TAC 7,City Tac 7,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1325,CHV CITY TAC 8,City Tac 8,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1459,CHV ACO,Animal Control Dispatch,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1461,CHV ACO TAC,Animal Control Tac,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1463,CHV CITY TAC 1,City Tac 1,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1465,CHV CITY TAC 2,City Tac 2,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1467,CHV CITY TAC 3,City Tac 3,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1469,CHV CITYWIDE,Citywide,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1471,CHV OPSPACE,Open Space,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1473,CHV PW DISP,Public Works dispatch,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1475,CHV RANGER,Rangers,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1477,CHV STREET1,Streets 1,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1479,CHV STREET2,Streets 2,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1481,CHV STREET3,Streets 3,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1483,CHV SVP 1,Police Senior Volunteer Patrol 1,D,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+1485,CHV SVP 2,Police Senior Volunteer Patrol 2,D,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+1487,CHV TRAFSIG,Traffic Signals,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1489,CHV FPREV,Fire Prevention Old,D,Public Works,Chula Vista Fire Department,CHV FD,Chula Vista
+1719,CHVCTYCMD,City Command,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1721,CHVCTYTAC4,City Tac 4,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1723,CHVCTYTAC5,City Tac 5,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1725,CHVCTYTAC6,City Tac 6,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1727,CHVCTYTAC7,City Tac 7,D,Public Works,City of Chula Vista,CHV,Chula Vista
+1729,CHVCTYTAC8,City Tac 8,D,Public Works,City of Chula Vista,CHV,Chula Vista
+2333,CHV PD DISP 1,Police Dispatch,E,Law Dispatch,Chula Vista Police Department,CHV PD,Chula Vista
+2334,CHV PD DISP 2,Police Dispatch 2,E,Law Dispatch,Chula Vista Police Department,CHV PD,Chula Vista
+2335,CHV PD TAC 1,Police Patrol Tac 1,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2344,CHV PD INQRY,Police Inquiry,E,Law Dispatch,Chula Vista Police Department,CHV PD,Chula Vista
+2345,CHV PD ITAC 3,Police Investigations Tac 3,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2346,CHV PD TAC 2,Police Patrol Tac 2,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2347,CHV PD NET,Police Narcotics Enforcement Team,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2348,CHV PD ITAC 4,Police Investigations Tac 4,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2349,CHV PD PTAC 3,Police Patrol Tac 3,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2350,CHV PD PTAC 4,Police Patrol Tac 4,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2351,CHV PD STAC 3,Police Street Team Tac 3,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2352,CHV PD STAC 4,Police Street Team Tac 4,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2353,CHV PD SWAT,Police SWAT,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2354,CHV PR TAC 3,Police School Tac 3,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2355,CHV PD TTAC 3,Police Traffic Tac 3,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2356,CHV PD TTAC 4,Police Traffic Tac 4,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2357,CHV PD RTAC 4,Police School Tac 4,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+2359,CHV PD HNT,Police Hostage Negotiation Team,E,Law Tac,Chula Vista Police Department,CHV PD,Chula Vista
+1243,CRD ADMIN,Fire Administration,D,Fire-Talk,Coronado Fire Department,CRD FD,Coronado
+1245,CRD PS DISP,Public Service Dispatch,D,Public Works,City of Coronado,CRD,Coronado
+1247,CRD STREETS,Streets,D,Public Works,City of Coronado,CRD,Coronado
+1249,CRD PARKS,Parks,D,Public Works,City of Coronado,CRD,Coronado
+1251,CRD WATER,Water,D,Public Works,City of Coronado,CRD,Coronado
+1253,CRD REC,Recreation,D,Public Works,City of Coronado,CRD,Coronado
+1255,CRD CITY CALL,City Call,D,Public Works,City of Coronado,CRD,Coronado
+1257,CRD CITY TAC 1,City Tac 1,D,Public Works,City of Coronado,CRD,Coronado
+1259,CRD CITY TAC 2,City Tac 2,D,Public Works,City of Coronado,CRD,Coronado
+1261,CRD CITY TAC 3,City Tac 3,D,Public Works,City of Coronado,CRD,Coronado
+1263,CRD LFGD,Lifeguards,D,Multi-Dispatch,Coronado Lifeguards,CRD LG,Coronado
+2272,CRD PD DISP 1,Police Dispatch 1,E,Law Dispatch,Coronado Police Department,CRD PD,Coronado
+2273,CRD PD TAC 1,Police Tac 1,E,Law Tac,Coronado Police Department,CRD PD,Coronado
+2274,CRD PD TAC 2,Police Tac 2,D,Law Tac,Coronado Police Department,CRD PD,Coronado
+2275,CRD PC CMD,Police Command,D,Law Tac,Coronado Police Department,CRD PD,Coronado
+2284,CRD PD INV,Police Investigations,E,Law Tac,Coronado Police Department,CRD PD,Coronado
+2285,CRD PD DISP 2,Police Dispatch 2,D,Law Dispatch,Coronado Police Department,CRD PD,Coronado
+189,DMR PW,Public Works,D,Public Works,City of Del Mar,DMR,Del Mar
+219,DMR PARKING,Parking Enforcement,D,Law Talk,City of Del Mar,DMR,Del Mar
+335,DMR CITY TAC 1,City Tac 1,D,Public Works,City of Del Mar,DMR,Del Mar
+337,DMR CITY TAC 2,City Tac 2,D,Public Works,City of Del Mar,DMR,Del Mar
+343,DMR ADMN,Administration,D,Public Works,City of Del Mar,DMR,Del Mar
+345,DMR CT,Citywide,D,Public Works,City of Del Mar,DMR,Del Mar
+359,DMR LFGD,Lifeguards,D,Multi-Dispatch,Del Mar Lifeguards,DMR LG,Del Mar
+1501,DMR LFGD TAC,Lifeguard TAC,D,Multi-Tac,Del Mar Lifeguards,DMR LG,Del Mar
+1503,DMR PS TAC,Public Service Tactical,D,Public Works,City of Del Mar,DMR,Del Mar
+1952,DMR PR TAC,Park Ranger Tac,D,Law Tac,City of Del Mar,DMR,Del Mar
+2059,DMR FAIR,Del Mar Fair Security,E,Security,City of Del Mar,DMR,Del Mar
+2561,DMR CITY TAC 3,City Tac 3,D,Public Works,City of Del Mar,DMR,Del Mar
+2774,DMR FD TAC 1,Fire Tac 1,D,Fire-Tac,Del Mar Fire Department,DMR FD,Del Mar
+2990,VA PD North Disp,VA Police North County Dispatch,D,Federal,Department of Veterans Affairs,VA,
+2991,VA PD 2991,VA Police,D,Federal,Department of Veterans Affairs,VA,
+2992,VA PD 2992,VA Police,D,Federal,Department of Veterans Affairs,VA,
+2993,VA Clinic EMERG,San Diego VA Clinic Emergency Radio Drills,D,Federal,Department of Veterans Affairs,VA,
+2998,VA PD 2998,VA Police,D,Federal,Department of Veterans Affairs,VA,
+223,ELC CITY CALL,City Call,D,Interop,City of El Cajon,ELC,El Cajon
+225,ELC CITY TAC 1,City Tac 1,D,Interop,City of El Cajon,ELC,El Cajon
+227,ELC CITY TAC 2,City Tac 2,D,Interop,City of El Cajon,ELC,El Cajon
+229,ELC CITY TAC 3,City Tac 3,D,Interop,City of El Cajon,ELC,El Cajon
+231,ELC CITY TAC 4,City Tac 4,D,Interop,City of El Cajon,ELC,El Cajon
+233,ELC PUB WORKS 1,Public Works 1,D,Public Works,City of El Cajon,ELC,El Cajon
+235,ELC PUB WORKS 2,Public Works 2,D,Public Works,City of El Cajon,ELC,El Cajon
+237,ELC RECREATION,Recreations,D,Public Works,City of El Cajon,ELC,El Cajon
+239,ELC PARKS,Parks,D,Public Works,City of El Cajon,ELC,El Cajon
+243,ELC COMM DEV,Community Development,D,Public Works,City of El Cajon,ELC,El Cajon
+245,ELC SCH TAC2,Schools Tac 2,D,Schools,City of El Cajon,ELC,El Cajon
+247,ELC SCHOOLS,Schools Call,D,Schools,City of El Cajon,ELC,El Cajon
+249,ELC SCH TAC1,Schools Tac 1,D,Schools,City of El Cajon,ELC,El Cajon
+2222,ELC PD DISP 1,Police Dispatch 1,E,Law Dispatch,El Cajon Police Department,ELC PD,El Cajon
+2223,ELC PD TAC 1,Police Tac 1,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2224,ELC PD TAC 2,Police Tac 2,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2225,ELC PD TAC 3,Police Tac 3,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2262,ELC PD DISP 2,Police Dispatch 2,E,Law Dispatch,El Cajon Police Department,ELC PD,El Cajon
+2263,ELC PD INQRY,Police Inquiry,E,Law Talk,El Cajon Police Department,ELC PD,El Cajon
+2264,ELC PD ADMIN,Police Admin,E,Law Talk,El Cajon Police Department,ELC PD,El Cajon
+2265,ELC PD TRAFFIC,Police Traffic,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2266,ELC PD INV 1,Police Investigations 1,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2267,ELC PD INV 2,Police Investigations 2,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2268,ELC PD SWAT 1,Police SWAT 1,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2269,ELC PD SWAT 2,Police SWAT 2,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2270,ELC PD HNT,Police Hostage Negotiation Team,E,Law Tac,El Cajon Police Department,ELC PD,El Cajon
+2271,ELC ACO,Animal Control Dispatch,D,Public Works,City of El Cajon,ELC,El Cajon
+2463,ECNPDISP1,Police Dispatch,D,Law Dispatch,El Centro Police Department,ECN PD,El Centro
+2464,ECNPTAC1,Police Tac 1,D,Law Tac,El Centro Police Department,ECN PD,El Centro
+2520,ECNFDISP,Fire Dispatch,D,Fire Dispatch,El Centro Fire Department,ECN FD,El Centro
+2521,ECNFCMD1,Fire Command 1,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2522,ECNFTAC1,Fire Tac 1,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2523,ECNFTAC2,Fire Tac 2,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2524,ECNFCMD2,Fire Command 2,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2525,ECNFTAC3,Fire Tac 3,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2526,ECNFTAC4,Fire Tac 4,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2527,ECNFCMD3,Fire Command 3,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2528,ECNFTAC5,Fire Tac 5,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2529,ECNFTAC6,Fire Tac 6,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2530,ECNFCMD4,Fire Command 4,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2531,ECNFTAC7,Fire Tac 7,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2532,ECNFTAC8,Fire Tac 8,D,Fire-Tac,El Centro Fire Department,ECN FD,El Centro
+2533,ELCFADMIN,Fire Administration,D,Fire-Talk,El Centro Fire Department,ECN FD,El Centro
+2534,ECNFTRN,Fire Training,D,Fire-Talk,El Centro Fire Department,ECN FD,El Centro
+2535,ECNPDISP2,Police Secondary,D,Law Tac,El Centro Police Department,ECN PD,El Centro
+2536,ECNPTAC2,Police Tac 2,D,Law Tac,El Centro Police Department,ECN PD,El Centro
+2537,ECNPINV,Police Investigations,D,Law Tac,El Centro Police Department,ECN PD,El Centro
+2538,ECNPSPEC,Police Special Operations,D,Law Tac,El Centro Police Department,ECN PD,El Centro
+2539,ECNPADMN,Police Administration,D,Law Talk,El Centro Police Department,ECN PD,El Centro
+2540,ECNCITYCALL,City Call,D,Public Works,City of El Centro,ECN,El Centro
+2541,ECNCITYTAC1,City Tac 1,D,Public Works,City of El Centro,ECN,El Centro
+2542,ECNCITYTAC2,City Tac 2,D,Public Works,City of El Centro,ECN,El Centro
+2543,ECNCITYTAC3,City Tac 3,D,Public Works,City of El Centro,ECN,El Centro
+2544,ECNCITYTAC4,City Tac 4,D,Public Works,City of El Centro,ECN,El Centro
+2545,ECNCROADS,Roads,D,Public Works,City of El Centro,ECN,El Centro
+2546,ECNCWATER,Water,D,Public Works,City of El Centro,ECN,El Centro
+2547,ECNCSEWER,Sewer,D,Public Works,City of El Centro,ECN,El Centro
+2548,ECNCFACM,Facilities Maintenance,D,Public Works,City of El Centro,ECN,El Centro
+407,ENC 1,City Tac 1,D,Public Works,City of Encinitas,ENC,Encinitas
+409,ENC 2,City Tac 2,D,Public Works,City of Encinitas,ENC,Encinitas
+411,ENC 3,City Tac 3,D,Public Works,City of Encinitas,ENC,Encinitas
+413,ENC 4,City Tac 4,D,Public Works,City of Encinitas,ENC,Encinitas
+415,ENC CITY,Citywide,D,Public Works,City of Encinitas,ENC,Encinitas
+417,ENC FD CMD 1,Fire Command 1,D,Fire-Talk,Encinitas Fire Department,ENC FD,Encinitas
+419,ENC FD CMD 2,Fire Command 2,D,Fire-Talk,Encinitas Fire Department,ENC FD,Encinitas
+421,ENC LFG 1,Lifeguards 1,D,Multi-Tac,Encinitas Lifeguards,ENC LG,Encinitas
+423,ENC LFG 2,Lifeguards 2,D,Multi-Tac,Encinitas Lifeguards,ENC LG,Encinitas
+425,ENC OPS,City Operations,D,Public Works,City of Encinitas,ENC,Encinitas
+427,ENC PS 1,Public Services 1,D,Public Works,City of Encinitas,ENC,Encinitas
+429,ENC PS 2,Public Services 2,D,Public Works,City of Encinitas,ENC,Encinitas
+2994,ENC LFG 3,Lifeguards 3,D,Multi-Tac,Encinitas Lifeguards,ENC LG,Encinitas
+1343,ESC CTYWD,Citywide,D,Interop,City of Escondido,ESC,Escondido
+1345,ESC CY TAC 1,City Tac 1,D,Interop,City of Escondido,ESC,Escondido
+1347,ESC CY TAC 2,City Tac 2,D,Interop,City of Escondido,ESC,Escondido
+1349,ESC CY TAC 3,City Tac 3,D,Interop,City of Escondido,ESC,Escondido
+1711,ESCCTYTAC4,City Tac 4,D,Public Works,City of Escondido,ESC,Escondido
+2301,ESC PD DISP 1,Police Dispatch 1,E,Law Dispatch,Escondido Police Department,ESC PD,Escondido
+2302,ESC PD DISP 2,Police Dispatch 2,E,Law Dispatch,Escondido Police Department,ESC PD,Escondido
+2303,ESC PD INQRY,Police Inquiry,E,Law Talk,Escondido Police Department,ESC PD,Escondido
+2304,ESC PD TAC 1,Police Tac 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2305,ESC PD TAC 2,Police Tac 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2306,ESC PD CARS,Police Cars,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2307,ESC PT TAC 1,Police Patrol Tac 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2308,ESC PT TAC 2,Police Patrol Tac 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2309,ESC TRF TAC 1,Police Traffic Tac 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2310,ESC TRF TAC 2,Police Traffic Tac 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2311,ESC CP TAC 1,Police Operations Tac 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2312,ESC CP TAC 2,Police Operations Tac 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2313,ESC INV TAC 1,Police Investigators Tac 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2314,ESC INV TAC 2,Police Investigators Tac 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2315,ESCPINV1,Police Investigations 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2316,ESC PD INV 2,Police Investigations 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2317,ESCPSIU1,Police Special Investigations Unit 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2318,ESC PD SIU 2,Police Special Investigations Unit 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2319,ESC PD ENT 1,Police Entry Team 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2320,ESC PD ENT 2,Police Entry Team 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2321,ESCPCMD1,Police Command 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2322,ESCPCMD2,Police Command 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2323,ESC PD TOU 1,Police Task Force 1,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2324,ESC PD TOU 2,Police Task Force 2,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2325,ESC PD TOU 3,Police Task Force 3,E,Law Tac,Escondido Police Department,ESC PD,Escondido
+2336,ESC FD CARS,Fire Cars,D,Fire-Talk,Escondido Fire Department,ESC FD,Escondido
+2337,ESC FD TRNG,Fire Training,D,Fire-Talk,Escondido Fire Department,ESC FD,Escondido
+2358,ESC CODE,Code Enforcement,D,Public Works,City of Escondido,ESC,Escondido
+2480,ESCCODETAC,Code Enforcement Tactical,D,Public Works,City of Escondido,ESC,Escondido
+2706,ESC PW DISP,Public Works Dispatch,D,Public Works,City of Escondido,ESC,Escondido
+2707,ESC STREETS,Street Maintenance,D,Public Works,City of Escondido,ESC,Escondido
+2708,ESC WATER,Water Department,D,Public Works,City of Escondido,ESC,Escondido
+2709,ESC COLLECT,Water Collection,D,Public Works,City of Escondido,ESC,Escondido
+2710,ESC HARRF,Hale Ave Resource Recovery Facility,D,Public Works,City of Escondido,ESC,Escondido
+2711,ESC ENGRNG,Engineering,D,Public Works,City of Escondido,ESC,Escondido
+2712,ESC FLEET,Fleet Maintenance,D,Public Works,City of Escondido,ESC,Escondido
+2713,ESC WTP,Water Treatment Plant,D,Public Works,City of Escondido,ESC,Escondido
+2714,ESC BMNT,Building Maintenance,D,Public Works,City of Escondido,ESC,Escondido
+2715,ESC RNGR,Park Rangers,D,Public Works,City of Escondido,ESC,Escondido
+2716,ESC RNGR TAC,Park Rangers Tac,D,Public Works,City of Escondido,ESC,Escondido
+727,HCF 1A DISP,"Dispatch 1A (""Heartland"")",D,Fire Dispatch,Heartland Fire Communications (Central Zone),HCF,
+723,HCF 1B ZONE,Zone 1B,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+729,HCF 1C,Command 1C - Medical Command,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+51,HCF 1D,Tac 1D - Primary Medical Tac,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+53,HCF 1E,Tac 1E - Secondary Medical Tac,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+725,HCF 1F,Command 1F - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+731,HCF 1G,Tac 1G - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+69,HCF 1H,Tac 1H - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+71,HCF 1-I,Command 1I - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+57,HCF 1J,Tac 1J - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+59,HCF 1K,Tac 1K - Structure Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+75,HCF 1L,Command 1L - Wildland Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+77,HCF 1M,Tac 1M - Wildland Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+55,HCF 1N,Tac 1N - Gillespie Field Incidents,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1333,HCF 2A,Admin 2A,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1335,HCF 2B,Zone 2B,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1339,HCF 2C,Command 2C - Medical Command,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+63,HCF 2D,Tac 2D - Structure Incidents (Barona/Campo/Santa Ysabel Reservations),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Campo
+65,HCF 2E,Tac 2E - Structure Incidents (Barona/Campo/Santa Ysabel Reservations),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Campo
+1337,HCF 2F,Command 2F - Structure Incidents (Barona/Campo/Santa Ysabel Reservations),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Campo
+1341,HCF 2G,Tac 2G - Structure Incidents (Alpine/Viejas/Sycuan),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Alpine
+67,HCF 2H,Tac 2H - Structure Incidents (Alpine/Viejas/Sycuan),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Alpine
+1355,HCF 2-I,Command 2I - Structure Incidents (Alpine/Viejas/Sycuan),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,Alpine
+1357,HCF 2J,Tac 2J - Wildland Response,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+81,HCF 2K,Tac 2K - Wildland Response,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1359,HCF 2L,Command 2L - Wildland Response,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+61,HCF 2M,Tac 2M - Wildland Response,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+73,HCF 2N,Tac 2N - Wildland Response,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1353,HCF 1/2P EMG,Central Fire Emergency (1P/2P),D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+499,TRN A,Training A,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+1922,TRN B,Training B,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+501,TRN C,Training C,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+29,VJS ADMINT,Viejas Fire Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+305,HFR-ADM,Heartland Fire and Rescue Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+447,HCF ACP,Alpine Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,Alpine
+449,HCF CHIEF,Heartland Fire Chiefs,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+461,HCF DISTR,Disaster,D,Interop,Heartland Fire Communications (Central Zone),HCF,
+463,HCF ECO,East County Admin,D,Interop,Heartland Fire Communications (Central Zone),HCF,
+467,HCF HCFA,Heartland Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+469,HCF LGV,Lemon Grove Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,Lemon Grove
+471,HCF LKS,Lakeside Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,Lakeside
+475,HCF SMG,San Miguel Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,
+477,HCF SNT,Santee Admin,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,Santee
+733,SMG TAC,San Miguel Fire Tac,D,Fire-Tac,Heartland Fire Communications (Central Zone),HCF,
+1279,HCF LMS,La Mesa Administration,D,Fire-Talk,Heartland Fire Communications (Central Zone),HCF,La Mesa
+605,MET 5K,Tac 5K,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1369,MET 5L,Tac 5L,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+543,MET 5M,Tac 5M,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+311,MET 5N,Tac 5N,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1299,MET 6A ADMIN,Administration 6A,D,Fire-Talk,San Diego Fire-Rescue (Metro Zone),MET,
+1297,MET 6B DISP,Dispatch 6B,D,Fire Dispatch,San Diego Fire-Rescue (Metro Zone),MET,
+1301,MET 6C,Command 6C - Medical Aid,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+165,MET 6D,Tac 6D - Medical Aid,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+167,MET 6E,Command 6E - Non-Medical Aid/Non-Structure Fire,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1311,MET 6F,Tac 6F - Non-Medical Aid/Non-Structure Fire,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1307,MET 6G,Command 6G - Structure Fires (Primary),D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1309,MET 6H,Tac 6H - Structure Fires (Primary),D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+89,MET 6-I,Command 6I - Structure Fires (Secondary),D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+91,MET 6J,Tac 6J - Structure Fires (Secondary),D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+93,MET 6K,Command 6K - Vegetation Fires,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1313,MET 6L,Tac 6L - Vegetation Fires,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1303,MET 6M,Tactical 6M - Secondary Tac,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+1305,MET 6N,Tactical 6N - Secondary Tac,D,Fire-Tac,San Diego Fire-Rescue (Metro Zone),MET,
+163,MET 6P EMG,Emergency 6P - Emergency Activations,D,Fire-Talk,San Diego Fire-Rescue (Metro Zone),MET,
+347,TRN G,Training G,D,Fire-Talk,San Diego Fire-Rescue (Metro Zone),MET,
+1925,TRN H,Training H,D,Fire-Talk,San Diego Fire-Rescue (Metro Zone),MET,
+349,TRN I,Training I,D,Fire-Talk,San Diego Fire-Rescue (Metro Zone),MET,
+503,NCD 3A DISP,Dispatch 3A (Coastal Agencies),D,Fire Dispatch,North County Dispatch JPA (North Comm),NCD,
+495,NCD 3B ADMIN,Administration 3B,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+451,NCD 3C,Command 3C,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+479,NCD 3D,Tac 3D,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+481,NCD 3E,Tac 3E,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+457,NCD 3F,Command 3F,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+483,NCD 3G,Tac 3G,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+485,NCD 3H,Tac 3H,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+453,NCD 3-I,Command 3I,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+487,NCD 3J,Tac 3J,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+489,NCD 3K,Tac 3K,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+455,NCD 3L,Command 3L,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+491,NCD 3M,Tac 3M,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+307,NCD 3N,Tac 3N,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1363,NCD 3P EMG,Emergency 3P,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+1295,NCD 4A,Dispatch 4A (Inland Agencies),D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1291,NCD 4B,Administration 4B,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1289,NCD 4C,Command 4C,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1293,NCD 4D,Tac 4D,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+85,NCD 4E,Tac 4E,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+83,NCD 4F,Command 4F,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+87,NCD 4G,Tac 4G,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+497,NCD 4H,Tac 4H,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1085,NCD 4-I,Tac 4I,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+103,NCD 4J,Tac 4J,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+101,NCD 4K,Command 4K,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+113,NCD 4L,Tac 4L,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+459,NCD 4M,Tac 4M,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+309,NCD 4N,Tac 4N,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1329,NCD 4P EMG,Emergency 4P,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+1367,NCD 5A,Dispatch 5A (Valley Agencies),D,Fire Dispatch,North County Dispatch JPA (North Comm),NCD,
+1331,NCD 5B,Administration 5B,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+599,NCD 5C,Tac 5C,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+607,NCD 5D,Tac 5D,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+601,NCD 5E,Tac 5E,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1077,NCD 5F,Tac 5F,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+603,NCD 5G,Tac 5G,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1081,NCD 5H,Tac 5H,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1079,NCD 5-I,Tac 5I,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1083,NCD 5J,Tac 5J,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1361,NCD 5P EMG,Emergency 5P,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+1808,NZT 1,North Zone Tac 1 - Training,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1809,NZT 2,North Zone Tac 2 - Training,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+5,NZT 3,North Zone Tac 3 - Training,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+7,NZT 4,North Zone Tac 4 - Training (Escondido),D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,Escondido
+1923,TRN D,Training D,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+505,TRN E,Training E,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+1924,TRN F,Training F,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+523,TRN M,Training M,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+1928,TRN N,Training N,D,Fire-Talk,North County Dispatch JPA (North Comm),NCD,
+31,VCT ADM,Valley Center Fire Admin,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,Valley Center
+35,PAL ADM,Pala Fire Admin,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+2124,EFF TAC,Elfin Forest Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+2126,ENC TAC,Encinitas Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,Encinitas
+2168,SMC TAC,San Marcos Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,San Marcos
+2171,SOL TAC,Solana Beach Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,Solana Beach
+2199,RHO TAC,Rancho Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+2200,VTA TAC,Vista Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,Vista
+2259,NCF TAC,North County Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+2863,NC TAC,North County Fire Tac,D,Fire-Tac,North County Dispatch JPA (North Comm),NCD,
+1493,FSP N,Dispatch North,D,Public Works,Freeway Service Patrol,FSP,
+1495,FSP S,Dispatch South,D,Public Works,Freeway Service Patrol,FSP,
+1497,FSP E,Dispatch East,D,Public Works,Freeway Service Patrol,FSP,
+1499,FSP EMER,Emergency,D,Public Works,Freeway Service Patrol,FSP,
+753,GSDTRANS1,Transportation 1,D,Transportation,Grossmont Union School District,GUSD,
+757,GSDTRANS2,Transportation 2,D,Transportation,Grossmont Union School District,GUSD,
+805,GSDTRANS3,Transportation 3,D,Transportation,Grossmont Union School District,GUSD,
+807,GSDMN01,Maintenance 1,D,Schools,Grossmont Union School District,GUSD,
+815,GSDMN02,Maintenance 2,D,Schools,Grossmont Union School District,GUSD,
+817,GSDMN03,Maintenance 3,D,Schools,Grossmont Union School District,GUSD,
+819,GSD FOOD,Food Services,D,Schools,Grossmont Union School District,GUSD,
+823,GSD WARE,Warehouse,D,Schools,Grossmont Union School District,GUSD,
+825,GSDSECURITY,Security,D,Security,Grossmont Union School District,GUSD,
+827,GSDEOC1,Emergency Operations Center 1,D,Schools,Grossmont Union School District,GUSD,
+829,GSDEOC2,Emergency Operations Center 2,D,Schools,Grossmont Union School District,GUSD,
+831,GSDEOC3,Emergency Operations Center 3,D,Schools,Grossmont Union School District,GUSD,
+833,GSDGROSS,Grossmont High School,D,Schools,Grossmont Union School District,GUSD,
+835,GSDHELIX,Helix High School,D,Schools,Grossmont Union School District,GUSD,
+839,GSDELCAJON,El Cajon High School,D,Schools,Grossmont Union School District,GUSD,El Cajon
+841,GSDMTMIGUEL,Mt Miguel High School,D,Schools,Grossmont Union School District,GUSD,
+843,GSDELCAPITAN,El Capitan High School,D,Schools,Grossmont Union School District,GUSD,
+845,GSDGRHILLS,Granite Hills High School,D,Schools,Grossmont Union School District,GUSD,
+889,GSDMONTEVIST,Monte Vista High School,D,Schools,Grossmont Union School District,GUSD,Vista
+893,GSDSANTANA,Santana High School,D,Schools,Grossmont Union School District,GUSD,
+895,GSDVALHALLA,Valhalla High School,D,Schools,Grossmont Union School District,GUSD,
+935,GSDWHILLS,West Hills High School,D,Schools,Grossmont Union School District,GUSD,
+943,GSDSTEELCNYN,Steel Canyon High School,D,Schools,Grossmont Union School District,GUSD,
+1175,GSDEOCSE4,Emergency Operations Center 4,D,Emergency Ops,Grossmont Union School District,GUSD,
+1265,GRO EOC,Emergency Operations Center,D,Emergency Ops,Grossmont/Cuyamaca College,GRO,
+1267,GRO PD DISP 2,Police Dispatch 2,D,Law Tac,Grossmont/Cuyamaca College,GRO,
+2291,GRO PD DISP 1,Police Dispatch 1,D,Law Dispatch,Grossmont/Cuyamaca College,GRO,
+2292,GRO PD TAC 1,Police Tac 1,D,Law Tac,Grossmont/Cuyamaca College,GRO,
+2465,HVLDISP,Police Dispatch,D,Law Dispatch,Holtville Police Department,HVL PD,Holtville
+2466,HVLTAC1,Police Tac 1,D,Law Tac,Holtville Police Department,HVL PD,Holtville
+2549,HLTFDISP,Fire Dispatch,D,Fire Dispatch,Holtville Fire Department,HVL FD,Holtville
+2550,HLTFCMD1,Fire Command 1,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2551,HLTFTAC1,Fire Tac 1,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2552,HLTFTAC2,Fire Tac 2,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2553,HLTFCMD2,Fire Command 2,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2554,HLTFTAC3,Fire Tac 3,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2555,HLTFTAC4,Fire Tac 4,D,Fire-Tac,Holtville Fire Department,HVL FD,Holtville
+2556,HLTFADMIN,Fire Administration,D,Fire-Talk,Holtville Fire Department,HVL FD,Holtville
+2557,HLTFTRN,Fire Training,D,Fire-Talk,Holtville Fire Department,HVL FD,Holtville
+2558,HLTPADMIN,Police Administration,D,Law Talk,Holtville Police Department,HVL PD,Holtville
+2559,HLTCITYCALL,City Call,D,Public Works,City of Holtville,HVL,Holtville
+2560,HLTCITYTAC1,City Tac 1,D,Public Works,City of Holtville,HVL,Holtville
+2562,HLTCITYTAC2,City Tac 2,D,Public Works,City of Holtville,HVL,Holtville
+2563,HLTCITYTAC3,City Tac 3,D,Public Works,City of Holtville,HVL,Holtville
+2564,HLTCITYTAC4,City Tac 4,D,Public Works,City of Holtville,HVL,Holtville
+2565,HLTROADS,Roads,D,Public Works,City of Holtville,HVL,Holtville
+2566,HLTWATER,Water,D,Public Works,City of Holtville,HVL,Holtville
+2567,HLTSEWER,Sewer,D,Public Works,City of Holtville,HVL,Holtville
+2568,HLTFACM,Facilities Maintenance,D,Public Works,City of Holtville,HVL,Holtville
+2603,IMPTAC1,Police Tac 1,D,Law Tac,Imperial Police Department,IMP PD,Imperial
+2604,IMPTAC2,Police Tac 2,D,Law Tac,Imperial Police Department,IMP PD,Imperial
+2605,IMPINV,Police Investigations,D,Law Tac,Imperial Police Department,IMP PD,Imperial
+2606,IMPSPEC,Police Special Ops,D,Law Tac,Imperial Police Department,IMP PD,Imperial
+2607,IMPCMD,Police Command,D,Law Tac,Imperial Police Department,IMP PD,Imperial
+2608,IMPADMN,Police Administration,D,Law Talk,Imperial Police Department,IMP PD,Imperial
+2609,IMPCITYCALL,City Call,D,Public Works,City of Imperial,IMP,Imperial
+2610,IMPCITYTAC1,City Tac 1,D,Public Works,City of Imperial,IMP,Imperial
+2611,IMPCITYTAC2,City Tac 2,D,Public Works,City of Imperial,IMP,Imperial
+2612,IMPCITYTAC3,City Tac 3,D,Public Works,City of Imperial,IMP,Imperial
+2613,IMPCITYTAC4,City Tac 4,D,Public Works,City of Imperial,IMP,Imperial
+2614,IMPROADS,Roads,D,Public Works,City of Imperial,IMP,Imperial
+2615,IMPWATER,Water,D,Public Works,City of Imperial,IMP,Imperial
+2616,IMPSEWER,Sewer,D,Public Works,City of Imperial,IMP,Imperial
+2617,IMPFACM,Facilities Maintenance,D,Public Works,City of Imperial,IMP,Imperial
+2618,IMPFADMIN,Fire Administration,D,Fire-Talk,Imperial Fire Department,IMP FD,Imperial
+2619,IMPTRN,Fire Training,D,Fire-Talk,Imperial Fire Department,IMP FD,Imperial
+507,IMB1,City Tac 1,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+955,IMB2,City Tac 2,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+957,IMB3,City Tac 3,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+513,IMB4,City Tac 4,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+515,IMB ADMIN,City Administration,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+519,IMBCT,Citywide,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+535,IMBPS,Public Service,D,Public Works,City of Imperial Beach,IMB,Imperial Beach
+1239,IMB LFGD,Imperial Beach Lifeguards,D,Multi-Dispatch,Imperial Beach Lifeguards,IMB LG,Imperial Beach
+1509,IMB F ADMIN,Imperial Beach Fire Admin,D,Fire-Talk,Imperial Beach Fire Department,IMB FD,Imperial Beach
+23,ICOEMSCMD,EMS Command,D,EMS-Tac,Imperial County,ICO,
+25,ICOEMSTAC,EMS Tactical,D,EMS-Tac,Imperial County,ICO,
+981,IMCoCALL,County Call,D,Interop,Imperial County,ICO,
+983,IMCoTAC1,County Tac 1,D,Interop,Imperial County,ICO,
+985,IMCoTAC2,County Tac 2,D,Interop,Imperial County,ICO,
+987,IMCoTAC3,County Tac 3,D,Interop,Imperial County,ICO,
+989,IMCoTAC4,County Tac 4,D,Interop,Imperial County,ICO,
+991,IM ICS1,County Incident Command 1,D,Interop,Imperial County,ICO,
+993,IM ICS2,County Incident Command 2,D,Interop,Imperial County,ICO,
+995,IM ICS3,County Incident Command 3,D,Interop,Imperial County,ICO,
+997,IM ICS4,County Incident Command 4,D,Interop,Imperial County,ICO,
+999,IM ICS5,County Incident Command 5,D,Interop,Imperial County,ICO,
+1001,IM ICS6,County Incident Command 6,D,Interop,Imperial County,ICO,
+1003,IM ICS7,County Incident Command 7,D,Interop,Imperial County,ICO,
+1005,IM ICS8,County Incident Command 8,D,Interop,Imperial County,ICO,
+1007,IM ICS9,County Incident Command 9,D,Interop,Imperial County,ICO,
+1009,IM ICS10,County Incident Command 10,D,Interop,Imperial County,ICO,
+1011,IM ICS11,County Incident Command 11,D,Interop,Imperial County,ICO,
+1615,ICEMER1,County Emergency Tac 1,D,Interop,Imperial County,ICO,
+1617,ICEMER2,County Emergency Tac 2,D,Interop,Imperial County,ICO,
+1619,ICEMER3,County Emergency Tac 3,D,Interop,Imperial County,ICO,
+1621,ICEMER4,County Emergency Tac 4,D,Interop,Imperial County,ICO,
+1707,AMV1,Aero Medical Services 1,D,EMS Dispatch,Imperial County,ICO,
+1709,AMV2,Aero Medical Services 2,D,EMS-Tac,Imperial County,ICO,
+1810,ICO PW BASE,Public Works Base,D,Public Works,Imperial County,ICO,
+1811,ICO PW D,Public Works Hailing,D,Public Works,Imperial County,ICO,
+1812,ICO PW NORTH,Public Works North,D,Public Works,Imperial County,ICO,
+1813,ICO PW SOUTH,Public Works South,D,Public Works,Imperial County,ICO,
+1814,ICO PW ADMIN,Public Works Administration,D,Public Works,Imperial County,ICO,
+1815,ICO PW ENGRG,Public Works Engineering,D,Public Works,Imperial County,ICO,
+1816,ICO PW SWASTE,Public Works Solid Waste,D,Public Works,Imperial County,ICO,
+1817,ICO PW TAC1,Public Works Tac 1,D,Public Works,Imperial County,ICO,
+1818,ICO PW TAC2,Public Works Tac 2,D,Public Works,Imperial County,ICO,
+1819,ICO PW TAC3,Public Works Tac 3,D,Public Works,Imperial County,ICO,
+1820,ICO PW TAC4,Public Works Tac 4,D,Public Works,Imperial County,ICO,
+1821,ICO PW TAC5,Public Works Tac 5,D,Public Works,Imperial County,ICO,
+1822,ICO PW TAC6,Public Works Tac 6,D,Public Works,Imperial County,ICO,
+1834,ICO ACO DISP,Animal Control Dispatch,D,Public Works,Imperial County,ICO,
+1835,ICO ACO TAC1,Animal Control Tac 1,D,Public Works,Imperial County,ICO,
+1836,ICO ACO TAC2,Animal Control Tac 2,D,Public Works,Imperial County,ICO,
+1868,ICO BEHLTH,Behavioral Health,D,Public Works,Imperial County,ICO,
+1869,ICO BH TAC1,Behavioral Health Tac 1,D,Public Works,Imperial County,ICO,
+2620,IMPLAWCC,Law Comm Center to Comm Center,D,Interop,Imperial County,ICO,
+2621,IMPFIRECC,Fire Comm Center to Comm Center,D,Interop,Imperial County,ICO,
+2645,ICO PS CMD,Public Service Command,D,Law Talk,Imperial County,ICO,
+2687,ICO PRO CMD,Probation Command,D,Law Talk,Imperial County,ICO,
+2688,ICO PRO DISP,Probation Dispatch,D,Law Dispatch,Imperial County,ICO,
+2689,ICO PRO JUV1,Probation Juvenile 1,D,Law Talk,Imperial County,ICO,
+2690,ICO PRO JUV2,Probation Juvenile 2,D,Law Talk,Imperial County,ICO,
+2691,ICO PRO ADU1,Probation Adult 1,D,Law Talk,Imperial County,ICO,
+2692,ICO PRO ADU2,Probation Adult 2,D,Law Talk,Imperial County,ICO,
+2717,ICO BLD,Building Inspectors,D,Public Works,Imperial County,ICO,
+2824,ICO DA CMD1,District Attorney Command 1,D,Law Tac,Imperial County,ICO,
+2825,ICO DA TAC1,District Attorney Tac 1,D,Law Tac,Imperial County,ICO,
+2826,ICO DA TAC2,District Attorney Tac 2,D,Law Tac,Imperial County,ICO,
+2827,ICO DA CMD2,District Attorney Command 2,D,Law Tac,Imperial County,ICO,
+2828,ICO DA TAC3,District Attorney Tac 3,D,Law Tac,Imperial County,ICO,
+2829,ICO DA TAC4,District Attorney Tac 4,D,Law Tac,Imperial County,ICO,
+909,ICO L/AIR,Imperial County Law Air,D,Interop,Imperial County Air Mutual Aid,ICAMA,
+911,ICO M/AIR,Imperial County Medical Air,D,Interop,Imperial County Air Mutual Aid,ICAMA,
+913,ICO F/AIR,Imperial County Fire Air,D,Interop,Imperial County Air Mutual Aid,ICAMA,
+2569,ICO F DISP,Dispatch,D,Fire Dispatch,Imperial County Fire,ICF,
+2570,ICO F CMD1,Command 1,D,Fire-Tac,Imperial County Fire,ICF,
+2572,ICO F TAC1,Tac 1,D,Fire-Tac,Imperial County Fire,ICF,
+2573,ICO F TAC2,Tac 2,D,Fire-Tac,Imperial County Fire,ICF,
+2574,ICO F CMD2,Command 2,D,Fire-Tac,Imperial County Fire,ICF,
+2575,ICO F TAC3,Tac 3,D,Fire-Tac,Imperial County Fire,ICF,
+2576,ICO F TAC4,Tac 4,D,Fire-Tac,Imperial County Fire,ICF,
+2577,ICO F CMD3,Command 3,D,Fire-Tac,Imperial County Fire,ICF,
+2578,ICO F TAC5,Tac 5,D,Fire-Tac,Imperial County Fire,ICF,
+2579,ICO F TAC6,Tac 6,D,Fire-Tac,Imperial County Fire,ICF,
+2580,ICO F CMD4,Command 4,D,Fire-Tac,Imperial County Fire,ICF,
+2581,ICO F TAC7,Tac 7,D,Fire-Tac,Imperial County Fire,ICF,
+2582,ICO F ADMIND,Administration,D,Fire-Talk,Imperial County Fire,ICF,
+2583,ICO F TRN,Training,D,Fire-Talk,Imperial County Fire,ICF,
+355,IFM CALL,Fire Mutual Aid Calling,D,Fire-Talk,Imperial County Fire Mutual Aid,IFM,
+357,IFM CMD1,Fire Mutual Aid Command 1,D,Interop,Imperial County Fire Mutual Aid,IFM,
+361,IFM CMD2,Fire Mutual Aid Command 2,D,Interop,Imperial County Fire Mutual Aid,IFM,
+363,IFM CMD3,Fire Mutual Aid Command 3,D,Interop,Imperial County Fire Mutual Aid,IFM,
+365,IFM CMD4,Fire Mutual Aid Command 4,D,Interop,Imperial County Fire Mutual Aid,IFM,
+367,IFM CMD5,Fire Mutual Aid Command 5,D,Interop,Imperial County Fire Mutual Aid,IFM,
+369,IFM TAC1,Fire Mutual Aid Tac 1,D,Interop,Imperial County Fire Mutual Aid,IFM,
+371,IFM TAC2,Fire Mutual Aid Tac 2,D,Interop,Imperial County Fire Mutual Aid,IFM,
+373,IFM TAC3,Fire Mutual Aid Tac 3,D,Interop,Imperial County Fire Mutual Aid,IFM,
+375,IFM TAC4,Fire Mutual Aid Tac 4,D,Interop,Imperial County Fire Mutual Aid,IFM,
+377,IFM TAC5,Fire Mutual Aid Tac 5,D,Interop,Imperial County Fire Mutual Aid,IFM,
+379,IFM TAC6,Fire Mutual Aid Tac 6,D,Interop,Imperial County Fire Mutual Aid,IFM,
+381,IFM TAC7,Fire Mutual Aid Tac 7,D,Interop,Imperial County Fire Mutual Aid,IFM,
+383,IFM TAC8,Fire Mutual Aid Tac 8,D,Interop,Imperial County Fire Mutual Aid,IFM,
+385,IFM TAC9,Fire Mutual Aid Tac 9,D,Interop,Imperial County Fire Mutual Aid,IFM,
+387,IFM TAC10,Fire Mutual Aid Tac 10,D,Interop,Imperial County Fire Mutual Aid,IFM,
+899,ICO LE CMD,Command,D,Law Talk,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+901,ICO LE TAC1,Tac 1,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+903,ICO LE TAC2,Tac 2,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+905,ICO LE TAC3,Tac 3,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+907,ICO LE TAC4,Tac 4,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+915,ICO LE1,Law Enforcement 1,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+917,ICO LE2,Law Enforcement 2,D,Law Tac,Imperial County Law Enforcement Mutual Aid,ICLEMA,
+2467,ICSO DISP,Dispatch,D,Law Dispatch,Imperial County Sheriff's Office,ICSO,
+2468,ICSO CTAC1,Central Tac 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2471,ICO TF01,Task Force 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2472,ICO TF02,Task Force 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2473,ICO TF03,Task Force 3,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2474,IC LEC4,Law Common 4 (formerly DES1),D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2475,IC LEC5,Law Common 5 (formerly DES2),D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2476,IC LEC6,Law Common 6 (formerly DES3),D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2584,ICSO CTAC2,Central Tac 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2585,ICSO CINQ,Central Inquiry,D,Law Dispatch,Imperial County Sheriff's Office,ICSO,
+2586,ICSO INV,Investigations,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2587,ICSO E DISP,East Dispatch,D,Law Dispatch,Imperial County Sheriff's Office,ICSO,
+2588,ICSO MA,Mutual Aid,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2589,ICSO CTAC3,Central Tac 3,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2590,ICSO E INQ,East Inquiry,D,Law Dispatch,Imperial County Sheriff's Office,ICSO,
+2591,ICSC SRT CMD,Special Response Team Command,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2592,ICSO SRT1,Special Response Team 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2593,ICSO SRT2,Special Response Team 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2594,ICO SOTAC 1,Special Operations Tactical Unit 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2595,ICO SOTAC 2,Special Operations Tactical Unit 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2596,ICSO BOAT TAC,Boat Tactical,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2597,ICSO CRT CMD,Court Command,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2598,ICSO DCMD,Detentions Command,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2599,ICSO DTAC1,Detentions Tac 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2600,ICSO DTAC2,Detentions Tac 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2601,ICSO JAIL CALL,Jail Call,D,Law Talk,Imperial County Sheriff's Office,ICSO,
+2602,ICSO SCRT,C-SORT Team (CRT),D,Law Talk,Imperial County Sheriff's Office,ICSO,
+2745,ICSO IT CMD1,Street Interdiction Team Command 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2746,ICSO IT TAC1,Street Interdiction Team Tac 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2747,ICSO IT TAC2,Street Interdiction Team Tac 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2748,ICSO IT CMD2,Street Interdiction Team Command 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2749,ICSO IT TAC3,Street Interdiction Team Tac 3,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2750,ICSO IT TAC4,Street Interdiction Team Tac 4,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2758,ICSO SCRT TAC,Court Services Tactical,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2819,ICO SAR,Search and Rescue Command,D,Multi-Tac,Imperial County Sheriff's Office,ICSO,
+2820,ICO SAR11,Search and Rescue Tac 11,D,Multi-Tac,Imperial County Sheriff's Office,ICSO,
+2821,ICO SAR12,Search and Rescue Tac 12,D,Multi-Tac,Imperial County Sheriff's Office,ICSO,
+2822,ICO SAR13,Search and Rescue Tac 13,D,Multi-Tac,Imperial County Sheriff's Office,ICSO,
+2823,ICO SAR14,Search and Rescue Tac 14,D,Multi-Tac,Imperial County Sheriff's Office,ICSO,
+2830,ICO NTF CMD1,Narcotics Task Force Command 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2831,ICO NTF TAC1,Narcotics Task Force Tac 1,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2832,ICO NTF TAC2,Narcotics Task Force Tac 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2833,ICO NTF CMD2,Narcotics Task Force Command 2,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2834,ICO NTF TAC3,Narcotics Task Force Tac 3,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2835,ICO NTF TAC4,Narcotics Task Force Tac 4,D,Law Tac,Imperial County Sheriff's Office,ICSO,
+2884,JDUSD,Jamul Dulzura Union School District,D,Schools,Jamul-Dulzura Union School District,JDUSD,Jamul
+1874,LJR PD DISP,Police Dispatch 1,D,Law Dispatch,La Jolla Reservation,LJR,
+1875,LJR PD TAC,Tactical,D,Law Tac,La Jolla Reservation,LJR,
+1273,LM CITYWIDE,Citywide,D,Public Works,City of La Mesa,LMS,La Mesa
+2293,LM PD DISP 1,Police Dispatch 1,E,Law Dispatch,La Mesa Police Department,LMS PD,La Mesa
+2294,LM PD DISP 2,Police Dispatch 2,E,Law Dispatch,La Mesa Police Department,LMS PD,La Mesa
+2295,LM PD TAC 1,Police Tac 1,E,Law Tac,La Mesa Police Department,LMS PD,La Mesa
+2296,LM PD TAC 2,Police Tac 2,E,Law Tac,La Mesa Police Department,LMS PD,La Mesa
+2297,LM PD TAC 3,Police Tac 3,E,Law Tac,La Mesa Police Department,LMS PD,La Mesa
+2298,LM PD DET,Police Detectives,E,Law Tac,La Mesa Police Department,LMS PD,La Mesa
+2299,LM PD RSVP,Police RSVP (Volunteers),D,Law Talk,La Mesa Police Department,LMS PD,La Mesa
+2300,LM PD SRT,Police Special Response Team,E,Law Tac,La Mesa Police Department,LMS PD,La Mesa
+2700,LMPWDISP,Public Works Dispatch,D,Public Works,City of La Mesa,LMS,La Mesa
+2701,LMPARK,Public Works Parks,D,Public Works,City of La Mesa,LMS,La Mesa
+2703,LMSTRMAINT,Public Works Street Maintenance Dispatch,D,Public Works,City of La Mesa,LMS,La Mesa
+1399,SMSP,Lake San Marcos Security Patrol (Private Security),D,Security,Lake San Marcos Security Patrol,LSM SP,Lake San Marcos
+583,LGV 1,City Tac 1,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+585,LGV 2,City Tac 2,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+587,LGV 3,City Tac 3,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+589,LGV 4,City Tac 4,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+591,LGV ADMIN,Administration,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+595,LGV CT,Citywide,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+597,LGV CMD,City Command,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+611,LGV PS,Public Services,D,Public Works,City of Lemon Grove,LGV,Lemon Grove
+1521,MSTCMD1,Hazmat Command 1,D,Emergency Ops,Metropolitan Medical Strike Team (MMST),MMSTM,
+1523,MSTTAC1,Hazmat Tac 1,D,Emergency Ops,Metropolitan Medical Strike Team (MMST),MMSTM,
+1525,MSTTAC2,Hazmat Tac 2,D,Emergency Ops,Metropolitan Medical Strike Team (MMST),MMSTM,
+1527,MSTTAC3,Hazmat Tac 3,D,Emergency Ops,Metropolitan Medical Strike Team (MMST),MMSTM,
+1529,MSTTAC4,Hazmat Tac 4,D,Emergency Ops,Metropolitan Medical Strike Team (MMST),MMSTM,
+2781,MCC DISP,Police Dispatch,D,Law Dispatch,MiraCosta Community College,MCC,
+2782,MCC TAC1,Police Tac 1,D,Law Tac,MiraCosta Community College,MCC,
+2783,MCC DISP2,Police Dispatch 2,D,Law Tac,MiraCosta Community College,MCC,
+2784,MCC TAC2,Police Tac 2,D,Law Tac,MiraCosta Community College,MCC,
+2785,MCC INV,Police Investigations,D,Law Tac,MiraCosta Community College,MCC,
+267,NATFADMIN,Fire Admin,D,Fire-Talk,National City Fire Department,NAT FD,National City
+2369,NAT PD DISP 1,Police Dispatch 1,E,Law Dispatch,National City Police Department,NAT PD,National City
+2370,NAT PD TAC 1,Police Tac 1,E,Law Tac,National City Police Department,NAT PD,National City
+2786,NAT PD DISP 2,Police Dispatch 2,E,Law Dispatch,National City Police Department,NAT PD,National City
+2787,NAT PD INQ,Police Inquiry,E,Law Dispatch,National City Police Department,NAT PD,National City
+2788,NAT PD INV,Police Investigations,E,Law Tac,National City Police Department,NAT PD,National City
+2789,NAT PD CARS,Police Cars,E,Law Tac,National City Police Department,NAT PD,National City
+2790,NAT PD TAC 2,Police Tac 2,E,Law Tac,National City Police Department,NAT PD,National City
+2791,NAT PD TAC 3,Police Tac 3,E,Law Tac,National City Police Department,NAT PD,National City
+2792,NATPTAC4,Police Tac 4,E,Law Tac,National City Police Department,NAT PD,National City
+2793,NAT PD SWAT,Police SWAT,E,Law Tac,National City Police Department,NAT PD,National City
+2794,NATCTYCALL,City Wide,D,Public Works,City of National City,NAT,National City
+2795,NATPWOPS,Public Works Operations,D,Public Works,City of National City,NAT,National City
+2796,NATPWST,Public Works Streets,D,Public Works,City of National City,NAT,National City
+2797,NATPWSEW,Public Works Sewer,D,Public Works,City of National City,NAT,National City
+2798,NATPWFAC,Public Works Facilities,D,Public Works,City of National City,NAT,National City
+2799,NATPWEQ,Public Works Equipment,D,Public Works,City of National City,NAT,National City
+2800,NATPWPARKS,Public Works Parks,D,Public Works,City of National City,NAT,National City
+2801,NATPWPLNENG,Public Works Engineering,D,Public Works,City of National City,NAT,National City
+2802,NATPWBLDG,Public Works Maintenance,D,Public Works,City of National City,NAT,National City
+2803,NATPECMSERV,Public Works Services,D,Public Works,City of National City,NAT,National City
+2804,NATEOC,Emergency Operations Center,D,Emergency Ops,City of National City,NAT,National City
+2805,NATEOCCMD1,EOC Command 1,D,Emergency Ops,City of National City,NAT,National City
+2806,NATEOCCMD2,EOC Command 2,D,Emergency Ops,City of National City,NAT,National City
+2807,NATEOCTAC1,EOC Tac 1,D,Emergency Ops,City of National City,NAT,National City
+2808,NATEOCTAC2,EOC Tac 2,D,Emergency Ops,City of National City,NAT,National City
+2809,NATEOCTAC3,EOC Tac 3,D,Emergency Ops,City of National City,NAT,National City
+2810,NATEOCTAC4,EOC Tac 4,D,Emergency Ops,City of National City,NAT,National City
+2811,NATEOCTAC5,EOC Tac 5,D,Emergency Ops,City of National City,NAT,National City
+2812,NATEOCTAC6,EOC Tac 6,D,Emergency Ops,City of National City,NAT,National City
+2813,NATEOCTAC7,EOC Tac 7,D,Emergency Ops,City of National City,NAT,National City
+2814,NATEOCTAC8,EOC Tac 8,D,Emergency Ops,City of National City,NAT,National City
+2815,NATEOCTAC9,EOC Tac 9,D,Emergency Ops,City of National City,NAT,National City
+2816,NATEOCTAC10,EOC Tac 10,D,Emergency Ops,City of National City,NAT,National City
+2817,NATEOCTAC11,EOC Tac 11,D,Emergency Ops,City of National City,NAT,National City
+2818,NATEOCTAC12,EOC Tac 12,D,Emergency Ops,City of National City,NAT,National City
+2622,NILFADMIN,Fire Administration,D,Fire-Talk,Niland Fire District,NIL FD,Niland
+2623,NILTRN,Fire Training,D,Fire-Talk,Niland Fire District,NIL FD,Niland
+2880,NCTD PD DISP,Railway Police Dispatch Coaster,E,Law Dispatch,North County Transit District (NCTD),NCTD,
+2881,NCTD PD 2,Railway Police,E,Law Tac,North County Transit District (NCTD),NCTD,
+2882,NCTD PD 3,Railway Police,E,Law Tac,North County Transit District (NCTD),NCTD,
+2883,NCTD PD 4,Railway Police,E,Law Tac,North County Transit District (NCTD),NCTD,
+1029,OCS VHF 12,Marine VHF CH-12 Patch,D,Interop,City of Oceanside,OCS,Oceanside
+1031,OCS VHF 16,Marine VHF CH-16 Patch,D,Interop,City of Oceanside,OCS,Oceanside
+1033,OCS 911,911 Emergency,D,Emergency Ops,City of Oceanside,OCS,Oceanside
+1035,OCSPWADMIN,Public Works Admin,D,Public Works,City of Oceanside,OCS,Oceanside
+1037,OCSPWWTR1,Water Dept 1,D,Public Works,City of Oceanside,OCS,Oceanside
+1039,OCSPWWTR2,Water Dept 2,D,Public Works,City of Oceanside,OCS,Oceanside
+1041,OCSSTRTS1,Streets 1,D,Public Works,City of Oceanside,OCS,Oceanside
+1043,OCSSTRTS2,Streets 2,D,Public Works,City of Oceanside,OCS,Oceanside
+1045,OCSPWPARKS,Parks,D,Public Works,City of Oceanside,OCS,Oceanside
+1047,OCS PW REC,Recreations,D,Public Works,City of Oceanside,OCS,Oceanside
+1049,OCSPWENG,Engineering,D,Public Works,City of Oceanside,OCS,Oceanside
+1051,OCS PWFLEET,City Fleet Maintenance,D,Public Works,City of Oceanside,OCS,Oceanside
+1053,OCSPWWASTE,Waste Water,D,Public Works,City of Oceanside,OCS,Oceanside
+1055,OCS PWFACMA,Facilities Maintenance,D,Public Works,City of Oceanside,OCS,Oceanside
+1057,OCS PWBLDG,Building Dept,D,Public Works,City of Oceanside,OCS,Oceanside
+1059,OCS PENF1,Parking Enforcement 1,D,Law Talk,City of Oceanside,OCS,Oceanside
+1061,OCS PENF2,Parking Enforcement 2,D,Law Talk,City of Oceanside,OCS,Oceanside
+1063,OCS Citywide,Citywide,D,Public Works,City of Oceanside,OCS,Oceanside
+1065,OCS City 1,City Tac 1,D,Public Works,City of Oceanside,OCS,Oceanside
+1067,OCS City 2,City Tac 2,D,Public Works,City of Oceanside,OCS,Oceanside
+1069,OCS City 3,City Tac 3,D,Public Works,City of Oceanside,OCS,Oceanside
+1071,OCSHCMD,Harbor Command 2,D,Public Works,City of Oceanside,OCS,Oceanside
+1073,OCSHMAINT,Harbor Maintenance,D,Public Works,City of Oceanside,OCS,Oceanside
+1075,OCSHMGMT,Harbor Management,D,Public Works,City of Oceanside,OCS,Oceanside
+1831,OCS LFGD TC2,Lifeguard Tac 2,D,Multi-Tac,Oceanside Lifeguards,OCS LG,Oceanside
+2330,OCS PD DISP 1,Police Dispatch 1,E,Law Dispatch,Oceanside Police Department,OCS PD,Oceanside
+2331,OCS PD DISP 2,Police Dispatch 2,E,Law Dispatch,Oceanside Police Department,OCS PD,Oceanside
+2332,OCS PD TAC 1,Police Tac 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2379,OCS PD BCH TAC,Police Beach Tac,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2380,OCS PD TRF TAC 1,Police Traffic Tac 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2381,OCS PD NP TAC 1,Police Neighborhood Policing Tac 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2383,OCS PD SWAT 1,Police SWAT 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2384,OCS PD SWAT 2,Police SWAT 2,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2386,OCS PD INQRY,Police Inquiry,E,Law Dispatch,Oceanside Police Department,OCS PD,Oceanside
+2387,OCS PD PROP,Police Property,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2388,OCS PD COV,Police Crimes Of Violence,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2389,OCS PD FAM,Police Family Services,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2390,OCS PD VICE,Police Vice,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2391,OCS PD NARCS,Police Narcotics,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2392,OCS PD GANG,Police Gang Unit,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2393,OCS PENT 1,Police Entry Team 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2394,OCSPLNGRIF,Police Long Rifle (Snipers),E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2395,OCS PD CNT,Police Crisis Negotiation Team,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2396,OCS PD CMD 1,Police Command 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2397,OCSPENT2,Police Entry Team 2,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2399,OCSFCMD1,Fire Command 1,D,Fire-Tac,Oceanside Fire Department,OCS FD,Oceanside
+2400,OCSFCMD2,Fire Command 2,D,Fire-Tac,Oceanside Fire Department,OCS FD,Oceanside
+2401,OCS F TAC1,Fire Tactical 1,D,Fire-Tac,Oceanside Fire Department,OCS FD,Oceanside
+2402,OCS F TAC2,Fire Tactical 2,D,Fire-Tac,Oceanside Fire Department,OCS FD,Oceanside
+2403,OCS FD ADMIN,Fire Admin,D,Fire-Talk,Oceanside Fire Department,OCS FD,Oceanside
+2404,OCS FD PREV,Fire Prevention,D,Fire-Tac,Oceanside Fire Department,OCS FD,Oceanside
+2405,OCS FD TRNG,Fire Training,D,Law Tac,Oceanside Fire Department,OCS FD,Oceanside
+2406,OCSPWCODE1,Code Enforcement 1,D,Public Works,City of Oceanside,OCS,Oceanside
+2407,OCS PW CODE 2,Code Enforcement 2,D,Public Works,City of Oceanside,OCS,Oceanside
+2408,OCS LG TAC,Lifeguards,D,Multi-Tac,Oceanside Lifeguards,OCS LG,Oceanside
+2409,OCS HBR TAC 1,Harbor Tac 1,D,Public Works,City of Oceanside,OCS,Oceanside
+2410,OCS PD TAC 1,Police Patrol Tac 1,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2411,OCS PD TAC 2,Police Patrol Tac 2,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2412,OCS PD CARS,Police Cars,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2413,OCS TRF TAC 2,Police Traffic Tac 2,E,Law Tac,Oceanside Police Department,OCS PD,Oceanside
+2456,OCS HBR CMD 1,Harbor Command 1,D,Public Works,City of Oceanside,OCS,Oceanside
+675,OWD ADMIN,Administration,D,Utilities,Olivenhain Municipal Water District,OWD,
+677,OWDD,Dispatch,D,Utilities,Olivenhain Municipal Water District,OWD,
+679,OWD TAC 1,Tac 1,D,Utilities,Olivenhain Municipal Water District,OWD,
+681,OWD TAC 2,Tac 2,D,Utilities,Olivenhain Municipal Water District,OWD,
+1517,PAL EOC,Emergency Operations Center,D,Emergency Ops,Palomar Community College,PAL,
+2363,PAL PD DISP,Police Main,E,Law Dispatch,Palomar Community College,PAL,
+2364,PAL PD TAC 1,Police Tac 1,D,Law Tac,Palomar Community College,PAL,
+2365,PAD PL TAC 2,Police Tac 2,D,Law Tac,Palomar Community College,PAL,
+1792,PAUMA PD,Tribal Police,D,Law Dispatch,Pauma Indian Reservation,PAUMA,
+1793,PAUMA PD,Tribal Police,D,Law Dispatch,Pauma Indian Reservation,PAUMA,
+2056,PAUMA RESV,Tribal Services,D,Public Works,Pauma Indian Reservation,PAUMA,
+1803,AIRPORT MAINT,Airport Authority Maintenance,D,Public Works,Port of San Diego,PSD,
+1807,SDCAA MAINT,Airport Authority Maintenance,D,Public Works,Port of San Diego,PSD,
+2848,HPD 1,Harbor Police Dispatch 1 (Harbor Area),E,Law Dispatch,Port of San Diego,PSD,
+2849,HPD 2,Harbor Police Dispatch 2 (Airport Area),E,Law Dispatch,Port of San Diego,PSD,
+2850,HPD Tac 1,Harbor Police Tac 1,E,Law Tac,Port of San Diego,PSD,
+2851,HPD Tac 2,Harbor Police Tac 2,E,Law Tac,Port of San Diego,PSD,
+2852,HPD Tac 3,Harbor Police Tac 3,E,Law Tac,Port of San Diego,PSD,
+2853,HPD Tac 4,Harbor Police Tac 4,E,Law Tac,Port of San Diego,PSD,
+2854,Airport DSP1,Airport Authority Dispatch 1,D,Public Works,Port of San Diego,PSD,
+2855,Airport DSP2,Airport Authority Dispatch 2,D,Public Works,Port of San Diego,PSD,
+2856,Airport AIR1,Airport Authority AIR 1,D,Public Works,Port of San Diego,PSD,
+2857,Airport AIR2,Airport Authority AIR 2,D,Public Works,Port of San Diego,PSD,
+2858,Airport AIRE,Airport Authority AIR Encrypted,E,Law Talk,Port of San Diego,PSD,
+2859,AVSEC 1,Airport Authority AVSEC 1,D,Law Talk,Port of San Diego,PSD,
+2860,EAVSEC2E,Airport Authority EAVSEC2E,E,Law Talk,Port of San Diego,PSD,
+2861,Airport ATO1,Airport Authority - Airport Traffic Officer 1,D,Law Talk,Port of San Diego,PSD,
+2862,Airport ATO2,Airport Authority - Airport Traffic Officer 2,D,Law Talk,Port of San Diego,PSD,
+2872,PortSecurity,Port District Security,D,Security,Port of San Diego,PSD,
+691,POW 1,City Tac 1,D,Public Works,City of Poway,POW,Poway
+693,POW 2,City Tac 2,D,Public Works,City of Poway,POW,Poway
+695,POW 3,City Tac 3,D,Public Works,City of Poway,POW,Poway
+699,POW CT,Citywide,D,Public Works,City of Poway,POW,Poway
+959,POW PS,Public Service,D,Public Works,City of Poway,POW,Poway
+961,POW STR,Streets,D,Public Works,City of Poway,POW,Poway
+963,POW UTIL,Utilities,D,Public Works,City of Poway,POW,Poway
+965,POW PARK,Parks,D,Public Works,City of Poway,POW,Poway
+967,POW MC,Maser Conrol,D,Public Works,City of Poway,POW,Poway
+969,POW CUS,Customer Service,D,Public Works,City of Poway,POW,Poway
+971,POW ENG,Engineering,D,Public Works,City of Poway,POW,Poway
+973,POW PLNG,Planning,D,Public Works,City of Poway,POW,Poway
+975,POW CS,Community Sevices,D,Public Works,City of Poway,POW,Poway
+977,POW CMD,Command,D,Public Works,City of Poway,POW,Poway
+1119,PSD TRANS 1,Transportation 1,D,Schools,Poway Unified School District,PUSD,
+1121,PSD TRANS 2,Transportation 2,D,Schools,Poway Unified School District,PUSD,
+1125,PSD TRANS 3,Transportation 3,D,Schools,Poway Unified School District,PUSD,
+1129,PSD MN01,Maintenance 1,D,Schools,Poway Unified School District,PUSD,
+1131,PSD MN02,Maintenance 2,D,Schools,Poway Unified School District,PUSD,
+1133,PSD MN03,Maintenance 3,D,Schools,Poway Unified School District,PUSD,
+1135,PSD FOOD,Food Service,D,Schools,Poway Unified School District,PUSD,
+1137,PSD WARE,Warehouse,D,Schools,Poway Unified School District,PUSD,
+1139,PSD EOC 1,Emergency Operations Center 1,D,Schools,Poway Unified School District,PUSD,
+1141,PSD EOC 2,Emergency Operations Center 2,D,Schools,Poway Unified School District,PUSD,
+1143,PSD EOC 3,Emergency Operations Center 3,D,Schools,Poway Unified School District,PUSD,
+1145,PSD EOC 4,Emergency Operations Center 4,D,Schools,Poway Unified School District,PUSD,
+1147,PSD EOC 5,Emergency Operations Center 5,D,Schools,Poway Unified School District,PUSD,
+1149,PSD HS SEC 1,High School Security 1,D,Schools,Poway Unified School District,PUSD,
+1151,PSD HS SEC 2,High School Security 2,D,Schools,Poway Unified School District,PUSD,
+1153,PSD HS SEC 3,High School Security 3,D,Schools,Poway Unified School District,PUSD,
+1155,PSD HS SEC 4,High School Security 4,D,Schools,Poway Unified School District,PUSD,
+1157,PSD HS SEC 5,High School Security 5,D,Schools,Poway Unified School District,PUSD,
+1159,PSD MS SEC 1,Middle School Security 1,D,Schools,Poway Unified School District,PUSD,
+1161,PSD MS SEC 2,Middle School Security 2,D,Schools,Poway Unified School District,PUSD,
+1163,PSD MS SEC 3,Middle School Security 3,D,Schools,Poway Unified School District,PUSD,
+1165,PSD MS SEC 4,Middle School Security 4,D,Schools,Poway Unified School District,PUSD,
+1167,PSD MS SEC 5,Middle School Security 5,D,Schools,Poway Unified School District,PUSD,
+1169,PSD ESEC 1,Elementary School Security 1,D,Schools,Poway Unified School District,PUSD,
+1171,PSD ESEC 2,Elementary School Security 2,D,Schools,Poway Unified School District,PUSD,
+2775,Rainbow MWD 1,Rainbow Municipal Water District,D,Utilities,Rainbow Municipal Water District,RMWD,
+2776,Rainbow MWD 2,Rainbow Municipal Water District,D,Utilities,Rainbow Municipal Water District,RMWD,
+735,RSP CMD1,Command 1,D,Security,Rancho Santa Fe Patrol,RSP,
+737,RSP DISP,Dispatch,D,Security,Rancho Santa Fe Patrol,RSP,
+739,RSP TAC1,Tac 1,D,Security,Rancho Santa Fe Patrol,RSP,
+2626,SLCFADMIN,Administration,D,Fire-Talk,Salton Community Services District,SLC CSD,Salton City
+2627,SLCTRN,Training,D,Fire-Talk,Salton Community Services District,SLC CSD,Salton City
+625,N MARSAFE,North Marine Safety (Encinitas and Solana Beach),D,Interop,San Diego Beaches Interop,SDBI,
+1241,S MARSAFE,South Marine Safety,D,Interop,San Diego Beaches Interop,SDBI,
+441,SD F/AIR,Fire Air,D,Interop,San Diego County Air Mutual Aid,SDCAMA,
+557,SD L/AIR,Law Air,D,Interop,San Diego County Air Mutual Aid,SDCAMA,
+637,SD M/AIR 1,Med Air 1,D,Interop,San Diego County Air Mutual Aid,SDCAMA,
+2448,SD M/AIR 2,Med Air 2,D,Interop,San Diego County Air Mutual Aid,SDCAMA,
+191,CORONER,Medical Examiner Dispatch Callsign Omega,D,Public Works,San Diego County Coroner,CORONER,
+1769,CORONER 2,Coroner 2,D,Public Works,San Diego County Coroner,CORONER,
+1771,CORONER 3,Coroner 3,D,Public Works,San Diego County Coroner,CORONER,
+1932,ME-1,Medical Examiner 1,D,Public Works,San Diego County Coroner,CORONER,
+293,DAC HS,Animal Services to Humane Society Common,D,Interop,San Diego County Department of Animal Services,DAC,
+1909,DAC DISPATCH,Animal Control Dispatch,D,Public Works,San Diego County Department of Animal Services,DAC,
+1910,DAC TAC 1,Animal Control Tactical 1,D,Public Works,San Diego County Department of Animal Services,DAC,
+1911,DAC TAC 2,Animal Control Tactical 2,D,Public Works,San Diego County Department of Animal Services,DAC,
+2111,DAICMD1,Command 1,D,Law Tac,San Diego County District Attorney,SDCDA,
+2112,DAICMD2,Command 2,D,Law Tac,San Diego County District Attorney,SDCDA,
+2165,DAITACN1,Investigators North Tac-1,D,Law Tac,San Diego County District Attorney,SDCDA,
+2203,DAITACN2,Investigators North Tac-2,D,Law Tac,San Diego County District Attorney,SDCDA,
+2207,DAITACN3,Investigators North Tac-3,D,Law Tac,San Diego County District Attorney,SDCDA,
+2208,DAITACS1,Investigators South Tac-1,D,Law Tac,San Diego County District Attorney,SDCDA,
+2209,DAITACS2,Investigators South Tac-2,D,Law Tac,San Diego County District Attorney,SDCDA,
+2210,DAITACS3,Investigators South Tac-3,D,Law Tac,San Diego County District Attorney,SDCDA,
+2211,DAITACE1,Investigators East Tac-1,D,Law Tac,San Diego County District Attorney,SDCDA,
+2212,DAITACE2,Investigators East Tac-2,D,Law Tac,San Diego County District Attorney,SDCDA,
+2213,DAITACE3,Investigators East Tac-3,D,Law Tac,San Diego County District Attorney,SDCDA,
+2214,DAITACX1,Investigators Countywide Tac-1,D,Law Tac,San Diego County District Attorney,SDCDA,
+2215,DAITACX2,Investigators Countywide Tac-2,D,Law Tac,San Diego County District Attorney,SDCDA,
+2260,DAISPEC,Special Ops,D,Law Tac,San Diego County District Attorney,SDCDA,
+2261,DAIWP,Witness Protection,D,Law Tac,San Diego County District Attorney,SDCDA,
+13,BLS RSV 2,BLS Reserve 2,D,Hospital,San Diego County EMS,SDCE,
+79,KSMAR,BLS Kaiser San Marcos,D,Hospital,San Diego County EMS,SDCE,San Marcos
+149,BLS ALVR,BLS Alvarado,D,Hospital,San Diego County EMS,SDCE,
+151,EMS AREA 1,EMS Area 1,D,EMS-Talk,San Diego County EMS,SDCE,
+153,EMS AREA 2,EMS Area 2,D,EMS-Talk,San Diego County EMS,SDCE,
+155,EMS AREA 3,EMS Area 3,D,EMS-Talk,San Diego County EMS,SDCE,
+157,EMS AREA 4,EMS Area 4,D,EMS-Talk,San Diego County EMS,SDCE,
+159,EMS AREA 5,EMS Area 5,D,EMS-Talk,San Diego County EMS,SDCE,
+161,EMS AREA 6,EMS Area 6,D,EMS-Talk,San Diego County EMS,SDCE,
+205,CMP PEN,Transport Camp Pendleton,D,Hospital,San Diego County EMS,SDCE,
+217,MT1 CRD,Transport Coronado,D,Hospital,San Diego County EMS,SDCE,Coronado
+275,EMS BASE 1,EMS Base 1,D,Hospital,San Diego County EMS,SDCE,
+277,EMS BASE 2,EMS Base 2,D,Hospital,San Diego County EMS,SDCE,
+279,BLS RSV 1,BLS Reserve 1,D,Hospital,San Diego County EMS,SDCE,
+323,KSDMC,BLS Kaiser San Diego Medical Center,D,Hospital,San Diego County EMS,SDCE,
+397,ALS SLJ,ALS Scripps La Jolla,D,Hospital,San Diego County EMS,SDCE,
+399,ALS PAL,ALS Palomar,D,Hospital,San Diego County EMS,SDCE,
+401,ALS TRI,ALS Tri City,D,Hospital,San Diego County EMS,SDCE,
+403,ALS UCSD,ALS UCSD,D,Hospital,San Diego County EMS,SDCE,
+405,ALS MRCY,ALS Mercy,D,Hospital,San Diego County EMS,SDCE,
+439,FALLBROOK,Transport Fallbrook,D,Hospital,San Diego County EMS,SDCE,Fallbrook
+517,BLS TRICIT,BLS Tri City,D,Hospital,San Diego County EMS,SDCE,
+525,BLS SLJ,BLS Scripps La Jolla,D,Hospital,San Diego County EMS,SDCE,
+527,BLS PLMR,BLS Palomar,D,Hospital,San Diego County EMS,SDCE,
+529,BLS UCSD,BLS UCSD,D,Hospital,San Diego County EMS,SDCE,
+531,BLS MERCY,BLS Mercy,D,Hospital,San Diego County EMS,SDCE,
+533,BLS SHRP,BLS Sharp,D,Hospital,San Diego County EMS,SDCE,
+537,BLS GRSMT,BLS Grossmont,D,Hospital,San Diego County EMS,SDCE,
+539,BLS SCCHV,BLS Scripps Chula Vista,D,Hospital,San Diego County EMS,SDCE,Chula Vista
+541,BLS CHILD,BLS Childrens,D,Hospital,San Diego County EMS,SDCE,
+555,KZION,BLS Kaiser Zion,D,Hospital,San Diego County EMS,SDCE,
+639,MEDGRP,Medical Group Call,D,Hospital,San Diego County EMS,SDCE,
+655,NAVYBAL,Transport Navy,D,Hospital,San Diego County EMS,SDCE,
+685,PARADISE,Transport Paradise,D,Hospital,San Diego County EMS,SDCE,
+687,PIONEER,BLS Pioneer,D,Hospital,San Diego County EMS,SDCE,
+689,POMERADO,Transport Pomerado,D,Hospital,San Diego County EMS,SDCE,
+749,SCENC,Transport Scripps Encinitas,D,Hospital,San Diego County EMS,SDCE,Encinitas
+755,MT1SEAST,Transport Scripps East,D,Hospital,San Diego County EMS,SDCE,
+759,SHARPCV,Transport Sharp Chula Vista,D,Hospital,San Diego County EMS,SDCE,Chula Vista
+767,ALS SHRP,ALS Sharp,D,Hospital,San Diego County EMS,SDCE,
+771,ELCENTRO,BLS El Centro,D,Hospital,San Diego County EMS,SDCE,El Centro
+891,THORNTON,Transport - UCSD Thornton,D,Hospital,San Diego County EMS,SDCE,
+897,VETERANS,Transport - Veterans,D,Hospital,San Diego County EMS,SDCE,
+919,ALSGRSMT,ALS - Grossmont,D,Hospital,San Diego County EMS,SDCE,
+927,ALS SCV,ALS - Scripps Chula Vista,D,Hospital,San Diego County EMS,SDCE,Chula Vista
+1431,EMS MOC,San Diego County EMS MOC,D,EMS-Tac,San Diego County EMS,SDCE,
+1433,EMS CMD 1,San Diego County EMS Command 1,D,EMS-Tac,San Diego County EMS,SDCE,
+1435,EMS TAC 1,San Diego County EMS EMS Tac 1,D,EMS-Tac,San Diego County EMS,SDCE,
+1437,EMS TAC 2,San Diego County EMS EMS Tac 2,D,EMS-Tac,San Diego County EMS,SDCE,
+1439,EMS CMD 2,San Diego County EMS Command 2,D,EMS-Tac,San Diego County EMS,SDCE,
+1441,EMS TAC 3,San Diego County EMS Tac 3,D,EMS-Tac,San Diego County EMS,SDCE,
+1443,EMS TAC 4,San Diego County EMS Tac 4,D,EMS-Tac,San Diego County EMS,SDCE,
+1445,EMS CMD 3,San Diego County EMS Command 3,D,EMS-Tac,San Diego County EMS,SDCE,
+1447,EMS TAC 5,San Diego County EMS Tac 5,D,EMS-Tac,San Diego County EMS,SDCE,
+1841,AST CALL,Ambulance Strike Team Calling,D,EMS-Tac,San Diego County EMS,SDCE,
+1842,AST 2,Ambulance Strike Team 2,D,EMS-Tac,San Diego County EMS,SDCE,
+1843,AST 3,Ambulance Strike Team 3,D,EMS-Tac,San Diego County EMS,SDCE,
+1844,AST 4,Ambulance Strike Team 4,D,EMS-Tac,San Diego County EMS,SDCE,
+1845,AST 5,Ambulance Strike Team 5,D,EMS-Tac,San Diego County EMS,SDCE,
+1846,AST 6,Ambulance Strike Team 6,D,EMS-Tac,San Diego County EMS,SDCE,
+1847,AST 7,Ambulance Strike Team 7,D,EMS-Tac,San Diego County EMS,SDCE,
+1848,AST 8,Ambulance Strike Team 8,D,EMS-Tac,San Diego County EMS,SDCE,
+1849,AST 9,Ambulance Strike Team 9,D,EMS-Tac,San Diego County EMS,SDCE,
+1850,AST 10,Ambulance Strike Team 10,D,EMS-Tac,San Diego County EMS,SDCE,
+1851,AST 11,Ambulance Strike Team 11,D,EMS-Tac,San Diego County EMS,SDCE,
+1852,AST 12,Ambulance Strike Team 12,D,EMS-Tac,San Diego County EMS,SDCE,
+1853,AST 13,Ambulance Strike Team 13,D,EMS-Tac,San Diego County EMS,SDCE,
+1854,AST 14,Ambulance Strike Team 14,D,EMS-Tac,San Diego County EMS,SDCE,
+1855,AST 15,Ambulance Strike Team 15,D,EMS-Tac,San Diego County EMS,SDCE,
+1856,AST 16,Ambulance Strike Team 16,D,EMS-Tac,San Diego County EMS,SDCE,
+169,G TAC 1,Local Government Tac 1,D,Public Works,San Diego County General Services,SDCGS,
+171,G TAC 2,Local Government Tac 2,D,Public Works,San Diego County General Services,SDCGS,
+173,G TAC 3,Local Government Tac 3,D,Public Works,San Diego County General Services,SDCGS,
+177,G TAC 4,Local Government Tac 4,D,Public Works,San Diego County General Services,SDCGS,
+193,SDC WATERSHED,Watersheds,D,Public Works,San Diego County General Services,SDCGS,
+195,SDC PARKS N,Parks North,D,Public Works,San Diego County General Services,SDCGS,
+197,SDC PARKS S,Parks South,D,Public Works,San Diego County General Services,SDCGS,
+199,SDC PARKS E,Parks East,D,Public Works,San Diego County General Services,SDCGS,
+203,SDC SANITATION,Sanitation Command,D,Public Works,San Diego County General Services,SDCGS,
+285,PARKSX,Parks Wide Area,D,Public Works,San Diego County General Services,SDCGS,
+299,AGRIC,Agriculture,D,Public Works,San Diego County General Services,SDCGS,
+315,DIV 1 CMD,Roads Division 1 Command,D,Public Works,San Diego County General Services,SDCGS,
+317,DIV1 TAC 1,Roads Division 1 Tac 1,D,Public Works,San Diego County General Services,SDCGS,
+319,DIV1 TAC 2,Roads Division 1 Tac 2,D,Public Works,San Diego County General Services,SDCGS,
+321,DIV1 E TAC,Roads Division 1 East Tac,D,Public Works,San Diego County General Services,SDCGS,
+325,DIV 2 CMD,Roads Division 2 Command,D,Public Works,San Diego County General Services,SDCGS,
+327,DIV2 TAC 1,Roads Division 2 Tac 1,D,Public Works,San Diego County General Services,SDCGS,
+329,DIV2 TAC 2,Roads Division 2 Tac 2,D,Public Works,San Diego County General Services,SDCGS,
+331,DIV2 E TAC,Roads Division 2 East Tac,D,Public Works,San Diego County General Services,SDCGS,
+333,WW CMD,Waste Water Command,D,Public Works,San Diego County General Services,SDCGS,
+741,WW TAC N,Waste Water North Tac,D,Public Works,San Diego County General Services,SDCGS,
+743,WW TAC S,Waste Water South Tac,D,Public Works,San Diego County General Services,SDCGS,
+745,WW TAC E,Waste Water East Tac,D,Public Works,San Diego County General Services,SDCGS,
+747,CNS TAC 1,Construction Tac 1,D,Public Works,San Diego County General Services,SDCGS,
+871,SDC STAM,Station M,D,Public Works,San Diego County General Services,SDCGS,
+885,SUR TAC 1,Public Works Engineering Survey Tac 1,D,Public Works,San Diego County General Services,SDCGS,
+887,SURTACE,Public Works Engineering Survey Tac East,D,Public Works,San Diego County General Services,SDCGS,
+1959,SDC OES1,Office of Emergency Services,D,Emergency Ops,San Diego County General Services,SDCGS,
+1960,SDC OES2,Office of Emergency Services,E,Emergency Ops,San Diego County General Services,SDCGS,
+2845,HAZMAT,Health - HazMat,D,Public Works,San Diego County General Services,SDCGS,
+2889,SDC VECTOR,Vector Control,D,Public Works,San Diego County General Services,SDCGS,
+1091,HLT OCSD,Oceanside,D,Public Works,San Diego County Health Services,HLT,Oceanside
+1093,HLT ESC,Escondido,D,Public Works,San Diego County Health Services,HLT,Escondido
+1095,HLT EC,El Cajon,D,Public Works,San Diego County Health Services,HLT,El Cajon
+1097,HLT NSD,North San Diego,D,Public Works,San Diego County Health Services,HLT,
+1099,HLTSOBAY,South Bay,D,Public Works,San Diego County Health Services,HLT,
+1101,GSDBG,Boys Girls Athletics,D,Public Works,San Diego County Health Services,HLT,
+1103,HLT ROSE,Rosecrans,D,Public Works,San Diego County Health Services,HLT,
+1105,HLT ASKW,Askew,D,Public Works,San Diego County Health Services,HLT,
+1107,HLT ESD,East San Diego,D,Public Works,San Diego County Health Services,HLT,
+1109,HLT FALB,Fallbrook,D,Public Works,San Diego County Health Services,HLT,Fallbrook
+1111,HLT EDGE SNF,Edgemoor Skilled Nursing Facility,D,Public Works,San Diego County Health Services,HLT,
+1113,HLT EMS,EMS,D,Public Works,San Diego County Health Services,HLT,
+1115,HLT HADM,Hospital Administration,D,Public Works,San Diego County Health Services,HLT,
+1117,HLTHLTGP,Health Group Call,D,Public Works,San Diego County Health Services,HLT,
+1373,HLT DOC,Health DOC,D,Public Works,San Diego County Health Services,HLT,
+1375,HLT TAC 1,Health Tac 1,D,Public Works,San Diego County Health Services,HLT,
+1377,HLT TAC 2,Health Tac 2,D,Public Works,San Diego County Health Services,HLT,
+1379,HLT TAC 3,Health Tac 3,D,Public Works,San Diego County Health Services,HLT,
+1381,HLT TAC 4,Health Tac 4,D,Public Works,San Diego County Health Services,HLT,
+2846,SDCO-DEH1,Department of Environmental Health 1,D,Public Works,San Diego County Health Services,HLT,
+2847,SDCO-DEH2,Department of Environmental Health 2,D,Public Works,San Diego County Health Services,HLT,
+609,SD ICS 1,Incident Command 1,D,Interop,San Diego County Incident Command,SD,
+613,SD ICS 2,Incident Command 2,D,Interop,San Diego County Incident Command,SD,
+615,SD ICS 3,Incident Command 3,D,Interop,San Diego County Incident Command,SD,
+617,SD ICS 4,Incident Command 4,D,Interop,San Diego County Incident Command,SD,
+619,SD ICS 5,Incident Command 5,D,Interop,San Diego County Incident Command,SD,
+621,SD ICS 6,Incident Command 6,D,Interop,San Diego County Incident Command,SD,
+623,SD ICS 7,Incident Command 7,D,Interop,San Diego County Incident Command,SD,
+389,SD ICS 8,Incident Command 8,D,Interop,San Diego County Incident Command,SD,
+391,SD ICS 9,Incident Command 9,D,Interop,San Diego County Incident Command,SD,
+393,SD ICS 10,Incident Command 10,D,Interop,San Diego County Incident Command,SD,
+395,SD ICS 11,Incident Command 11,D,Interop,San Diego County Incident Command,SD,
+565,BLUE 1,Blue 1,D,Interop,San Diego County Law Interoperability,SDCLI,
+201,BLUE 2,Blue 2,D,Interop,San Diego County Law Interoperability,SDCLI,
+559,LE E CMD,East Command,D,Interop,San Diego County Law Interoperability,SDCLI,
+431,LE E TAC 1,East Tac 1,D,Interop,San Diego County Law Interoperability,SDCLI,
+433,LE E TAC 2,East Tac 2,D,Interop,San Diego County Law Interoperability,SDCLI,
+435,LE E TAC 3,East Tac 3,D,Interop,San Diego County Law Interoperability,SDCLI,
+437,LE E TAC 4,East Tac 4,D,Interop,San Diego County Law Interoperability,SDCLI,
+561,LE N CMD,North Command,D,Interop,San Diego County Law Interoperability,SDCLI,
+667,LE N TAC 1,North Tac 1,D,Interop,San Diego County Law Interoperability,SDCLI,
+669,LE N TAC 2,North Tac 2,D,Interop,San Diego County Law Interoperability,SDCLI,
+671,LE N TAC 3,North Tac 3,D,Interop,San Diego County Law Interoperability,SDCLI,
+673,LE N TAC 4,North Tac 4,D,Interop,San Diego County Law Interoperability,SDCLI,
+563,LE S CMD,South Command,D,Interop,San Diego County Law Interoperability,SDCLI,
+873,LE STAC 1,South Tac 1,D,Interop,San Diego County Law Interoperability,SDCLI,
+875,LE STAC 2,South Tac 2,D,Interop,San Diego County Law Interoperability,SDCLI,
+877,LE STAC 3,South Tac 3,D,Interop,San Diego County Law Interoperability,SDCLI,
+879,LE STAC 4,South Tac 4,D,Interop,San Diego County Law Interoperability,SDCLI,
+1914,Common 1,Task Force Common 1,E,Interop,San Diego County Law Interoperability,SDCLI,
+2326,Common 2,Task Force Common 2,E,Interop,San Diego County Law Interoperability,SDCLI,
+1915,Common 3,Task Force Common 3,E,Interop,San Diego County Law Interoperability,SDCLI,
+2327,Common 4,Task Force Common 4,E,Interop,San Diego County Law Interoperability,SDCLI,
+1916,Common 5,Task Force Common 5,E,Interop,San Diego County Law Interoperability,SDCLI,
+2328,Common 6,Task Force Common 6,E,Interop,San Diego County Law Interoperability,SDCLI,
+1917,Common 7,Task Force Common 7,E,Interop,San Diego County Law Interoperability,SDCLI,
+2329,Common 8,Task Force Common 8,E,Interop,San Diego County Law Interoperability,SDCLI,
+2108,SECURE 5,Secure 5,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2109,SECURE 2109,Secure 2109,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2110,SECURE 1,Secure 1,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2121,SECURE 3,Secure 3,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2137,SECURE 2137,Secure 2137,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2161,SECURE 2,Secure 2,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2201,SECURE 7,Secure 7,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+2202,SECURE 2202,Secure 2202,E,Law Tac,San Diego County Law Interoperability,SDCLI,
+207,SDCoCALL,County Call,D,Interop,San Diego County Mutual Aid,SDCMA,
+209,SDCoTAC1,County Tac 1,D,Interop,San Diego County Mutual Aid,SDCMA,
+211,SDCoTAC2,County Tac 2,D,Interop,San Diego County Mutual Aid,SDCMA,
+213,SDCoTAC3,County Tac 3,D,Interop,San Diego County Mutual Aid,SDCMA,
+215,SDCoTAC4,County Tac 4,D,Interop,San Diego County Mutual Aid,SDCMA,
+713,PS CMD E,Public Service Command East,D,Public Works,San Diego County Mutual Aid,SDCMA,
+715,PS CMD N,Public Works Command North,D,Public Works,San Diego County Mutual Aid,SDCMA,
+717,PS CMD S,Public Works Command South,D,Public Works,San Diego County Mutual Aid,SDCMA,
+1872,PRB INQRY,Inquiry,D,Law Talk,San Diego County Probations,PRB,
+2117,PRB PRB C1,Command 1,D,Law Talk,San Diego County Probations,PRB,
+2149,PRB PRBE1,East Tac 1,D,Law Tac,San Diego County Probations,PRB,
+2216,PRB PRBE 2,East Tac 2,D,Law Tac,San Diego County Probations,PRB,
+2217,PRB PRB C2,Command 2,D,Law Talk,San Diego County Probations,PRB,
+2218,PRB PRB N1,North Tac 1,D,Law Tac,San Diego County Probations,PRB,
+2219,PRB PRB N2,North Tac 2,D,Law Tac,San Diego County Probations,PRB,
+2220,PRB PRB S1,South Tac 1,D,Law Tac,San Diego County Probations,PRB,
+2221,PRB PRB S2,South Tac 2,D,Law Tac,San Diego County Probations,PRB,
+2477,PRB JH 1,Juvenile Hall 1,D,Corrections,San Diego County Probations,PRB,
+2478,PRB JH 2,Juvenile Hall 2,D,Corrections,San Diego County Probations,PRB,
+2479,PRB TRNG,Training,D,Law Talk,San Diego County Probations,PRB,
+2125,NCO DISP,North Coast Dispatch (Encinitas),E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Encinitas
+2180,NCO 20TAC1,20 Tac 1 (North Coast),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2141,NCO 20TAC2,20 Tac 2 (North Coast),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1933,NCO 20TAC3,20 Tac 3 (North Coast),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2190,VTA DISP,Vista Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Vista
+2182,VTA 30TAC1,30 Tac 1 (Vista/Fallbrook),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2142,VTA 30TAC2,30 Tac 2 (Vista/Fallbrook),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1934,VTA 30TAC3,30 Tac 3 (Vista/Fallbrook),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2159,POW DISP,Poway Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Poway
+2181,POW 40TAC1,40 Tac 1 (Poway/Ramona),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2143,POW 40TAC2,40 Tac 2 (Poway/Ramona),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1936,POW 40TAC3,40 Tac 3 (Poway/Ramona),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2169,SNT DISP,Santee Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Santee
+2183,SNT 50TAC1,50 Tac 1 (Santee/Lakeside/Alpine),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2144,SNT 50TAC2,50 Tac 2 (Santee/Lakeside/Alpine),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1937,SNT 50TAC3,50 Tac 3 (Santee/Lakeside/Alpine),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2153,RSD DISP,Rancho San Diego Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Rancho San Diego
+2184,LGV 60TAC1,60 Tac 1 (Lemon Grove/Spring Valley),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2145,LGV 60TAC2,60 Tac 2 (Lemon Grove/Spring Valley),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1938,LGV 60TAC3,60 Tac 3 (Lemon Grove/Spring Valley),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2066,IMB DISP,Imperial Beach Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,Imperial Beach
+2185,IMB 70TAC1,70 Tac 1 (Imperial Beach/Bonita),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2146,IMB 70TAC2,70 Tac 2 (Imperial Beach/Bonita),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1939,IMB 70TAC3,70 Tac 3 (Imperial Beach/Bonita),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2160,RUR DISP,Rural Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,
+2186,RUR 80TAC1,80 Tac 1 (Rural),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2147,RUR 80TAC2,80 Tac 2 (Rural),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1940,RUR 80TAC3,80 Tac 3 (Rural),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2167,SMC DISP,San Marcos Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,San Marcos
+2187,SMC 90TAC1,90 Tac 1 (San Marcos/Escondido),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2148,SMC 90TAC2,90 Tac 2 (San Marcos/Escondido),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1935,SMC 90TAC3,90 Tac 3 (San Marcos/Escondido),E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2140,INQ,Inquiry,E,Law Talk,San Diego County Sheriff's Department,SDCSD,
+1905,AIRTAC,ASTREA Air Tac,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2061,SO ADMN,Administration,E,Law Talk,San Diego County Sheriff's Department,SDCSD,
+2107,CS SCSD,Court Services Bureau - South Court Services Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,
+2157,CS NCSD,Court Services Bureau - North Court Services Dispatch,E,Law Dispatch,San Diego County Sheriff's Department,SDCSD,
+2158,CS NTAC 1,Court Services Bureau - North Tac 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2361,CS TAC,Court Services Tactical,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1859,SID 6,Special Investigations Division 6,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1860,SID 7,Special Investigations Division 7,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+1973,INQ PTCH,Inquiry (Patch),E,Law Talk,San Diego County Sheriff's Department,SDCSD,
+2048,ARSON,Arson/Bomb Unit,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2101,CID 1,Criminal Intelligence Detail 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2104,CID 2,Criminal Intelligence Detail 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2105,CID 3,Criminal Intelligence Detail 3,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2106,CID 4,Criminal Intelligence Detail 4,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2127,SED 1,Special Enforcement Detail 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2128,SED 2,Special Enforcement Detail 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2129,HNT,Hostage Negotiation Team,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2130,SIDINTEL,Special Investigations Division Intelligence,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2131,HOM 1,Homicide 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2132,HOM2,Homicide 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2150,SED 3,Special Enforcement Detail 3,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2154,NARC 1,Narcotics 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2155,NARC2,Narcotics 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2156,NARC3,Narcotics 3,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2162,SID 1,Special Investigations Division 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2163,SID 2,Special Investigations Division 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2172,SID 3,Special Investigations Division 3,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2173,SID 4,Special Investigations Division 4,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2174,SID 5,Special Investigations Division 5,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2189,CMNDRS,Commander's Net,E,Law Talk,San Diego County Sheriff's Department,SDCSD,
+2204,CSSTAC1,Court Services Bureau South Tac 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2255,ECCTRN1,Emergency Communications Center Training 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2256,ECCTRN2,Emergency Communications Center Training 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2257,ECCTRN3,Emergency Communications Center Training 3,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2258,ECCTRN4,Emergency Communications Center Training 4,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2282,SOIA1,Internal Affairs 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2283,SOIA2,Internal Affairs 2,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2360,SORMU,Risk Management Unit,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2671,ORET1,Off Road Enforcement Team 1,E,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2672,SAR81,Search and Rescue 81,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2673,SAR82,Search and Rescue 82,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2674,SAR83,Search and Rescue 83,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2675,SAR84,Search and Rescue 84,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2676,SAR85,Search and Rescue 85,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+2677,SAR86,Search and Rescue 86,D,Law Tac,San Diego County Sheriff's Department,SDCSD,
+241,JAIL CALL,Jail Call,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+273,SD CJ,San Diego Central Jail Intake,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+1941,DTN TRANS PTCH,Detentions Transport (Patch),E,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2087,DTN CMD N,Command North,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2118,DTN CMD S,Command South,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2119,DTN CMD E,Command East,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2120,DTN TAC E,Tac East,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2122,DTN TAC N,Tac North,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2123,DTN TAC S,Tac South,D,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+2188,TRANS,Detentions Transport,E,Corrections,San Diego County Sheriff's Dept - Detention,DTN,
+945,COM AUD-A,Audio Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+947,MOB-A,Mobile Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+949,MW-A,Microwave Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+951,SUP-A,Telecom Supervisors,D,Public Works,San Diego County Telecom Dept,SDCTD,
+1025,ANLG1,Analog Test 1,D,Public Works,San Diego County Telecom Dept,SDCTD,
+1027,ANLG2,Analog Test 2,D,Public Works,San Diego County Telecom Dept,SDCTD,
+1519,MOTA,Motorola STs Analog,D,Public Works,San Diego County Telecom Dept,SDCTD,
+1539,DEMOA,Analog Radio Demo,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2191,COM AUD-D,Audio Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2192,MOB-D,Radio Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2193,MW-D,Microwave Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2194,SUPD,Telecom Supervisors,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2366,MOTD,Motorola System Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2371,DEMOD,Digital Radio Demo,D,Public Works,San Diego County Telecom Dept,SDCTD,
+2571,MOT-SYS-TECH,Motorola System Techs,D,Public Works,San Diego County Telecom Dept,SDCTD,
+1227,SDTNDISP,North Dispatch,D,Transportation,San Diego County Transit Authority,SDCTA,
+1229,SDTNTA1,North Tac 1,D,Transportation,San Diego County Transit Authority,SDCTA,
+1231,SDTSDISP,South Dispatch,D,Transportation,San Diego County Transit Authority,SDCTA,
+1233,SDTSTAC1,South Tac 1,D,Transportation,San Diego County Transit Authority,SDCTA,
+1235,SDTEDISP,East Dispatch,D,Transportation,San Diego County Transit Authority,SDCTA,
+1237,SDTETAC1,East Tac 1,D,Transportation,San Diego County Transit Authority,SDCTA,
+1531,PAD ADMIN,Administration,D,Utilities,San Diego County Water - Padre Dam,PAD,
+1533,PAD TREAT,Treatment,D,Utilities,San Diego County Water - Padre Dam,PAD,
+1535,PAD FIELD,Field,D,Utilities,San Diego County Water - Padre Dam,PAD,
+1537,PAD TAC 1,Tac 1,D,Utilities,San Diego County Water - Padre Dam,PAD,
+1449,MED CC,Medical Comm Center to Comm Center,D,Interop,San Diego Countywide,SDC,
+2086,FIRE CC,Fire Comm Center to Comm Center,D,Interop,San Diego Countywide,SDC,
+2100,LAW CC,Law Enforcement Comm Center to Comm Center,E,Interop,San Diego Countywide,SDC,
+147,DS TAC,Deer Springs FPD Tactical,D,Fire-Tac,San Diego Fire Miscellaneous,SDFM,
+697,RAM TAC,Ramona Fire Tactical,D,Fire-Tac,San Diego Fire Miscellaneous,SDFM,Ramona
+115,SDGE 115,SDGE 115 (Former SDGE 900 MHz Patch),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+117,SDGE 117,SDGE 117,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+119,SDGE DS-S4,Distribution South 4 (Patched to SDGE P25),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+121,SDGE DS-N4,Distribution North 4 (Patched to SDGE P25),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+123,SDGE-TCM,TCM,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+131,SDGE Helo 131,Helicopter Ops,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+135,SDGE ASD,Aviation Services Department (ASD),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+139,SDGE-FIRE1,Fire Operations 1,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+141,SDGE-FIRE2,Fire Operations 2,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1391,SDGE Helo A-A,Helicopter Air to Air,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1395,SDGE Drone Ops,Drone Operations,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1675,SDGE Imperial,Imperial County Liason,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1773,SDGE MtEmp,Mt Empire Electric,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1775,SDGE Trans,Transmission Ops,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1777,SDGE DS S4,Distribution South 4 - Station A (Patch with 900 MHz system),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1779,SDGE DS N4,Distribution North 4 - Station L (Patch with 900 MHz system),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1781,SDGE TCM,TCM,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1783,SDGE Trans,Transmission,D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1787,SDGE Ptch SPL,Patch (Sunrise Power Link base to Air Units),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+1789,SDGE SPL,Sunrise Power Link Project (Patch with 900 MHz system),D,Utilities,San Diego Gas and Electric (SDGE),SDGE,
+2134,HS CMD,Humane Society Command,D,Public Works,San Diego Humane Society,HS,
+2135,HS TAC 1,Humane Society Tac 1,D,Public Works,San Diego Humane Society,HS,
+2136,HS TAC 2,Humane Society Tac 2,D,Public Works,San Diego Humane Society,HS,
+2678,MTS CMD,Command,D,Transportation,San Diego Metropolitan Transit System (MTS),MTS,
+2679,MTS TAC 1,Tactical 1,D,Transportation,San Diego Metropolitan Transit System (MTS),MTS,
+2680,MTS TAC 2,Tactical 2,D,Transportation,San Diego Metropolitan Transit System (MTS),MTS,
+1275,SDTP S DISP,South Dispatch,D,Transportation,San Diego ParaTransit,SDTP,
+1277,SDTPSTAC,South Tac,D,Transportation,San Diego ParaTransit,SDTP,
+1281,SDTP N DISP,North Dispatch,D,Transportation,San Diego ParaTransit,SDTP,
+1283,SDTPNTAC,North Tac,D,Transportation,San Diego ParaTransit,SDTP,
+1285,SDTP E DISP,East Dispatch,D,Transportation,San Diego ParaTransit,SDTP,
+2372,SDSU PD 1,Police Dispatch 1,E,Law Dispatch,San Diego State University,SDSU,
+2373,SDSU PD 2,Police Dispatch 2,E,Law Dispatch,San Diego State University,SDSU,
+2374,SDSU TAC 1,Police Tac 1,E,Law Tac,San Diego State University,SDSU,
+2375,SDSU TAC 2,Police Tac 2,E,Law Tac,San Diego State University,SDSU,
+2376,SDSU TAC 3,Police Tac 3,E,Law Tac,San Diego State University,SDSU,
+2377,SDSCRU,Crime Reduction Unit,E,Law Tac,San Diego State University,SDSU,
+2378,SDSU TAC 4,Police Tac 4 (CSO Dispatch),D,Law Tac,San Diego State University,SDSU,
+1975,SDRP JPA,San Dieguito River Park JPA,D,Public Works,San Dieguito River Park JPA,SDRPJ,
+761,SMC 1,City Tac 1,D,Public Works,City of San Marcos,SMC,San Marcos
+763,SMC 2,City Tac 2,D,Public Works,City of San Marcos,SMC,San Marcos
+765,SMC 3,City Tac 3,D,Public Works,City of San Marcos,SMC,San Marcos
+769,SMC ADMIN,Administration,D,Public Works,City of San Marcos,SMC,San Marcos
+773,SMC CT,Citywide,D,Public Works,City of San Marcos,SMC,San Marcos
+781,SMC DEV,Development,D,Public Works,City of San Marcos,SMC,San Marcos
+785,SMC FAC,Facilities,D,Public Works,City of San Marcos,SMC,San Marcos
+793,SMC PARK,Parks,D,Public Works,City of San Marcos,SMC,San Marcos
+795,SMC PW,Public Works,D,Public Works,City of San Marcos,SMC,San Marcos
+799,SMC SHOP,Shop,D,Public Works,City of San Marcos,SMC,San Marcos
+801,SMC STREET,Streets,D,Public Works,City of San Marcos,SMC,San Marcos
+803,SMC FD TAC 1,Fire Tac 1,D,Fire-Tac,San Marcos Fire Department,SMC FD,San Marcos
+939,SMC COMM,Community Services,D,Public Works,City of San Marcos,SMC,San Marcos
+979,SMC CMD 1,Fire Command 1,D,Fire-Tac,San Marcos Fire Department,SMC FD,San Marcos
+1906,SPR FD TAC,San Pasqual Reservation Fire Tac,D,Fire-Tac,San Pasqual Band of Mission Indians,SPR,
+1907,SPR PD 1,Tribal Security Dispatch,D,Law Dispatch,San Pasqual Band of Mission Indians,SPR,
+1908,SPR PD 2,Tribal Security 2,D,Law Tac,San Pasqual Band of Mission Indians,SPR,
+221,SNT COMMAND,City Command,D,Public Works,City of Santee,SNT,Santee
+809,SNT 1,City Tac 1,D,Public Works,City of Santee,SNT,Santee
+811,SNT 2,City Tac 2,D,Public Works,City of Santee,SNT,Santee
+813,SNT 3,City Tac 3,D,Public Works,City of Santee,SNT,Santee
+821,SNT CT,Citywide,D,Public Works,City of Santee,SNT,Santee
+837,SNT PS,Public Services,D,Public Works,City of Santee,SNT,Santee
+1401,SSD TRANS 1,Transportation 1,D,Schools,Santee Elementary School District,SSD,
+1403,SSD TRANS 2,Transportation 2,D,Schools,Santee Elementary School District,SSD,
+1405,SSD MNO 1,Maintenance Operations 1,D,Schools,Santee Elementary School District,SSD,
+1407,SSD MNO 2,Maintenance Operations 2,D,Schools,Santee Elementary School District,SSD,
+1409,SSD FOOD,Food Service,D,Schools,Santee Elementary School District,SSD,
+1411,SSD EOC 1,EOC Operations 1,D,Schools,Santee Elementary School District,SSD,
+1413,SSD ADMIN,Admin,D,Schools,Santee Elementary School District,SSD,
+1415,SSD EMER,Emergency,D,Schools,Santee Elementary School District,SSD,
+1417,SSD EOC 2,EOC Operations 2,D,Schools,Santee Elementary School District,SSD,
+847,SOL 1,City Tac 1,D,Public Works,City of Solana Beach,SOL,Solana Beach
+849,SOL 2,City Tac 2,D,Public Works,City of Solana Beach,SOL,Solana Beach
+851,SOL 4,City Tac 4,D,Public Works,City of Solana Beach,SOL,Solana Beach
+853,SOLCT,Citywide,D,Public Works,City of Solana Beach,SOL,Solana Beach
+855,SBC SOLCMD,Fire Command,D,Fire-Talk,Solana Beach Fire Department,SOL FD,Solana Beach
+857,SBC SOLCODE,Code Enforcement,D,Public Works,City of Solana Beach,SOL,Solana Beach
+859,SBC SO ENG,Engineering,D,Public Works,City of Solana Beach,SOL,Solana Beach
+861,SBC SOLLFG1,Lifeguards 1,D,Multi-Tac,Solana Beach Lifeguards,SOL LG,Solana Beach
+863,SBC SOLLFG2,Lifeguards 2,D,Multi-Tac,Solana Beach Lifeguards,SOL LG,Solana Beach
+867,SBC SOL PS,Public Services,D,Public Works,City of Solana Beach,SOL,Solana Beach
+869,SBC SOL REC,Recreation,D,Public Works,City of Solana Beach,SOL,Solana Beach
+2170,SOL 3,City Tac 3,D,Public Works,City of Solana Beach,SOL,Solana Beach
+2867,SWCC PRIMARY,College Ops Primary,D,Schools,Southwestern Community College,SWCC,
+2868,SWCC TAC,College Ops Secondary,D,Schools,Southwestern Community College,SWCC,
+2869,SWCC TAC,College Ops Secondary,D,Schools,Southwestern Community College,SWCC,
+2870,SWCPD DISP,Police Dispatch,D,Law Dispatch,Southwestern Community College,SWCC,
+2449,PAR DISP,Dispatch,D,Law Dispatch,State Parole Board,PAR,
+2450,PAR N TAC 1,North Tac 1,D,Law Tac,State Parole Board,PAR,
+2451,PAR N TAC 2,North Tac 2,D,Law Tac,State Parole Board,PAR,
+2452,PAR S TAC 1,South Tac 1,D,Law Tac,State Parole Board,PAR,
+2453,PARSTAC2,South Tac 2,D,Law Tac,State Parole Board,PAR,
+2454,PARETAC1,East Tac 1,D,Law Tac,State Parole Board,PAR,
+2455,PARETAC2,East Tac 2,D,Law Tac,State Parole Board,PAR,
+1976,SWA,Sweetwater Authority,D,Utilities,Sweetwater Authority (Water District),SAWD,
+1,SYC FD ADMIN,Fire Administration,D,Fire-Talk,Sycuan Band of the Kumeyaay Nation,SYC,
+3,SYC FD TRAINING,Fire Training,D,Fire-Talk,Sycuan Band of the Kumeyaay Nation,SYC,
+1861,SYC PD Disp,Tribal Police Dispatch,D,Law Tac,Sycuan Band of the Kumeyaay Nation,SYC,
+1862,SYD PD,Tribal Police,D,Law Tac,Sycuan Band of the Kumeyaay Nation,SYC,
+1863,SYC PD TAC 1,Tribal Police Tac 1,D,Law Tac,Sycuan Band of the Kumeyaay Nation,SYC,
+721,REWARD,Lost or Stolen Radios Reward Message,D,Multi-Talk,RCS System,RCS,
+2047,DEADID,Used to regroup ids not wanted on system,D,Multi-Talk,RCS System,RCS,
+2743,INTLAW,InterTie for Law Agencies,D,Multi-Talk,RCS System,RCS,
+2744,INTFIRE,InterTie for Fire Agencies,D,Multi-Talk,RCS System,RCS,
+2641,UCSDISPS,Dispatch South (UCSD Hillcrest),D,Hospital,UCSD Medical Center,UMC,
+2642,UCSEOCS,EOC South,D,Emergency Ops,UCSD Medical Center,UMC,
+2643,UCSFACS,Facilities South,D,Hospital,UCSD Medical Center,UMC,
+2644,UCSSECS,Security South(UCSD Hillcrest),D,Security,UCSD Medical Center,UMC,
+2751,UCSDISPN,Dispatch North (UCSD Thornton),D,Hospital,UCSD Medical Center,UMC,
+2752,UCSEOCN,EOC North,D,Emergency Ops,UCSD Medical Center,UMC,
+2753,UCSCOM,Command,D,Hospital,UCSD Medical Center,UMC,
+2754,UCSFACN,Facilities North,D,Hospital,UCSD Medical Center,UMC,
+2755,UCSSUP,Supervisors,D,Hospital,UCSD Medical Center,UMC,
+2756,UCSSECN,Security North (UCSD Thornton),D,Security,UCSD Medical Center,UMC,
+2757,UCSINV,Investigations,D,Law Tac,UCSD Medical Center,UMC,
+1823,UCSD PD D-1,Police Dispatch 1,E,Law Dispatch,"University of California, San Diego (UCSD)",UCSD,
+1824,UCSD PD D-2,Police Dispatch 2,E,Law Dispatch,"University of California, San Diego (UCSD)",UCSD,
+1825,UCSD PD TAC 1,Police Tac 1,E,Law Tac,"University of California, San Diego (UCSD)",UCSD,
+1826,UCSD PD TAC 2,Police Tac 2,E,Law Tac,"University of California, San Diego (UCSD)",UCSD,
+1828,UCSD PD CSO,Police Community Service Officers,E,Law Talk,"University of California, San Diego (UCSD)",UCSD,
+1830,UCSD PD HLP,Police Help Net,E,Law Talk,"University of California, San Diego (UCSD)",UCSD,
+2286,USD DISP,Dept of Public Safety Primary,D,Law Dispatch,University of San Diego (USD),USD,
+2287,USD TAC 1,Dept of Public Safety Tac 1,D,Law Tac,University of San Diego (USD),USD,
+2288,USD TAC 2,Dept of Public Safety Tac 2,D,Law Tac,University of San Diego (USD),USD,
+2289,USDADMIN,Dept of Public Safety Administration,D,Law Tac,University of San Diego (USD),USD,
+2290,USD EOC,Dept of Public Safety EOC,D,Emergency Ops,University of San Diego (USD),USD,
+881,VTA STRTAC1,Street Tac 1,D,Public Works,City of Vista,VTA,Vista
+883,VTA STRTAC2,Street Tac 2,D,Public Works,City of Vista,VTA,Vista
+900,VTA WTR,Wastewater (Deassigned),D,Public Works,City of Vista,VTA,Vista
+923,VTA OPS,Operations,D,Public Works,City of Vista,VTA,Vista
+925,VTA PARK,Parks,D,Public Works,City of Vista,VTA,Vista
+931,VTA VEH,Vehicle Maintenance,D,Public Works,City of Vista,VTA,Vista
+941,VTA PS,Public Works,D,Public Works,City of Vista,VTA,Vista
+1177,VSD TRANS 1,Transportation 1,D,Schools,Vista Unified School District,VSD,
+1179,VSD TRANS 2,Transportation 2,D,Schools,Vista Unified School District,VSD,
+1181,VSD TRANS 3,Transportation 3,D,Schools,Vista Unified School District,VSD,
+1183,VSD MN 1,Maintenance 1,D,Schools,Vista Unified School District,VSD,
+1185,VSD MN 2,Maintenance 2,D,Schools,Vista Unified School District,VSD,
+1187,VSD MN 3,Maintenance 3,D,Schools,Vista Unified School District,VSD,
+1189,VSD FOOD,Food Service,D,Schools,Vista Unified School District,VSD,
+1191,VSD WARE,Warehouse,D,Schools,Vista Unified School District,VSD,
+1193,VSD EOC 1,Emergency Operations Center 1,D,Schools,Vista Unified School District,VSD,
+1195,VSD EOC 2,Emergency Operations Center 2,D,Schools,Vista Unified School District,VSD,
+1197,VSD EOC 3,Emergency Operations Center 3,D,Schools,Vista Unified School District,VSD,
+1199,VSD EOC 4,Emergency Operations Center 4,D,Schools,Vista Unified School District,VSD,
+1201,VSD EOC 5,Emergency Operations Center 5,D,Schools,Vista Unified School District,VSD,
+1203,VSD HSSEC1,High School Security 1,D,Schools,Vista Unified School District,VSD,
+1205,VSD HSSEC2,High School Security 2,D,Schools,Vista Unified School District,VSD,
+1207,VSD HSSEC3,High School Security 3,D,Schools,Vista Unified School District,VSD,
+1209,VSD HSSEC4,High School Security 4,D,Schools,Vista Unified School District,VSD,
+1211,VSD HSSEC5,High School Security 5,D,Schools,Vista Unified School District,VSD,
+1213,VSD MS SEC 1,Middle School Security 1,D,Schools,Vista Unified School District,VSD,
+1215,VSD MS SEC 2,Middle School Security 2,D,Schools,Vista Unified School District,VSD,
+1217,VSD MS SEC 3,Middle School Security 3,D,Schools,Vista Unified School District,VSD,
+1219,VSD MS SEC 4,Middle School Security 4,D,Schools,Vista Unified School District,VSD,
+1221,VSD MS SEC 5,Middle School Security 5,D,Schools,Vista Unified School District,VSD,
+1223,VSD ESEC 1,Elementary School Security 1,D,Schools,Vista Unified School District,VSD,
+1225,VSD ESEC 2,Elementary School Security 2,D,Schools,Vista Unified School District,VSD,
+2628,WMLFADMIN,Fire Administration,D,Fire-Talk,Westmorland Fire Department,WML FD,Westmorland
+2629,WMLTRN,Fire Training,D,Fire-Talk,Westmorland Fire Department,WML FD,Westmorland
+2630,WMLTAC1,Police Tac 1,D,Law Tac,Westmorland Police Department,WML PD,Westmorland
+2631,WMLTAC2,Police Tac 2,D,Law Tac,Westmorland Police Department,WML PD,Westmorland
+2632,WMLPADMIN,Police Department Admin,D,Law Talk,Westmorland Police Department,WML PD,Westmorland
+2765,WMLCCALL,City Call,D,Public Works,City of Westmorland,WML,Westmorland
+2766,WMLCTAC1,City Tac 1,D,Public Works,City of Westmorland,WML,Westmorland
+2767,WMLCTAC2,City Tac 2,D,Public Works,City of Westmorland,WML,Westmorland
+2768,WMLCTAC3,City Tac 3,D,Public Works,City of Westmorland,WML,Westmorland
+2769,WMLCTAC4,City Tac 4,D,Public Works,City of Westmorland,WML,Westmorland
+2770,WMLROA,Roads,D,Public Works,City of Westmorland,WML,Westmorland
+2771,WMLWATER,Water,D,Public Works,City of Westmorland,WML,Westmorland
+2772,WMLSEWER,Sewers,D,Public Works,City of Westmorland,WML,Westmorland
+2773,WMLFACM,Facility Maintenance,D,Public Works,City of Westmorland,WML,Westmorland
+2776,WMLWWATER,Wastewater,D,Public Works,City of Westmorland,WML,Westmorland

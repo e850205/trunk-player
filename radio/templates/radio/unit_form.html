@@ -1,15 +1,11 @@
-<div class="modal-header">
-<h1>Update Unit Description</h1>
-</div>
-<div class="modal-body">
-<form id="update-unit-form" action="{{ request.path }}" method="post">{% csrf_token %}
-    {{ form.as_p }}
- 
- <button type="submit" class="btn btn-default">Update Name</button>
-
-    <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button> 
+<h1>Name this unit</h1>
+<form id="update-unit-form" class="form-stack" action="{{ request.path }}" method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save name</button>
+    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+  </div>
 </form>
-</div>
 <script>
 unit_edit_post_setup();
 </script>

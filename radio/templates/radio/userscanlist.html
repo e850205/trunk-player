@@ -1,24 +1,27 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block head %}
 {{ form.media.css }}
 {% endblock %}
 {% block main-body %}
-<div class="container">
-  <div class="row-no-border row">
-    <div class="user-profile-user">
-      <h3>New Scan List</h3>
-      <form method="POST">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        <table class="profile-table">
-        {{ form.as_table }}
-        </table>
-        <input type="submit" class="btn btn-primary" value="Create Scan List">
-        <a href="{% url 'user_profile' %}">Cancel</a>
-      </form>
-    </div>
+<div class="page-head">
+  <div>
+    <div class="label">Scan lists</div>
+    <h1 class="page-title">New scan list</h1>
+    <p>Save a set of talkgroups to listen to together.</p>
   </div>
+</div>
+<div class="card">
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <table class="form-table">
+    {{ form.as_table }}
+    </table>
+    <div class="form-actions">
+      <input type="submit" value="Create scan list">
+      <a class="btn" href="{% url 'user_profile' %}">Cancel</a>
+    </div>
+  </form>
 </div>
 {{ form.media.js }}
 {% endblock %}

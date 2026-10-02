@@ -1,31 +1,27 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
 {% block main-body %}
-<div class="container">
-  <div class="row row-no-border">
-    <div class="col-xs-12">
-      <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-      </div>
-      <h2>Cities</h2>
-      <table class="directory-table">
-        <thead><tr><th>City</th><th>Fire</th><th>Police</th><th>EMS</th></tr></thead>
-        <tbody>
-        {% for city in cities %}
-          <tr>
-            <td><a href="{% url 'city_detail' city.slug %}">{{ city.name }}</a></td>
-            <td>{% include "radio/agency_link.html" with agency=city.fire_service %}</td>
-            <td>{% include "radio/agency_link.html" with agency=city.police_service %}</td>
-            <td>{% include "radio/agency_link.html" with agency=city.ems_service %}</td>
-          </tr>
-        {% empty %}
-          <tr><td colspan="4">No cities yet.{% if user.is_staff %} Add them in the <a href="/admin/radio/city/add/">admin</a>.{% endif %}</td></tr>
-        {% endfor %}
-        </tbody>
-      </table>
-      <p><a href="{% url 'agency_list' %}">All agencies</a></p>
-    </div>
+<div class="page-head">
+  <div>
+    <div class="label">Directory</div>
+    <h1 class="page-title">Cities</h1>
   </div>
-  <hr>
-  <footer><p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p></footer>
+  <div class="toolbar"><a class="btn" href="{% url 'agency_list' %}">All agencies</a></div>
+</div>
+<div class="table-wrap">
+  <table class="data-table directory-table">
+    <thead><tr><th>City</th><th>Fire</th><th>Police</th><th>EMS</th></tr></thead>
+    <tbody>
+    {% for city in cities %}
+      <tr>
+        <td><a href="{% url 'city_detail' city.slug %}">{{ city.name }}</a></td>
+        <td>{% include "radio/agency_link.html" with agency=city.fire_service %}</td>
+        <td>{% include "radio/agency_link.html" with agency=city.police_service %}</td>
+        <td>{% include "radio/agency_link.html" with agency=city.ems_service %}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="4" class="muted">No cities yet.{% if user.is_staff %} Add them in the <a href="/admin/radio/city/add/">admin</a>.{% endif %}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}

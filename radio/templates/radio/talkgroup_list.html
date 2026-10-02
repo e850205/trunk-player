@@ -1,32 +1,26 @@
 {% extends "radio/site_base.html" %}
-{% load radio_extras %}
-{% block main-nav %}
-{% include "radio/site_live_nav.html" %}
-{% endblock %}
 {% block main-body %}
-<div class="container">
-        <div id="main-message" style="display: none" class=" alert alert-danger" role="alert">
-        </div>
-	<div class="row">
-
-<table>
+<div class="page-head">
+  <div>
+    <div class="label">Directory</div>
+    <h1 class="page-title">{% if request.GET.recent %}Recently active talkgroups{% else %}All talkgroups{% endif %}</h1>
+  </div>
+  <div class="toolbar">
+    {% if request.GET.recent %}<a class="btn" href="/talkgroups/">Sort by name</a>{% else %}<a class="btn" href="/talkgroups/?recent=1">Sort by recent activity</a>{% endif %}
+  </div>
+</div>
+<div class="table-wrap">
+<table class="data-table">
 <thead>
-<tr><th>ID</th><th>System</th><th>Alpha</th><th>Short</th><th>Description</th><th>Notes</th></tr>
+<tr><th>ID</th><th>System</th><th>Alpha tag</th><th>Description</th><th>Agency</th><th>City</th><th>Notes</th></tr>
 </thead>
 <tbody>
 {% for tg in talkgroups %}
-   <tr><td>{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td>{{ tg.system }}</td><td><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.common_name }}</td><td>{{ tg.description }}</td><td>{% if tg.comments %}{{ tg.comments }}{% else %}&nbsp;{% endif %}</td></tr>
+   <tr><td class="num">{% if user.is_staff %}<a href="/admin/radio/talkgroup/{{ tg.pk }}/change/">{{ tg.dec_id }}</a>{% else %}{{ tg.dec_id }}{% endif %}</td><td>{{ tg.system }}</td><td class="tag"><a href="/tg/{{ tg.slug }}/">{{ tg.alpha_tag }}</a></td><td>{{ tg.description|default_if_none:"" }}</td><td>{% if tg.agency %}<a href="/talkgroups/?agency={{ tg.agency.short|urlencode }}">{{ tg.agency.name }}</a>{% endif %}</td><td>{% if tg.city %}<a href="{% url 'city_detail' tg.city.slug %}">{{ tg.city.name }}</a>{% endif %}</td><td class="muted">{{ tg.comments|default_if_none:"" }}</td></tr>
+{% empty %}
+   <tr><td colspan="7" class="muted">No talkgroups yet.</td></tr>
 {% endfor %}
 </tbody>
 </table>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col-xs-12">
-			<footer>
-				<p>&copy; {% get_setting 'COPYRIGHT_NOTICE' %} {% get_setting 'SITE_TITLE' %}</p>
-			</footer>
-		</div>
-	</div>
 </div>
 {% endblock %}
